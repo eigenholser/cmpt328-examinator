@@ -1,0 +1,37 @@
+%\font\twelverm=cmr12
+%\font\twelvebf=cmbx12
+%\font\twelveit=cmti12
+%\font\twelvesl=cmsl12
+%\font\twelvemus=cmmi12
+%\font\eightrm=cmr8
+%\font\eightbf=cmbx8
+%\font\eightit=cmti8
+%\font\eightsl=cmsl8
+%\font\eightmus=cmmi8
+
+%\def\bigtype{\let\rm=\twelverm \let\bf=\twelvebf
+%    \let\it=\twelveit \let\sl=\twelvesl \let\mus=\twelvemus
+%    \baselineskip=14pt minus 1pt
+%    \rm}
+
+%\def\tsaologo{\vbox{\bigtype\bf%
+%    \line{\hrulefill}
+%    \kern-.5\baselineskip
+%    \line{\hrulefill\phantom{ THE ST.$\,$ANFORD ORCHESTRA }\hrulefill}
+%    \kern-.5\baselineskip
+%    \line{\hrulefill\hbox{ THE ST.$\,$ANFORD ORCHESTRA }\hrulefill}
+%    \kern-.5\baselineskip
+%    \line{\hrulefill\phantom{ R. J. Drofnats, Conductor }\hrulefill}
+%    \kern-.5\baselineskip
+%    \line{\hrulefill\hbox{ R. J. Drofnats, Conductor }\hrulefill}
+%}}
+
+\font\manual=manfnt
+\font\ninebf=cmbx9
+
+\newcount\questno
+
+\outer\def\question{\medbreak
+  \global\advance\questno by 1
+  \noindent\llap{\manual\char'170\rm\kern.15em}% triangle in margin
+  {\ninebf QUESTION \bf\the\questno}\par\nobreak\noindent}
