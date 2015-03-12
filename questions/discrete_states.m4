@@ -20,17 +20,18 @@ ifdef(`TIME',`
 \textit{Estimated time to complete this question is 'TIME` minutes.}
 \bigskip
 ')
-dnl
-ifelse(`X'_ARG_,`X1',ifdef(`INSTRUCTOR',`\textsc{solution}\\
+ifelse(`X'_ARG_,`X1',ifdef(`INSTRUCTOR',`
+\textsc{solution}
 \begin{enumerate}[(a)]
     \item 42
     \item 99
-\end{enumerate}\bigskip'))dnl
-ifelse(`X'_ARG_,`X2',ifdef(`INSTRUCTOR',`\textsc{solution}\\
+\end{enumerate}\bigskip'))
+ifelse(`X'_ARG_,`X2',ifdef(`INSTRUCTOR',`
+\textsc{solution}
 \begin{enumerate}[(a)]
     \item 39
     \item 53
-\end{enumerate}\bigskip'))dnl
+\end{enumerate}\bigskip'))
 dnl
 ifdef(`INSTRUCTOR',`\bigskip')
 divert(0)dnl

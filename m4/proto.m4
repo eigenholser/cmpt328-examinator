@@ -53,7 +53,7 @@ divert(0)
 
 \vskip1in
 {\centering
-\includegraphics{logic_levels_1.ps}
+\includegraphics{_CF_DIR_`'figures/full_adder.eps}
 
 }
 \end{document}

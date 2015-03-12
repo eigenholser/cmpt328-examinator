@@ -27,13 +27,17 @@ ifdef(`TIME',`
 \textit{Estimated time to complete this question is 'TIME` minutes.}
 \bigskip')
 dnl
-ifelse(`X'_ARG_,`X1',ifdef(`INSTRUCTOR',`\textsc{solution}\\
+ifelse(`X'_ARG_,`X1',ifdef(`INSTRUCTOR',`
+\textsc{solution}\\
 No idea.'))dnl
-ifelse(`X'_ARG_,`X2',ifdef(`INSTRUCTOR',`\textsc{solution}\\
+ifelse(`X'_ARG_,`X2',ifdef(`INSTRUCTOR',`
+\textsc{solution}\\
 No idea.'))dnl
-ifelse(`X'_ARG_,`X4',ifdef(`INSTRUCTOR',`\textsc{solution}\\
+ifelse(`X'_ARG_,`X3',ifdef(`INSTRUCTOR',`
+\textsc{solution}\\
 No idea.'))dnl
-ifelse(`X'_ARG_,`X4',ifdef(`INSTRUCTOR',`\textsc{solution}\\
+ifelse(`X'_ARG_,`X4',ifdef(`INSTRUCTOR',`
+\textsc{solution}\\
 No idea.'))dnl
 dnl
 ifdef(`INSTRUCTOR',`\bigskip')

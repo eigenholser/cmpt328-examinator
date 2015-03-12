@@ -33,16 +33,20 @@ ifdef(`TIME',`
 \bigskip')
 dnl
 ifelse(`X'_ARG_,`X1',
-ifdef(`INSTRUCTOR',`\textsc{solution}\\
+ifdef(`INSTRUCTOR',`
+\textsc{solution}\\
 Solution later.'))dnl
 ifelse(`X'_ARG_,`X2',
-ifdef(`INSTRUCTOR',`\textsc{solution}\\
+ifdef(`INSTRUCTOR',`
+\textsc{solution}\\
 Solution later.'))dnl
 ifelse(`X'_ARG_,`X3',
-ifdef(`INSTRUCTOR',`\textsc{solution}\\
+ifdef(`INSTRUCTOR',`
+\textsc{solution}\\
 Solution later.'))dnl
 ifelse(`X'_ARG_,`X4',
-ifdef(`INSTRUCTOR',`\textsc{solution}\\
+ifdef(`INSTRUCTOR',`
+\textsc{solution}\\
 Solution later.'))dnl
 dnl
 ifdef(`INSTRUCTOR',`\bigskip')
