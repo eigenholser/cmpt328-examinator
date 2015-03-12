@@ -247,12 +247,11 @@ class Student(object):
             for question in questions:
                 question_name = question[1]
                 variation = question[2]
-                mc.write('''QUESTION(`{}', `{}')\n'''.format(
+                mc.write('''QUESTION(`{}', `{}')dnl\n'''.format(
                     question_name, variation))
 
     def insert_questions(self):
         """Insert questions for this student_id into the database."""
-#       import pdb; pdb.set_trace()
         questions = self.get_questions()
         query = "INSERT INTO questions VALUES (NULL, ?, ?, ?, ?)"
         for question in questions:
