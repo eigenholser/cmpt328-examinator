@@ -2,6 +2,9 @@ divert(-1)dnl
 define(`VARIATIONS', `5')
 define(`TIME', `5')
 divert(2)dnl
+%%
+%% __file__
+%%
 \question Consider the input logic levels in the following table:
 dnl
 ifelse(`X'_ARG_,`X1',`
@@ -23,7 +26,6 @@ $$
     \hrule
 }$$
 ')dnl
-dnl
 ifelse(`X'_ARG_,`X2',`
 $$
 \vbox{\offinterlineskip
@@ -108,33 +110,22 @@ $$
     \item Sketch a logic level diagram with the LaunchPad driving the input of
         this device.
 \end{enumerate}
+dnl
 ifdef(`TIME',`
 \textit{Estimated time to complete this question is 'TIME` minutes.}
 \bigskip
-')dnl
-ifelse(`X'_ARG_,`X1',ifdef(`INSTRUCTOR',`
-\textsc{solution}
-Dunno
-')dnl
-)dnl
-ifelse(`X'_ARG_,`X2',ifdef(`INSTRUCTOR',`
-\textsc{solution}
-Dunno
-')dnl
-)dnl
-ifelse(`X'_ARG_,`X3',ifdef(`INSTRUCTOR',`
-\textsc{solution}
-Dunno
-')dnl
-)dnl
-ifelse(`X'_ARG_,`X4',ifdef(`INSTRUCTOR',`
-\textsc{solution}
-Dunno
-')dnl
-)dnl
-ifelse(`X'_ARG_,`X5',ifdef(`INSTRUCTOR',`
-\textsc{solution}
-Dunno
-')dnl
-)dnl
-divert(0)
+')
+dnl
+ifelse(`X'_ARG_,`X1',ifdef(`INSTRUCTOR',`\textsc{solution}\\
+Dunno'))dnl
+ifelse(`X'_ARG_,`X2',ifdef(`INSTRUCTOR',`\textsc{solution}\\
+Dunno'))dnl
+ifelse(`X'_ARG_,`X3',ifdef(`INSTRUCTOR',`\textsc{solution}\\
+Dunno'))dnl
+ifelse(`X'_ARG_,`X4',ifdef(`INSTRUCTOR',`\textsc{solution}\\
+Dunno'))dnl
+ifelse(`X'_ARG_,`X5',ifdef(`INSTRUCTOR',`\textsc{solution}\\
+Dunno'))dnl
+dnl
+ifdef(`INSTRUCTOR',`\bigskip')
+divert(0)dnl
