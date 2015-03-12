@@ -25,20 +25,21 @@ $C_{out}$ which is the carry.
 \end{enumerate}
 ')dnl
 ifelse(`X'_ARG_,`X2',`dnl
-The binary full adder takes the sum of two binary literals $A$ and $B$.
-It also takes a carry bit from an optional \textit{lsb} stage adder.
-The two outputs are $S$ which is the sum of $A$, $B$, and $C_{in}$, and
-$C_{out}$ which is the carry.
+This combinational logic circuit is built from two multiplexers.
+The multiplexer data lines are hardwired to $V_{DD}$ or $GND$. The
+three input selectors, $A$, $B$, and $C$ act as inputs to the
+function.
 \vskip3em
 \begin{figure}[H]
     \centering
-    \includegraphics{_CF_DIR_`'figures/full_adder.ps}
-    \caption{Binary Full Adder}
+    \includegraphics{_CF_DIR_`'figures/mux_logic_1.ps}
+    \caption{Multiplexer Logic}
 \end{figure}
 \begin{enumerate}[(a)]
-    \item Generate a truth table for the binary full adder.
-    \item For the output $S$ only, derive the Boolean equation in
-          sum-of-products canonical form. Do not simplify.
+    \item Generate a truth table for the combinational multiplexer
+          logic circuit.
+    \item Derive the Boolean equation in sum-of-products canonical
+          form. Do not simplify.
 \end{enumerate}
 ')dnl
 dnl

@@ -1,0 +1,294 @@
+%!PS-Adobe-2.0
+%%BoundingBox: 0 0 200 200
+
+% Mux Logic 1
+
+/linewidth 0.4 def
+/height1 96 def
+/height2 60 def
+/width 36 def
+/x1 55 def
+/y1 150 def
+/x2 {
+    x1 100 add
+} def
+/y2 {
+    y1 height1 2 div sub height1 3 div add
+} def
+/col1 20 def        % offset values for VDD and GND connections
+/col2 40 def
+
+% Inputs: linewidth xul, yul, xur, yur, xlr, ylr, xll, yll
+% Outputs: None
+/drawbox {
+    newpath
+    moveto
+    lineto
+    lineto
+    lineto
+    closepath
+    setlinewidth
+    stroke
+} def
+
+/fontit12 {
+    /Times-Italic findfont
+    12 scalefont setfont
+} def
+
+/fontrm12 {
+    /Times-Roman findfont
+    10 scalefont setfont
+} def
+
+/font8 {
+    /Times-Italic findfont
+    8 scalefont setfont
+} def
+
+% Mux 1
+linewidth
+x1 y1
+x1 width add y1 height1 2 div sub height2 2 div add  % short side line
+x1 width add y1 height1 2 div sub height2 2 div sub  % short side line
+x1 y1 height1 sub
+drawbox
+
+% Mux 2
+linewidth
+x2 y2
+x2 width add y2 height1 2 div sub height2 2 div add  % short side line
+x2 width add y2 height1 2 div sub height2 2 div sub  % short side line
+x2 y2 height1 sub
+drawbox
+
+% Mux 1 to Mux 2 connector
+x1 width add y1 height1 2 div sub
+moveto
+x2 y2 height1 3 div sub
+lineto
+linewidth setlinewidth stroke
+
+
+% Mux 2 Y output line and char Y
+fontit12
+x2 width add
+y2 height1 2 div sub
+moveto
+x2 width col2 add add
+y2 height1 2 div sub
+lineto
+linewidth setlinewidth stroke
+x2 width col2 add add 5 add
+y2 height1 2 div sub 3 sub
+moveto (Y) show
+
+% Mux 1 GND symbol
+newpath
+x1 col2 sub
+y1 height1 20 add sub
+moveto
+x1 col2 7 sub sub
+y1 height1 20 add sub
+lineto
+x1 col2 sub
+y1 height1 29 add sub
+lineto
+x1 col2 7 add sub
+y1 height1 20 add sub
+lineto
+closepath
+linewidth setlinewidth
+stroke
+
+% Mux 2 GND symbol
+x2 col1 sub
+y2 height1 20 add sub
+moveto
+x2 col1 7 sub sub
+y2 height1 20 add sub
+lineto
+x2 col1 sub
+y2 height1 29 add sub
+lineto
+x2 col1 7 add sub
+y2 height1 20 add sub
+lineto
+closepath
+linewidth setlinewidth
+stroke
+
+% A select
+fontit12
+y1
+height1 height2 sub 2 div sub % find sweet spot for select line A
+10 add dup dup                %
+x1 width 2 div add exch
+moveto
+20 add
+x1 width 2 div add exch
+lineto
+linewidth setlinewidth
+stroke
+25 add
+x1 width 2 div add 6 sub exch
+moveto (A,B) show
+
+% Mux 2 select
+fontit12
+y2
+height1 height2 sub 2 div sub
+10 add dup dup
+x2 width 2 div add exch
+moveto
+20 add
+x2 width 2 div add exch
+lineto
+linewidth setlinewidth
+stroke
+25 add
+x2 width 2 div add 3 sub exch
+moveto (C) show
+
+% Mux A address bits
+fontrm12
+x1 3 add
+y1 height1 5 div sub 5 sub
+moveto (0 0) show
+x1 3 add
+y1 height1 5 div 2 mul sub 5 sub
+moveto (0 1) show
+x1 3 add
+y1 height1 5 div 3 mul sub 5 sub
+moveto (1 0) show
+x1 3 add
+y1 height1 5 div 4 mul sub 5 sub
+moveto (1 1) show
+
+% Mux 2 address bits
+fontrm12
+x2 3 add
+y2 height1 3 div sub 2 sub
+moveto (0) show
+x2 3 add
+y2 height1 3 div 2 mul sub 2 sub
+moveto (1) show
+
+% Mux A connections
+% 00
+x1 col2 sub y1 height1 5 div sub 1 sub dup
+x1 exch
+moveto lineto linewidth setlinewidth stroke
+
+% 01
+x1 col2 sub y1 height1 5 div 2 mul sub 1 sub dup
+x1 exch
+moveto lineto stroke
+
+% Mux 2 connections
+x2 col1 sub y2 height1 3 div 2 mul sub dup
+x2 exch
+moveto lineto linewidth setlinewidth stroke
+
+% GND connection
+x1 col2 sub y1 height1 5 div sub 1 sub
+moveto
+x1 col2 sub y1 height1 20 add sub
+lineto stroke
+
+x2 col1 sub y2 height1 3 div 2 mul sub
+moveto
+x2 col1 sub y2 height1 20 add sub
+lineto stroke
+
+% 10
+x1 col1 sub y1 height1 5 div 3 mul sub 1 sub dup
+x1 exch
+moveto lineto stroke
+
+% 11
+x1 col1 sub y1 height1 5 div 4 mul sub 1 sub dup
+x1 exch
+moveto lineto stroke
+
+% VDD connections
+x1 col1 sub y1 height1 5 div 4 mul sub 1 sub
+moveto
+x1 col1 sub y1 10 add
+lineto stroke
+
+% VDD symbol
+x1 col1 7 add sub y1 10 add
+moveto
+x1 col1 7 sub sub y1 10 add
+lineto stroke
+
+
+% B input
+%font12
+%x1 20 sub
+%y1 height 2 div sub dup
+%3 sub               % lower input label B
+%x1 32 sub exch
+%moveto (B) show
+%dup x1 exch
+%moveto
+%lineto
+%linewidth setlinewidth
+%stroke
+
+% Cin input
+%font12
+%x1 20 sub
+%y1 height 4 div 3 mul sub dup dup
+%3 sub               % lower input label C
+%x1 35 sub exch
+%moveto (C) show
+%dup 5 sub           % lower y for subscript (in)
+%x1 28 sub exch
+%font8 moveto (in) show font12
+%x1 exch
+%moveto
+%lineto
+%linewidth setlinewidth
+%stroke
+
+% S output
+%font12
+%x1 width 20 add add
+%y1 height 3 div sub dup
+%3 sub               % lower input label S
+%x1 width 24 add add exch
+%moveto (S) show
+%dup x1 width add exch
+%moveto
+%lineto
+%linewidth setlinewidth
+%stroke
+
+% Cout output
+%font12
+%x1 width 20 add add
+%y1 height 3 div 2 mul sub dup dup
+%3 sub               % lower input label C
+%x1 width 22 add add exch
+%moveto (C) show
+%dup 5 sub           % lower y for subscript (out)
+%x1 width 29.5 add add exch
+%font8 moveto (out) show font12
+%x1 width add exch
+%moveto
+%lineto
+%linewidth setlinewidth
+%stroke
+
+% Box label
+%/Times-Roman findfont 10 scalefont setfont
+%x1 width 2 div
+%(Full) stringwidth pop 2 div sub add
+%y1 height 2 div sub 2 add
+%moveto (Full) show
+%x1 width 2 div
+%(Adder) stringwidth pop 2 div sub add
+%y1 height 2 div sub 8 sub
+%moveto (Adder) show
