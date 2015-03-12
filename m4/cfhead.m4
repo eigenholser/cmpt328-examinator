@@ -19,6 +19,10 @@ define(`_ARG6_',`_ACC_ARG_6_(_ARGS_)')
 define(`_ARG7_',`_ACC_ARG_7_(_ARGS_)')
 define(`_ARG8_',`_ACC_ARG_8_(_ARGS_)')
 define(`_ARG9_',`_ACC_ARG_9_(_ARGS_)')
+define(`LQ',`changequote(<,>)`dnl'
+changequote`'')
+define(`RQ',`changequote(<,>)dnl`
+'changequote`'')
 define(`QUESTION', `PUSHDIVERT(-1)define(`_ARG_', `$2')include(_CF_DIR_`'questions/$1.m4)POPDIVERT`'')
 m4wrap(`include(_CF_DIR_`m4/proto.m4')')
 divert(-1)dnl

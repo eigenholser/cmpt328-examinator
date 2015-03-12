@@ -3,7 +3,7 @@ define(`VARIATIONS', `2')
 define(`TIME', `5')
 divert(2)dnl
 \question
-Perform longhand conversion of the following decimal numbers to 6-bit twos
+Perform longhand conversion of the following decimal numbers to 6-bit two`'RQ()s
 complement binary numbers. Perform indicated addition or subtraction. Indicate
 whether or not the sum overflows a 6-bit result. In each case, specify why or
 why not.

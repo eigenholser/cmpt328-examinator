@@ -7,6 +7,7 @@ divert(2)dnl
 %%
 \question Consider the input logic levels in the following table:
 dnl
+\begin{figure}[H]
 ifelse(`X'_ARG_,`X1',`
 $$
 \vbox{\offinterlineskip
@@ -25,6 +26,7 @@ $$
     }
     \hrule
 }$$
+\caption{Input logic levels for 1.5$V$ device.}
 ')dnl
 ifelse(`X'_ARG_,`X2',`
 $$
@@ -44,6 +46,7 @@ $$
     }
     \hrule
 }$$
+\caption{Input logic levels for 1.5$V$ device.}
 ')dnl
 ifelse(`X'_ARG_,`X3',`
 $$
@@ -63,6 +66,7 @@ $$
     }
     \hrule
 }$$
+\caption{Input logic levels for 1.5$V$ device.}
 ')dnl
 ifelse(`X'_ARG_,`X4',`
 $$
@@ -82,6 +86,7 @@ $$
     }
     \hrule
 }$$
+\caption{Input logic levels for 1.5$V$ device.}
 ')dnl
 ifelse(`X'_ARG_,`X5',`
 $$
@@ -101,7 +106,9 @@ $$
     }
     \hrule
 }$$
+\caption{Input logic levels for 1.5$V$ device.}
 ')dnl
+\end{figure}
 \begin{enumerate}[(a)]
     \item If the output of the LaunchPad is driving these inputs, are the logic
         levels compatible?

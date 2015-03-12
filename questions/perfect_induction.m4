@@ -32,23 +32,23 @@ dnl
 ifelse(`X'_ARG_,`X1',
 ifdef(`INSTRUCTOR',`
 \textsc{solution}\\
-Add a table here'))dnl
+Add a table here'))
 ifelse(`X'_ARG_,`X2',
 ifdef(`INSTRUCTOR',`
 \textsc{solution}\\
-Add a table here'))dnl
+Add a table here'))
 ifelse(`X'_ARG_,`X3',
 ifdef(`INSTRUCTOR',`
 \textsc{solution}\\
-Add a table here '))dnl
+Add a table here '))
 ifelse(`X'_ARG_,`X4',
 ifdef(`INSTRUCTOR',`
 \textsc{solution}\\
-Add a table here'))dnl
+Add a table here'))
 ifelse(`X'_ARG_,`X5',
 ifdef(`INSTRUCTOR',`
 \textsc{solution}\\
-Add a table here'))dnl
+Add a table here'))
 dnl
 ifdef(`INSTRUCTOR',`\bigskip')
 divert(0)dnl

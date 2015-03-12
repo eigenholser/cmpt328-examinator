@@ -21,8 +21,9 @@ $$B + \overline{B}\,C = B + C$$
 Hint: Begin by expanding a term like this:
 $$B + \overline{B}\,C\bullet(C + 1) = B + C$$')dnl
 ifelse(`X'_ARG_,`X4',`
-TODO: Replace this one---Given a single digit of a base 256 number system, how many binary digits does that represent?')dnl
-dnl
+TODO: Replace this one---Given a single digit of a base 256 number system, how many binary digits does that represent?
+$$ - $$')dnl
+
 ifdef(`TIME',`
 \textit{Estimated time to complete this question is 'TIME` minutes.}
 \bigskip')

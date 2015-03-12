@@ -1,0 +1,115 @@
+%!PS-Adobe-2.0
+%%BoundingBox: 0 0 124 72
+
+/x1 35 def
+/y1 100 def
+/width 54 def
+/height 72 def
+/linewidth 0.4 def
+
+% Drawbox
+linewidth
+x1 y1
+x1 width add y1
+x1 width add y1 height sub
+x1 y1 height sub
+newpath
+moveto
+lineto
+lineto
+lineto
+closepath
+setlinewidth
+stroke
+
+/font12 {
+    /Times-Italic findfont
+    12 scalefont setfont
+} def
+
+/font8 {
+    /Times-Italic findfont
+    8 scalefont setfont
+} def
+
+% A input
+font12
+x1 20 sub
+y1 height 4 div sub dup
+3 sub               % lower input label B
+x1 32 sub exch
+moveto (A) show
+dup x1 exch
+moveto
+lineto
+linewidth setlinewidth
+stroke
+
+% B input
+font12
+x1 20 sub
+y1 height 2 div sub dup
+3 sub               % lower input label B
+x1 32 sub exch
+moveto (B) show
+dup x1 exch
+moveto
+lineto
+linewidth setlinewidth
+stroke
+
+% Cin input
+font12
+x1 20 sub
+y1 height 4 div 3 mul sub dup dup
+3 sub               % lower input label C
+x1 35 sub exch
+moveto (C) show
+dup 5 sub           % lower y for subscript (in)
+x1 28 sub exch
+font8 moveto (in) show font12
+x1 exch
+moveto
+lineto
+linewidth setlinewidth
+stroke
+
+% S output
+font12
+x1 width 20 add add
+y1 height 3 div sub dup
+3 sub               % lower input label S
+x1 width 24 add add exch
+moveto (S) show
+dup x1 width add exch
+moveto
+lineto
+linewidth setlinewidth
+stroke
+
+% Cout output
+font12
+x1 width 20 add add
+y1 height 3 div 2 mul sub dup dup
+3 sub               % lower input label C
+x1 width 22 add add exch
+moveto (C) show
+dup 5 sub           % lower y for subscript (out)
+x1 width 29.5 add add exch
+font8 moveto (out) show font12
+x1 width add exch
+moveto
+lineto
+linewidth setlinewidth
+stroke
+
+% Box label
+/Times-Roman findfont 10 scalefont setfont
+x1 width 2 div
+(Full) stringwidth pop 2 div sub add
+y1 height 2 div sub 2 add
+moveto (Full) show
+x1 width 2 div
+(Adder) stringwidth pop 2 div sub add
+y1 height 2 div sub 8 sub
+moveto (Adder) show

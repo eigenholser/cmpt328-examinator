@@ -20,6 +20,7 @@
 \usepackage{fullpage}
 \usepackage{graphicx}
 \usepackage{enumerate}
+\usepackage{float}
 \input exammac
 %\nopagenumbers
 \font\cmss=cmss12
@@ -47,14 +48,12 @@
 
 \pagenumbering{arabic}
 
+%%
+%% Questions
+%%
+
 undivert(2)
 divert(0)
 
-
-\vskip1in
-{\centering
-\includegraphics{_CF_DIR_`'figures/full_adder.eps}
-
-}
 \end{document}
 divert(-1)
