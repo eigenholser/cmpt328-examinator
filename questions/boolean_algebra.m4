@@ -18,12 +18,12 @@ $$B \bullet (B + C) = B$$')dnl
 ifelse(`X'_ARG_,`X3',`
 Prove the following Boolean expression:
 $$B + \overline{B}\,C = B + C$$
-Hint: Begin by expanding a term like this:
+\textit{Hint:} Begin by expanding a term like this:
 $$B + \overline{B}\,C\bullet(C + 1) = B + C$$')dnl
 ifelse(`X'_ARG_,`X4',``
 Simplify the following Boolean equation:
 $$Y = A\,C + \overline{A}\,\overline{B}\,C$$
-Hint: Begin by expanding a term with $$(\overline{B} + 1)$$.
+\textit{Hint:} Begin by expanding a term with $$(\overline{B} + 1)$$.
 '')dnl
 dnl
 ifdef(`TIME',`

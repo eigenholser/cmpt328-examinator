@@ -26,7 +26,7 @@ $C_{out}$ which is the carry.
 ')dnl
 ifelse(`X'_ARG_,`X2',`dnl
 This combinational logic circuit is built from two multiplexers.
-The multiplexer data lines are hardwired to $V_{DD}$ or $GND$. The
+The multiplexer data lines are hardwired to $V_{DD}$ or GND. The
 three input selectors, $A$, $B$, and $C$ act as inputs to the
 function.
 \begin{figure}[H]
