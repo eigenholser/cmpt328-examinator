@@ -46,7 +46,7 @@
 \hrule depth 2pt
 \eject
 
-\pagenumbering{arabic}
+%\pagenumbering{arabic}
 
 %%
 %% Questions
