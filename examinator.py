@@ -24,7 +24,7 @@
 13. Deduct time estimate from budget. Does time remain? No: Step 14. Yes:
     Step 7.
 14. Update database with question and variation data.
-15. Write mc files. Write one mc file for student, one for instructor.
+15. Write ec files. Write one ec file for student, one for instructor.
 
 Notes:
     The way time is budgeted, a high time question at the end could lead to
@@ -60,14 +60,14 @@ class Student(object):
         self.ycoord = row[6]
         self.time_budget = Student.TIME_BUDGET
 
-        # mc file names for student copy and instructor copy.
-        mcpath = join(os.path.dirname(os.path.realpath(__file__)), 'cf')
+        # ec file names for student copy and instructor copy.
+        ecpath = join(os.path.dirname(os.path.realpath(__file__)), 'cf')
         fileroot = "{}_{}".format(
                 self.first_name.lower(), self.last_name.lower())
-        self.student_mc_file = os.path.join(
-                mcpath, "{}-student.mc".format(fileroot))
-        self.instructor_mc_file = os.path.join(
-                mcpath, "{}-instructor.mc".format(fileroot))
+        self.student_ec_file = os.path.join(
+                ecpath, "{}-student.ec".format(fileroot))
+        self.instructor_ec_file = os.path.join(
+                ecpath, "{}-instructor.ec".format(fileroot))
 
         self.proximate = {}
         self.questions = {} # my own questions
@@ -233,21 +233,21 @@ class Student(object):
                 question[0], question[1].time))
         return questions
 
-    def write_mc_file(self, mcfile, instructor=False):
-        """Write m4 mc file to cf dir. This is the file that configures the
+    def write_ec_file(self, ecfile, instructor=False):
+        """Write m4 ec file to cf dir. This is the file that configures the
         student's exam."""
         questions = self.get_questions()
         full_name = "{} {}".format(self.first_name, self.last_name)
-        with open(mcfile, 'w') as mc:
-            mc.write('''divert(0)dnl\n''')
-            mc.write(
+        with open(ecfile, 'w') as ec:
+            ec.write('''divert(0)dnl\n''')
+            ec.write(
                 '''define(`STUDENTNAME', `{}')dnl\n'''.format(full_name))
             if instructor:
-                mc.write('''define(`INSTRUCTOR')dnl\n''')
+                ec.write('''define(`INSTRUCTOR')dnl\n''')
             for question in questions:
                 question_name = question[1]
                 variation = question[2]
-                mc.write('''QUESTION(`{}', `{}')dnl\n'''.format(
+                ec.write('''QUESTION(`{}', `{}')dnl\n'''.format(
                     question_name, variation))
 
     def insert_questions(self):
@@ -330,18 +330,18 @@ def main(audit=None):
     if audit:
         print "Writing audit file."
         audit_file = join(
-                os.path.dirname(os.path.realpath(__file__)), 'cf', 'audit.mc')
-        with open(audit_file, 'w') as mc:
-            mc.write('''divert(0)dnl\n''')
-            mc.write(
+                os.path.dirname(os.path.realpath(__file__)), 'cf', 'audit.ec')
+        with open(audit_file, 'w') as ec:
+            ec.write('''divert(0)dnl\n''')
+            ec.write(
                 '''define(`STUDENTNAME', `{}')dnl\n'''.format('AUDIT COPY'))
-            mc.write('''define(`INSTRUCTOR')dnl\n''')
+            ec.write('''define(`INSTRUCTOR')dnl\n''')
             for question_id in questions:
                 question = questions[question_id]
                 question_name = question.question_name
                 variations = question.variations
                 for variation in range(0, variations):
-                    mc.write('''QUESTION(`{}', `{}')dnl\n'''.format(
+                    ec.write('''QUESTION(`{}', `{}')dnl\n'''.format(
                         question_name, variation + 1))
         sys.exit(0)
 
@@ -376,8 +376,8 @@ def main(audit=None):
                 break
 
         current.insert_questions()
-        current.write_mc_file(current.instructor_mc_file, instructor=True)
-        current.write_mc_file(current.student_mc_file)
+        current.write_ec_file(current.instructor_ec_file, instructor=True)
+        current.write_ec_file(current.student_ec_file)
 
 
 if __name__ == '__main__':
