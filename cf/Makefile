@@ -5,23 +5,26 @@ ECHO=	echo
 CHMOD=	chmod
 ROMODE=	644
 RM=	rm -f
-alllist= for x in $(wildcard *-instructor.mc) $(wildcard *-student.mc); do \
-			 ${ECHO} $${x%.mc}; \
+alllist= for x in $(wildcard *-instructor.ec) $(wildcard *-student.ec) \
+		          $(wildcard *audit.ec); do \
+			 ${ECHO} $${x%.ec}; \
 		 done
 realcleanlist= for x in $(wildcard *-instructor*) $(wildcard *-student*); do \
 				  ${ECHO} $$x; \
 		       done
-cleanlist= for x in $(wildcard *-instructor*) $(wildcard *-student*); do \
-			   ${ECHO} $$x | sed -e s/$${x%.mc}.mc//; \
+cleanlist= for x in $(wildcard *-instructor*) $(wildcard *-student*) \
+		            $(wildcard *audit*); do \
+			   ${ECHO} $$x | sed -e s/$${x%.ec}.ec//; \
 		   done
-tidylist= for x in $(wildcard *-instructor*) $(wildcard *-student*); do \
+tidylist= for x in $(wildcard *-instructor*) $(wildcard *-student*) \
+		           $(wildcard *audit.ec); do \
 			  ${ECHO} $$x | sed -e s/$${x%.tex}.tex// \
-								-e s/$${x%.mc}.mc//; \
+								-e s/$${x%.ec}.ec//; \
 		  done
 
-%.tex : %.mc
+%.tex : %.ec
 	@$(RM) $@
-	@$(M4) ${CFDIR}/m4/cf.m4 $*.mc > $@ || ( $(RM) $@ && exit 1 )
+	@$(M4) ${CFDIR}/m4/cf.m4 $*.ec > $@ || ( $(RM) $@ && exit 1 )
 	@$(CHMOD) $(ROMODE) $@
 
 %.dvi : %.tex
