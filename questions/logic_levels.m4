@@ -110,12 +110,12 @@ $$
 ')dnl
 \end{figure}
 \begin{enumerate}[(a)]
-    \item If the output of the LaunchPad is driving these inputs, are the logic
-        levels compatible?
     \item Compute the noise margins between the LaunchPad output logic levels
         and this device's input logic levels.
     \item Sketch a logic level diagram with the LaunchPad driving the input of
         this device.
+    \item If the output of the LaunchPad is driving these inputs, are the logic
+        levels compatible?
 \end{enumerate}
 dnl
 ifdef(`TIME',`

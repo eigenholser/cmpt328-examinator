@@ -29,7 +29,6 @@ This combinational logic circuit is built from two multiplexers.
 The multiplexer data lines are hardwired to $V_{DD}$ or $GND$. The
 three input selectors, $A$, $B$, and $C$ act as inputs to the
 function.
-\vskip3em
 \begin{figure}[H]
     \centering
     \includegraphics{_CF_DIR_`'figures/mux_logic_1.ps}
@@ -49,6 +48,8 @@ ifdef(`TIME',`
 ')
 ifelse(`X'_ARG_,`X1',ifdef(`INSTRUCTOR',`
 \textsc{solution}
+\begin{figure}[H]
+$$
 \vbox{\offinterlineskip
     \halign{
         \quad\hfil $#$ \hfil &
@@ -70,7 +71,8 @@ ifelse(`X'_ARG_,`X1',ifdef(`INSTRUCTOR',`
     1 & 0 & 0 && - & - && - && $m_2$\cr
     1 & 1 & 1 && - & - && - && $m_3$\cr
     }
-}
+}$$
+\end{figure}
 '))
 ifelse(`X'_ARG_,`X2',ifdef(`INSTRUCTOR',`
 \textsc{solution}
