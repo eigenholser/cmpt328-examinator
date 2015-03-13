@@ -10,7 +10,7 @@ dnl
 ifelse(`X'_ARG_,`X1',`dnl
 The binary full adder takes the sum of two binary literals $A$ and $B$.
 It also takes a carry bit from an optional \textit{lsb} stage adder.
-The two outputs are $S$ which is the sum of $A$, $B$, and $C_{in}$, and
+The two outputs are $S$, which is the sum of $A$, $B$, and $C_{in}$, and
 $C_{out}$ which is the carry.
 \vskip3em
 \begin{figure}[H]
