@@ -21,6 +21,7 @@
 \usepackage{graphicx}
 \usepackage{enumerate}
 \usepackage{float}
+\usepackage{eqnarray,amsmath}
 \input exammac
 %\nopagenumbers
 \font\cmss=cmss12
