@@ -1,4 +1,9 @@
-*log
-*db
+*.log
+*.db
 tmp/
-*m4_
+*.m4_
+*.aux
+*.ec
+*.tex
+*.dvi
+*.pdf
