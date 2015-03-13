@@ -96,7 +96,7 @@ class Student(object):
         select a variation. Otherwise, select variation randomly."""
 
         # Check to see if this question has already been selected.
-        if question_id in self.questions:
+        if question.question_id in self.questions:
             return
 
         # This approach permits going over time. Suppose that the examiner is
@@ -322,11 +322,13 @@ def main(audit=None):
             os.path.dirname(os.path.realpath(__file__)), 'questions')
     m4files = [f for f in listdir(questions_path) if isfile(join(questions_path,f))
             and f.endswith(".m4")]
+    m4files = sorted(m4files)
     for m4file in m4files:
         question = Question(join(questions_path, m4file))
         questions[question.question_id] = question
 
     # Dump exam config file with all questions and variations.
+    # For auditing purposes only.
     if audit:
         print "Writing audit file."
         audit_file = join(
@@ -336,7 +338,7 @@ def main(audit=None):
             ec.write(
                 '''define(`STUDENTNAME', `{}')dnl\n'''.format('AUDIT COPY'))
             ec.write('''define(`INSTRUCTOR')dnl\n''')
-            for question_id in questions:
+            for question_id in questions.keys():
                 question = questions[question_id]
                 question_name = question.question_name
                 variations = question.variations
