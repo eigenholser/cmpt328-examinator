@@ -35,6 +35,7 @@ Notes:
     sized so that this is not a problem. This examiner will choose the later
     for now though it is hard to restrain myself. Ugh, feature creep.
 """
+import argparse
 import copy
 import math
 import os
@@ -107,7 +108,6 @@ class Student(object):
             return
 
         have_question = self.proximates_have_question(question)
-#       import pdb; pdb.set_trace()
         if len(have_question) == 0:
             # No one else has this question. Edge case. Take it and run.
             variation = question.random_variation()
@@ -120,7 +120,7 @@ class Student(object):
         last_variation = variations[-1]
         max_variation = question.variations
         if last_variation < max_variation:
-            # Choose the next variation. TODO: Is variation an int?
+            # Choose the next variation.
             variation = last_variation + 1
             self.questions[question.question_id] = (variation, question)
             self.sub_time_budget(question.time)
@@ -302,70 +302,99 @@ class Question(object):
         return random.choice(range(self.variations)) + 1
 
 
-conn = None
-try:
-    conn = sqlite3.connect('exam.db')
-    cur = conn.cursor()
-    cur.execute('SELECT SQLITE_VERSION()')
-    data = cur.fetchone()
-    print "SQLite version: {}".format(data[0])
-except sqlite.Error, e:
-    print "Error {}".format(e.args[0])
-    sys.exit(1)
+def main(audit=None):
+    # Remove all questions each run.
+    cur.execute('DELETE FROM questions')
+    conn.commit()
 
-# Remove all questions each run.
-cur.execute('DELETE FROM questions')
-conn.commit()
+    # Read students
+    students = {}
+    cur.execute('SELECT * FROM STUDENTS LEFT JOIN GRID ON STUDENTS.id = GRID.student_id')
+    rows = cur.fetchall()
+    for row in rows:
+        student = Student(row)
+        # TODO: may want this to be a list
+        students[student.student_id] = student
 
-# Read students
-students = {}
-cur.execute('SELECT * FROM STUDENTS LEFT JOIN GRID ON STUDENTS.id = GRID.student_id')
-rows = cur.fetchall()
-for row in rows:
-    student = Student(row)
-    # TODO: may want this to be a list
-    students[student.student_id] = student
+    # Read questions
+    questions = {}
+    questions_path = join(
+            os.path.dirname(os.path.realpath(__file__)), 'questions')
+    m4files = [f for f in listdir(questions_path) if isfile(join(questions_path,f))
+            and f.endswith(".m4")]
+    for m4file in m4files:
+        question = Question(join(questions_path, m4file))
+        questions[question.question_id] = question
 
-# Read questions
-questions = {}
-questions_path = join(os.path.dirname(os.path.realpath(__file__)), 'questions')
-m4files = [f for f in listdir(questions_path) if isfile(join(questions_path,f))
-        and f.endswith(".m4")]
-for m4file in m4files:
-    question = Question(join(questions_path, m4file))
-    questions[question.question_id] = question
+    # Dump exam config file with all questions and variations.
+    if audit:
+        print "Writing audit file."
+        audit_file = join(
+                os.path.dirname(os.path.realpath(__file__)), 'cf', 'audit.mc')
+        with open(audit_file, 'w') as mc:
+            mc.write('''divert(0)dnl\n''')
+            mc.write(
+                '''define(`STUDENTNAME', `{}')dnl\n'''.format('AUDIT COPY'))
+            mc.write('''define(`INSTRUCTOR')dnl\n''')
+            for question_id in questions:
+                question = questions[question_id]
+                question_name = question.question_name
+                variations = question.variations
+                for variation in range(0, variations):
+                    mc.write('''QUESTION(`{}', `{}')dnl\n'''.format(
+                        question_name, variation + 1))
+        sys.exit(0)
 
-#import pdb; pdb.set_trace()
-for current_id in students:
-    current = students[current_id]
-    print "Current Student: {}".format(current)
+    # Walk list of students, processing each in turn as current.
+    for current_id in students:
+        current = students[current_id]
+        print "Current Student: {}".format(current)
 
-    # Compute distance and find proximates.
-    for student_id, student in students.iteritems():
-        if student_id == current_id:
-            continue
-        current.distance(student)
+        # Compute distance and find proximates.
+        for student_id, student in students.iteritems():
+            if student_id == current_id:
+                continue
+            current.distance(student)
 
-    # Load questions from DB.
-    current.get_proximate_questions()
+        # Load questions from DB.
+        current.get_proximate_questions()
 
-    # Questions list
-    safe_counter = 0
-    while(True):
-        question_id = random.choice(questions.keys())
-        current.add_question(questions[question_id])
-#       import pdb; pdb.set_trace()
+        # Questions list
+        safe_counter = 0
+        while(True):
+            question_id = random.choice(questions.keys())
+            current.add_question(questions[question_id])
 
-        # Current time budget will cause a return if there is not enough time
-        # for the last question selected randomly. We will just loop a few
-        # times until the circuit breaker stops the loop.
+            # Current time budget will cause a return if there is not enough time
+            # for the last question selected randomly. We will just loop a few
+            # times until the circuit breaker stops the loop.
 
-        # Since there is not enough content to fill the budget, build in a
-        # safety valve.
-        safe_counter += 1
-        if safe_counter > 100:
-            break
+            # Since there is not enough content to fill the budget, build in a
+            # safety valve.
+            safe_counter += 1
+            if safe_counter > 100:
+                break
 
-    current.insert_questions()
-    current.write_mc_file(current.instructor_mc_file, instructor=True)
-    current.write_mc_file(current.student_mc_file)
+        current.insert_questions()
+        current.write_mc_file(current.instructor_mc_file, instructor=True)
+        current.write_mc_file(current.student_mc_file)
+
+
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--audit', action='store_true', help='Dump all questions.')
+    args = parser.parse_args()
+    audit = args.audit
+
+    conn = None
+    try:
+        conn = sqlite3.connect('exam.db')
+        cur = conn.cursor()
+        cur.execute('SELECT SQLITE_VERSION()')
+        data = cur.fetchone()
+        print "SQLite version: {}".format(data[0])
+    except sqlite.Error, e:
+        print "Error {}".format(e.args[0])
+        sys.exit(1)
+
+    main(audit=audit)
