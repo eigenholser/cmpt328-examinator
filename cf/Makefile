@@ -9,7 +9,8 @@ alllist= for x in $(wildcard *-instructor.ec) $(wildcard *-student.ec) \
 		          $(wildcard *audit.ec); do \
 			 ${ECHO} $${x%.ec}; \
 		 done
-realcleanlist= for x in $(wildcard *-instructor*) $(wildcard *-student*); do \
+realcleanlist= for x in $(wildcard *-instructor*) $(wildcard *-student*) \
+			            $(wildcard *audit*); do \
 				  ${ECHO} $$x; \
 		       done
 cleanlist= for x in $(wildcard *-instructor*) $(wildcard *-student*) \
