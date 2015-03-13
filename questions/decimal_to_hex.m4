@@ -6,7 +6,8 @@ divert(2)dnl
 %% __file__
 %%
 \question
-Convert the following decimal numbers to hexadecimal.
+Perform longhand conversion of the following decimal numbers to hexadecimal.
+Show all your work.
 ifelse(`X'_ARG_,`X1',`
 \begin{enumerate}[(a)]
     \item 387

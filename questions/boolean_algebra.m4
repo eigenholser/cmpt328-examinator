@@ -20,10 +20,12 @@ Prove the following Boolean expression:
 $$B + \overline{B}\,C = B + C$$
 Hint: Begin by expanding a term like this:
 $$B + \overline{B}\,C\bullet(C + 1) = B + C$$')dnl
-ifelse(`X'_ARG_,`X4',`
-TODO: Replace this one---Given a single digit of a base 256 number system, how many binary digits does that represent?
-$$ - $$')dnl
-
+ifelse(`X'_ARG_,`X4',``
+Simplify the following Boolean equation:
+$$Y = A\,C + \overline{A}\,\overline{B}\,C$$
+Hint: Begin by expanding a term with $$(\overline{B} + 1)$$.
+'')dnl
+dnl
 ifdef(`TIME',`
 \textit{Estimated time to complete this question is 'TIME` minutes.}
 \bigskip')
@@ -37,9 +39,17 @@ No idea.'))dnl
 ifelse(`X'_ARG_,`X3',ifdef(`INSTRUCTOR',`
 \textsc{solution}\\
 No idea.'))dnl
-ifelse(`X'_ARG_,`X4',ifdef(`INSTRUCTOR',`
-\textsc{solution}\\
-No idea.'))dnl
+ifelse(`X'_ARG_,`X4',ifdef(`INSTRUCTOR',``
+\textsc{solution}
+\begin{align}
+Y &= A\,C + \overline{A}\,\overline{B}\,C\cr
+  &= A\,C\bullet(\overline{B} + 1) + \overline{A}\,\overline{B}\,C\cr
+  &= A\,\overline{B}\,C + A\,C + \overline{A}\,\overline{B}\,C\cr
+  &= \overline{B}\,C \bullet (A + \overline{A}) + A\,C\cr
+  &= \overline{B}\,C \bullet (1) + A\,C\cr
+  &= A\,C + \overline{B}\,C
+\end{align}
+''))dnl
 dnl
 ifdef(`INSTRUCTOR',`\bigskip')
 divert(0)dnl

@@ -7,12 +7,11 @@ divert(2)dnl
 %%
 \question
 Convert the following octal numbers to hexadecimal. Use the fact that each
-octal or hexadecimal digit corresponds to 3-bit or 4-bit, respectively,
+octal or hexadecimal digit corresponds to 3--bit or 4--bit, respectively,
 binary numbers.
 dnl
 ifelse(`X'_ARG_,`X1',`
 \begin{enumerate}[(a)]
-    \item 071
     \item 0354
     \item 0177
 \end{enumerate}')dnl
@@ -20,17 +19,14 @@ ifelse(`X'_ARG_,`X2',`
 \begin{enumerate}[(a)]
     \item 0673
     \item 0172
-    \item 0421
 \end{enumerate}')dnl
 ifelse(`X'_ARG_,`X3',`
 \begin{enumerate}[(a)]
-    \item 0673
     \item 0162
     \item 0426
 \end{enumerate}')dnl
 ifelse(`X'_ARG_,`X4',`
 \begin{enumerate}[(a)]
-    \item 0573
     \item 0272
     \item 0735
 \end{enumerate}')dnl
