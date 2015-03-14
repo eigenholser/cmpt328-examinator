@@ -1,0 +1,419 @@
+%!PS-Adobe-2.0 EPSF-2.0
+%%BoundingBox: 0 0 200 180
+
+% LaunchPad output to 1.5V inputs.
+
+%%%%%%%%%%%%%%%%%
+% Voltage Levels
+%%%%%%%%%%%%%%%%%
+/inputvcc 1.5 def
+/inputv 1.5 def
+/outputv 3.3 def
+/voh 2.4 def
+/vol 0.4 def
+/vih 0.98 def
+/vil 0.53 def
+/ptpervolt 38 def
+/vcclabel (V   = 1.5V) def
+/vddlabel (V   = 3.3V) def
+/vohlabel (V   = 2.4V) def
+/vollabel (V   = 0.4V) def
+/vihlabel (V   = 0.98V) def
+/villabel (V   = 0.53V) def
+
+%%%%%%%%%%%%%%%%%
+% Settings
+%%%%%%%%%%%%%%%%%
+/grayfill 0.8 def
+/linewidth 0.4 def
+/nmoffset 10 def
+/columnwidth 36 def
+/columnoffset 45 def
+/width {                    % Diagram width
+    columnwidth 2 mul
+    columnoffset add
+} def
+/orgx 40 def               % Origin
+/orgy 20 def
+
+%%%%%%%%%%%%%%%%%
+% Coordinates
+%%%%%%%%%%%%%%%%%
+/vcc {orgy inputvcc ptpervolt mul add} def
+/gnd orgy def
+
+% Output low
+/volx1 orgx def
+/volx2 {orgx columnwidth add} def
+/voly {orgy vol ptpervolt mul add} def
+
+/vohx1 orgx def
+/vohx2 volx2 def
+/vohy {orgy voh ptpervolt mul add} def
+
+/vilx1 {volx2 columnoffset add} def
+/vilx2 {vilx1 columnwidth add} def
+/vily {orgy vil ptpervolt mul add} def
+
+/vihx1 vilx1 def
+/vihx2 {vihx1 columnwidth add} def
+/vihy {orgy vih ptpervolt mul add} def
+
+/vorail {orgy outputv ptpervolt mul add} def
+/virail {orgy inputv ptpervolt mul add} def
+
+% selectfont
+% input: size
+% output: none
+/selectfont {
+    /Times-Italic findfont
+    exch
+    scalefont setfont
+} def
+
+% drawbox
+% input: x1 y1, x1 y2, x2 y2, x2 y1, grayfill linewidth
+% output: none
+/drawfilledbox {
+    newpath
+    moveto
+    lineto
+    lineto
+    lineto
+    closepath
+    gsave
+        setgray
+        fill
+    grestore
+    setlinewidth
+    stroke
+} def
+
+% drawline
+% input: x1 y1, x2 y2, linewidth
+% output: none
+/drawline {
+    moveto
+    lineto
+    setlinewidth
+    stroke
+} def
+
+% VOL
+linewidth
+grayfill
+volx1 orgy
+volx1 voly
+volx2 voly
+volx2 orgy
+drawfilledbox
+
+%VOH
+linewidth
+grayfill
+vohx1 vohy
+vohx1 vorail
+vohx2 vorail
+vohx2 vohy
+drawfilledbox
+
+%VIL
+linewidth
+grayfill
+vilx1 orgy
+vilx1 vily
+vilx2 vily
+vilx2 orgy
+drawfilledbox
+
+%VIH
+linewidth
+grayfill
+vihx1 vihy
+vihx1 vorail
+vihx2 vorail
+vihx2 vihy
+drawfilledbox
+
+% V Output box
+linewidth volx1 voly vohx1 vohy drawline
+linewidth volx2 voly vohx2 vorail drawline
+linewidth vohx1 vohy vohx1 vorail drawline
+
+% V Input box
+%
+linewidth vilx1 vily vihx1 vcc drawline
+linewidth vilx2 vily vihx2 vcc drawline
+linewidth vihx1 virail vihx1 virail drawline
+
+% Connect input/output columns
+linewidth vohx1 vorail vihx2 vorail drawline
+linewidth volx2 gnd vilx1 gnd drawline
+
+% Noise Margin lines
+% High
+linewidth vohx2 vohy vohx2 nmoffset add vohy drawline
+linewidth vihx1 nmoffset sub vihy vihx1 vihy drawline
+% Low
+linewidth volx2 voly volx2 nmoffset add voly drawline
+linewidth vilx1 nmoffset sub vily vilx1 vily drawline
+
+%%
+% Labels
+%%
+
+%%%%%%%%%%%%%%%%%
+% Vcc
+%%%%%%%%%%%%%%%%%
+8 selectfont
+width 2 div
+vcclabel dup stringwidth pop 2 div 3 2 roll exch sub
+orgx add
+vorail 6 add
+moveto
+show
+
+% Vcc subscript
+width 2 div
+vcclabel stringwidth pop 2 div sub
+orgx add
+vorail 4 add
+5 selectfont
+exch (CC) stringwidth pop add 4 sub exch
+moveto
+(CC) show
+
+%%%%%%%%%%%%%%%%%
+% Vdd
+%%%%%%%%%%%%%%%%%
+8 selectfont
+columnwidth 2 div
+vddlabel dup stringwidth pop 2 div 3 2 roll exch sub
+orgx add
+vorail 5 add
+moveto
+show
+
+% Vdd subscript
+columnwidth 2 div
+vddlabel stringwidth pop 2 div sub
+orgx add
+vorail 4 add
+5 selectfont
+exch (DD) stringwidth pop add 4 sub exch
+moveto
+(DD) show
+
+%%%%%%%%%%%%%%%%%
+% GND
+%%%%%%%%%%%%%%%%%
+8 selectfont
+width 2 div
+(GND) dup stringwidth pop 2 div 3 2 roll exch sub
+orgx add
+orgy 15 sub
+moveto
+show
+
+%%%%%%%%%%%%%%%%%
+% VOH Output High
+%%%%%%%%%%%%%%%%%
+8 selectfont
+orgx
+7 sub % negative adjustment
+vohlabel dup stringwidth pop 3 2 roll exch sub
+vohy 3 sub % adjustment
+moveto
+show
+
+% VOH subscript
+orgx
+7 sub %negative adjustment
+vohlabel stringwidth pop sub
+vohy 6 sub % adjustment
+5 selectfont
+exch (OH) stringwidth pop add 4 sub exch
+moveto
+(OH) show
+
+%%%%%%%%%%%%%%%%%
+% VOL output low
+%%%%%%%%%%%%%%%%%
+8 selectfont
+orgx
+7 sub % negative adjustment
+vollabel dup stringwidth pop 3 2 roll exch sub
+voly 3 sub % adjustment
+moveto
+show
+
+% VOL subscript
+orgx
+7 sub %negative adjustment
+vollabel stringwidth pop sub
+voly 6 sub % adjustment
+5 selectfont
+exch (OL) stringwidth pop add 3 sub exch
+moveto
+(OL) show
+
+%%%%%%%%%%%%%%%%%
+% VIH input high
+%%%%%%%%%%%%%%%%%
+8 selectfont
+vihx2
+3 add % positive adjustment
+vihy 3 sub % adjustment
+moveto
+%(V   = 2.0V)
+vihlabel
+show
+
+% VIH subscript
+vihx2
+3 add % positive adjustment
+vihy 6 sub % adjustment
+5 selectfont
+exch (IH) stringwidth pop add 2 sub exch
+moveto
+(IH) show
+
+%%%%%%%%%%%%%%%%%
+% VIL Output Low
+%%%%%%%%%%%%%%%%%
+8 selectfont
+vilx2
+3 add % positive adjustment
+vily 3 sub % adjustment
+moveto
+villabel
+show
+
+% VIL subscript
+vilx2
+3 add % positive adjustment
+vily 6 sub % adjustment
+5 selectfont
+exch (IL) stringwidth pop add 0 sub exch
+moveto
+(IL) show
+
+%%%%%%%%%%%%%%%%%
+% NM high
+%%%%%%%%%%%%%%%%%
+8 selectfont
+width 2 div
+(NM) dup stringwidth pop 2 div 3 2 roll exch sub
+orgx add
+vihy vohy vihy sub 2 div add 3 sub
+moveto
+show
+
+% NM high subscript
+width 2 div
+(NM) stringwidth pop 2 div add
+orgx add
+5 selectfont
+vihy vohy vihy sub 2 div add 8 sub
+moveto
+(H) show
+
+%%%%%%%%%%%%%%%%%
+% NM low
+%%%%%%%%%%%%%%%%%
+8 selectfont
+width 2 div
+(NM) dup stringwidth pop 2 div 3 2 roll exch sub
+orgx add
+vily voly vily sub 2 div add 3 sub
+moveto
+show
+
+% NM low subscript
+width 2 div
+(NM) stringwidth pop 2 div add
+orgx add
+5 selectfont
+vily voly vily sub 2 div add 5 sub 3 sub
+moveto
+(L) show
+
+%%%%%%%%%%%%%%%%%
+% Columns
+%%%%%%%%%%%%%%%%%
+% LaunchPad
+/Times-Roman findfont
+7 scalefont setfont
+columnwidth 2 div
+(LaunchPad) dup stringwidth pop 2 div 3 2 roll exch sub
+orgx add
+vorail 25 add
+moveto
+show
+
+% 74LS04
+/Times-Roman findfont
+8 scalefont setfont
+width
+columnwidth 2 div sub
+(1.5V Device) dup stringwidth pop 2 div 3 2 roll exch sub
+orgx add
+vorail 15 add
+moveto
+show
+
+% Output
+/Times-Roman findfont
+8 scalefont setfont
+columnwidth 2 div
+(Output) dup stringwidth pop 2 div 3 2 roll exch sub
+orgx add
+vorail 15 add
+moveto
+show
+
+% Input
+/Times-Roman findfont
+8 scalefont setfont
+width
+columnwidth 2 div sub
+(Input) dup stringwidth pop 2 div 3 2 roll exch sub
+orgx add
+vorail 5 add
+moveto
+show
+
+%%%%%%%%%%%%%%%%%
+% Forbidden Zone
+%%%%%%%%%%%%%%%%%
+/Times-Roman findfont
+6 scalefont setfont
+columnwidth 2 div
+(Forbidden) dup stringwidth pop 2 div 3 2 roll exch sub
+orgx add
+voly vohy voly sub 2 div add 2 add
+moveto
+show
+
+columnwidth 2 div
+(Zone) dup stringwidth pop 2 div 3 2 roll exch sub
+orgx add
+voly vohy voly sub 2 div add 4 sub
+moveto
+show
+
+width
+columnwidth 2 div sub
+(Forbidden) dup stringwidth pop 2 div 3 2 roll exch sub
+orgx add
+vily vihy vily sub 2 div add 2 add
+moveto
+show
+
+width
+columnwidth 2 div sub
+(Zone) dup stringwidth pop 2 div 3 2 roll exch sub
+orgx add
+vily vihy vily sub 2 div add 4 sub
+moveto
+show
