@@ -350,7 +350,6 @@ def main(audit=None):
     # Walk list of students, processing each in turn as current.
     for current_id in students:
         current = students[current_id]
-        print "Current Student: {}".format(current)
 
         # Compute distance and find proximates.
         for student_id, student in students.iteritems():
@@ -377,6 +376,9 @@ def main(audit=None):
             if safe_counter > 100:
                 break
 
+        print "{} -- Time: {} used, {} remains.".format(
+                current, current.TIME_BUDGET - current.time_budget,
+                current.time_budget)
         current.insert_questions()
         current.write_ec_file(current.instructor_ec_file, instructor=True)
         current.write_ec_file(current.student_ec_file)
