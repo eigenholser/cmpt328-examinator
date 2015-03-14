@@ -30,25 +30,127 @@ ifdef(`TIME',`
 \bigskip')
 dnl
 ifelse(`X'_ARG_,`X1',
-ifdef(`INSTRUCTOR',`
+ifdef(`INSTRUCTOR',``
 \textsc{solution}\\
-Add a table here'))
+'')
+ifdef(`INSTRUCTOR',``
+\begin{figure}[H]
+$$
+\vbox{\offinterlineskip
+    \halign{
+        \quad\hfil $#$ \hfil &
+        \strut\quad\hfil $#$ \hfil &
+        \vrule# &
+        \quad\hfil $#$ \hskip0.1em\hfil &
+        \vrule# &
+        \quad\hfil $#$ \hfil &
+        \vrule# &
+        \quad\hfil $#$ \hfil\cr
+        B & C && B\,C && B\,\overline{C} && B\,C + B\,\overline{C} \cr
+    \noalign{\hrule}
+    0 & 0 && 0 && 0 && 0\cr
+    0 & 1 && 0 && 0 && 0\cr
+    1 & 0 && 0 && 1 && 1\cr
+    1 & 1 && 1 && 0 && 1\cr
+    }
+}$$
+\caption{Truth table for $(B\bullet C) + (B\bullet\overline{C}) = B$.}
+\end{figure}
+''))
 ifelse(`X'_ARG_,`X2',
-ifdef(`INSTRUCTOR',`
-\textsc{solution}\\
-Add a table here'))
+ifdef(`INSTRUCTOR',``
+\begin{figure}[H]
+$$
+\vbox{\offinterlineskip
+    \halign{
+        \quad\hfil $#$ \hfil &
+        \strut\quad\hfil $#$ \hfil &
+        \vrule# &
+        \quad\hfil $#$ \hskip0.1em\hfil &
+        \vrule# &
+        \quad\hfil $#$ \hfil \cr
+        B & C && B + C && B \bullet (B + C) \cr
+    \noalign{\hrule}
+    0 & 0 && 0 && 0 \cr
+    0 & 1 && 1 && 0 \cr
+    1 & 0 && 1 && 1 \cr
+    1 & 1 && 1 && 1 \cr
+    }
+}$$
+\caption{Truth table for $B\bullet(B + C) = B$.}
+\end{figure}
+''))
 ifelse(`X'_ARG_,`X3',
-ifdef(`INSTRUCTOR',`
-\textsc{solution}\\
-Add a table here '))
+ifdef(`INSTRUCTOR',``
+\begin{figure}[H]
+$$
+\vbox{\offinterlineskip
+    \halign{
+        \quad\hfil $#$ \hfil &
+        \strut\quad\hfil $#$ \hfil &
+        \vrule# &
+        \quad\hfil $#$ \hskip0.1em\hfil &
+        \vrule# &
+        \quad\hfil $#$ \hfil &
+        \vrule# &
+        \quad\hfil $#$ \hfil\cr
+        B & C && \overline{B}\,C && B + \overline{B}\,C && B + C \cr
+    \noalign{\hrule}
+    0 & 0 && 0 && 0 && 0\cr
+    0 & 1 && 1 && 1 && 1\cr
+    1 & 0 && 0 && 1 && 1\cr
+    1 & 1 && 0 && 1 && 1\cr
+    }
+}$$
+\caption{Truth table for $B + \overline{B}\,C = B + C$.}
+\end{figure}
+''))
 ifelse(`X'_ARG_,`X4',
-ifdef(`INSTRUCTOR',`
-\textsc{solution}\\
-Add a table here'))
+ifdef(`INSTRUCTOR',``
+\begin{figure}[H]
+$$
+\vbox{\offinterlineskip
+    \halign{
+        \quad\hfil $#$ \hfil &
+        \strut\quad\hfil $#$ \hfil &
+        \vrule# &
+        \quad\hfil $#$ \hskip0.1em\hfil &
+        \vrule# &
+        \quad\hfil $#$ \hfil \cr
+        B & C && \overline{B\,C} && \overline{B} + \overline{C} \cr
+    \noalign{\hrule}
+    0 & 0 && 1 && 1 \cr
+    0 & 1 && 1 && 1 \cr
+    1 & 0 && 1 && 1 \cr
+    1 & 1 && 0 && 0 \cr
+    }
+}$$
+\caption{Truth table for $\overline{B\,C} = \overline{B} + \overline{C}$.}
+\end{figure}
+''))
 ifelse(`X'_ARG_,`X5',
-ifdef(`INSTRUCTOR',`
-\textsc{solution}\\
-Add a table here'))
+ifdef(`INSTRUCTOR',``
+\begin{figure}[H]
+$$
+\vbox{\offinterlineskip
+    \halign{
+        \quad\hfil $#$ \hfil &
+        \strut\quad\hfil $#$ \hfil &
+        \vrule# &
+        \quad\hfil $#$ \hskip0.1em\hfil &
+        \vrule# &
+        \quad\hfil $#$ \hfil \cr
+        B & C && \overline{B + C} && \overline{B} \bullet \overline{C} \cr
+    \noalign{\hrule}
+    0 & 0 && 1 && 1 \cr
+    0 & 1 && 0 && 0 \cr
+    1 & 0 && 0 && 0 \cr
+    1 & 1 && 0 && 0 \cr
+    }
+}$$
+\caption{Truth table for $\overline{B\,C} = \overline{B} + \overline{C}$.}
+\end{figure}
+''))
 dnl
 ifdef(`INSTRUCTOR',`\bigskip')
 divert(0)dnl
