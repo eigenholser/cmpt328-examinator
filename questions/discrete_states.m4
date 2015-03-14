@@ -20,18 +20,25 @@ ifdef(`TIME',`
 \textit{Estimated time to complete this question is 'TIME` minutes.}
 \bigskip
 ')
-ifelse(`X'_ARG_,`X1',ifdef(`INSTRUCTOR',`
+ifdef(`INSTRUCTOR',`
 \textsc{solution}
+')
+ifelse(`X'_ARG_,`X1',ifdef(`INSTRUCTOR',``
 \begin{enumerate}[(a)]
-    \item 42
-    \item 99
-\end{enumerate}\bigskip'))
-ifelse(`X'_ARG_,`X2',ifdef(`INSTRUCTOR',`
-\textsc{solution}
+    \item There are 20 discrete states---2 per coin with 10 coins.
+    \item Each penny represents 2 states. Therefore the base is 2. In
+    general, the range is $b^N$ where N is the number of devices. In this
+    case, $N = 10$ so the number of states is $2^{10} = 1,024$.
+\end{enumerate}\bigskip
+''))
+ifelse(`X'_ARG_,`X2',ifdef(`INSTRUCTOR',``
 \begin{enumerate}[(a)]
-    \item 39
-    \item 53
-\end{enumerate}\bigskip'))
+    \item There are 12 discrete states---6 per die with 2 die.
+    \item Each die represents 6 states. Therefore the base is 6. In
+    general, the range is $b^N$ where N is the number of devices. In this
+    case, $N = 2$ so the number of states is $6^2 = 36$.
+\end{enumerate}\bigskip
+''))
 dnl
 ifdef(`INSTRUCTOR',`\bigskip')
 divert(0)dnl

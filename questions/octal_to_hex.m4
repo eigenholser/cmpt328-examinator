@@ -1,5 +1,5 @@
 divert(-1)dnl
-define(`VARIATIONS', `2')
+define(`VARIATIONS', `4')
 define(`TIME', `5')
 divert(2)dnl
 %%
@@ -36,22 +36,25 @@ ifdef(`TIME',`
 \textit{Estimated time to complete this question is 'TIME` minutes.}
 \bigskip')
 dnl
+ifdef(`INSTRUCTOR',`
+\textsc{solution}\\
+')
 ifelse(`X'_ARG_,`X1',
 ifdef(`INSTRUCTOR',`
-\textsc{solution}\\
-Later'))
+
+'))
 ifelse(`X'_ARG_,`X2',
 ifdef(`INSTRUCTOR',`
-\textsc{solution}\\
-Later'))
+
+'))
 ifelse(`X'_ARG_,`X3',
 ifdef(`INSTRUCTOR',`
-\textsc{solution}\\
-Later'))
+
+'))
 ifelse(`X'_ARG_,`X4',
 ifdef(`INSTRUCTOR',`
-\textsc{solution}\\
-Later'))
+
+'))
 dnl
 ifdef(`INSTRUCTOR',`\bigskip')
 divert(0)dnl
