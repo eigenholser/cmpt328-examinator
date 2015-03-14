@@ -1,6 +1,7 @@
 *.log
 *.db
 tmp/
+cf/*ps
 *.m4_
 *.aux
 *.ec
