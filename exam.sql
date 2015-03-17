@@ -5,7 +5,7 @@ create table students (
 );
 
 create table questions (
-    id int primary key,
+    id int not null,
     student_id int not null,
     name text not null,
     variation int not null,
