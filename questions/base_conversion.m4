@@ -11,7 +11,7 @@ An RSA public key of 2,048 bits is the minimum length considered secure
 today. How many decimal digits does that represent?
 ')dnl
 ifelse(`X'_ARG_,`X2',`
-In elliptic key encryption, a public key of 224 bits is considered
+In elliptic curve encryption, a public key of 224 bits is considered
 secure today. How many decimal digits does that represent?
 ')dnl
 ifelse(`X'_ARG_,`X3',`
