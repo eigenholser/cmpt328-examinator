@@ -22,6 +22,8 @@
 \usepackage{enumerate}
 \usepackage{float}
 \usepackage{eqnarray,amsmath}
+\usepackage{tikz}
+\usetikzlibrary{circuits.logic.US}
 \input exammac
 %\nopagenumbers
 \font\cmss=cmss12
