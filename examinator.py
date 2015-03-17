@@ -85,8 +85,11 @@ class Student(object):
             cur.execute(query, (student_id,))
             rows = cur.fetchall()
             for row in rows:
-                self.proximate[student_id][2]["question_name"] = row[2]
-                self.proximate[student_id][2]["variation"] = row[3]
+                question_id = row[0]
+                question_name = row[2]
+                variation = row[3]
+                self.proximate[student_id][2][question_id] = \
+                        (question_name, variation,)
 
     def sub_time_budget(self, time):
         self.time_budget -= time
@@ -96,12 +99,8 @@ class Student(object):
         select a variation. Otherwise, select variation randomly."""
 
         # Check to see if this question has already been selected.
-#       if question in self.questions:
-#           return
-
         for question_bundle in self.questions:
             if question in question_bundle:
-                #import pdb; pdb.set_trace()
                 return
 
         # This approach permits going over time. Suppose that the examiner is
@@ -116,34 +115,40 @@ class Student(object):
         if len(have_question) == 0:
             # No one else has this question. Edge case. Take it and run.
             variation = question.random_variation()
-            #self.questions[question.question_id] = (variation, question)
             self.questions.append((variation, question,))
             self.sub_time_budget(question.time)
             return
 
         # Others have this question. Choose the best variation.
         variations = self.proximates_get_variations(question)
-        last_variation = variations[-1]
+        last_variation = question.random_variation()
         max_variation = question.variations
-        if last_variation < max_variation:
+        if len(variations) > 0:
+            last_variation = variations[-1][0]
+        variation = last_variation
+        if variation < max_variation:
             # Choose the next variation.
-            variation = last_variation + 1
-            #self.questions[question.question_id] = (variation, question)
+            variation += 1
             self.questions.append((variation, question,))
             self.sub_time_budget(question.time)
             return
 
-        # Sign, intransigent... All variations consumed. We're recycling now.
-        # Walk the list of variations. Prefer to vary for nearer students. This
-        # could be cleverer.
+        # All variations consumed. We're recycling now. Walk the list of
+        # variations. Prefer to vary for nearer students. This could be
+        # cleverer.
         for var, dist in variations:
+            # Here's the idea...if dist == 0, pick something other than the
+            # proximate var. Unless there is only one. If there are not enough
+            # unique variations for all dist == 0 proximates, there will be
+            # duplication. Unavoidable.
             if dist == 0:
                 if var < max_variation:
-                    variation += 1
+                    variation = var + 1
+                elif var > 0:
+                    variation = var - 1
                 else:
-                    variation -= 1
-        #self.questions[question.question_id] = (variation, question)
-        self.questions((variation, question,))
+                    variation = 1           # There is only 1.
+        self.questions.append((variation, question,))
         self.sub_time_budget(question.time)
 
     def proximates_have_question(self, question):
@@ -164,7 +169,7 @@ class Student(object):
             pstudent = row[1]
             pquestions = row[2]
             if question.question_id in pquestions:
-                variation = self.get_variation(question)
+                variation = pquestions[question.question_id][1]
                 if variation:
                     variations.append((variation, dist))
         return sorted(variations)
@@ -172,10 +177,15 @@ class Student(object):
     def get_variation(self, question):
         """Get variation for question if we have this question."""
         question_id = question.question_id
+        variation = 1
         try:
-            variation = self.questions[question_id][0]
-        except Error:
-            return None
+            for row in self.questions:
+                variation = row[0]
+                this_question = row[1]
+                if question.question_name == this_question.question_name:
+                    return variation
+        except Exception:
+            pass
         return variation
 
     def distance(self, student):
@@ -229,17 +239,15 @@ class Student(object):
             self.proximate[student.student_id] = (dist, student, {})
 
     def get_questions(self):
-        """ Return a list of 4-tuple question data.
+        """ Return a list of 5-tuple question data.
 
-        questions: (student_id, question_name, variation, time)
+        questions: (question_id, student_id, question_name, variation, time)
         """
         questions = []
-        #for question_id in self.questions:
         for question in self.questions:
-            # append (student_id, question_name, variation, time)
-            #question = self.questions[question_id]
-            questions.append((self.student_id, question[1].question_name,
-                question[0], question[1].time))
+            # append (question_id, student_id, question_name, variation, time)
+            questions.append((question[1].question_id, self.student_id,
+                question[1].question_name, question[0], question[1].time))
         return questions
 
     def write_ec_file(self, ecfile, instructor=False):
@@ -254,15 +262,15 @@ class Student(object):
             if instructor:
                 ec.write('''define(`INSTRUCTOR')dnl\n''')
             for question in questions:
-                question_name = question[1]
-                variation = question[2]
+                question_name = question[2]
+                variation = question[3]
                 ec.write('''QUESTION(`{}', `{}')dnl\n'''.format(
                     question_name, variation))
 
     def insert_questions(self):
         """Insert questions for this student_id into the database."""
         questions = self.get_questions()
-        query = "INSERT INTO questions VALUES (NULL, ?, ?, ?, ?)"
+        query = "INSERT INTO questions VALUES (?, ?, ?, ?, ?)"
         for question in questions:
             cur.execute(query, question)
         conn.commit()
@@ -376,9 +384,9 @@ def main(audit=None):
             question_id = random.choice(questions.keys())
             current.add_question(questions[question_id])
 
-            # Current time budget will cause a return if there is not enough time
-            # for the last question selected randomly. We will just loop a few
-            # times until the circuit breaker stops the loop.
+            # Current time budget will cause a return if there is not enough
+            # time for the last question selected randomly. We will just loop a
+            # few times until the circuit breaker stops the loop.
 
             # Since there is not enough content to fill the budget, build in a
             # safety valve.
@@ -390,7 +398,6 @@ def main(audit=None):
                 current, current.TIME_BUDGET - current.time_budget,
                 current.time_budget)
         current.insert_questions()
-#       import pdb; pdb.set_trace()
         current.write_ec_file(current.instructor_ec_file, instructor=True)
         current.write_ec_file(current.student_ec_file)
 
