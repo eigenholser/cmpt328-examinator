@@ -70,7 +70,7 @@ class Student(object):
                 ecpath, "{}-instructor.ec".format(fileroot))
 
         self.proximate = {}
-        self.questions = {} # my own questions
+        self.questions = [] # my own questions
 
     def __str__(self):
         return u'Student: {} {}'.format(self.first_name, self.last_name)
@@ -96,8 +96,13 @@ class Student(object):
         select a variation. Otherwise, select variation randomly."""
 
         # Check to see if this question has already been selected.
-        if question.question_id in self.questions:
-            return
+#       if question in self.questions:
+#           return
+
+        for question_bundle in self.questions:
+            if question in question_bundle:
+                #import pdb; pdb.set_trace()
+                return
 
         # This approach permits going over time. Suppose that the examiner is
         # conservative in his time estimations, this is reasonable. Another
@@ -111,7 +116,8 @@ class Student(object):
         if len(have_question) == 0:
             # No one else has this question. Edge case. Take it and run.
             variation = question.random_variation()
-            self.questions[question.question_id] = (variation, question)
+            #self.questions[question.question_id] = (variation, question)
+            self.questions.append((variation, question,))
             self.sub_time_budget(question.time)
             return
 
@@ -122,7 +128,8 @@ class Student(object):
         if last_variation < max_variation:
             # Choose the next variation.
             variation = last_variation + 1
-            self.questions[question.question_id] = (variation, question)
+            #self.questions[question.question_id] = (variation, question)
+            self.questions.append((variation, question,))
             self.sub_time_budget(question.time)
             return
 
@@ -135,7 +142,8 @@ class Student(object):
                     variation += 1
                 else:
                     variation -= 1
-        self.questions[question.question_id] = (variation, question)
+        #self.questions[question.question_id] = (variation, question)
+        self.questions((variation, question,))
         self.sub_time_budget(question.time)
 
     def proximates_have_question(self, question):
@@ -226,9 +234,10 @@ class Student(object):
         questions: (student_id, question_name, variation, time)
         """
         questions = []
-        for question_id in self.questions:
+        #for question_id in self.questions:
+        for question in self.questions:
             # append (student_id, question_name, variation, time)
-            question = self.questions[question_id]
+            #question = self.questions[question_id]
             questions.append((self.student_id, question[1].question_name,
                 question[0], question[1].time))
         return questions
@@ -322,7 +331,8 @@ def main(audit=None):
             os.path.dirname(os.path.realpath(__file__)), 'questions')
     m4files = [f for f in listdir(questions_path) if isfile(join(questions_path,f))
             and f.endswith(".m4")]
-    m4files = sorted(m4files)
+    if audit:
+        m4files = sorted(m4files)
     for m4file in m4files:
         question = Question(join(questions_path, m4file))
         questions[question.question_id] = question
@@ -338,7 +348,7 @@ def main(audit=None):
             ec.write(
                 '''define(`STUDENTNAME', `{}')dnl\n'''.format('AUDIT COPY'))
             ec.write('''define(`INSTRUCTOR')dnl\n''')
-            for question_id in questions.keys():
+            for question_id in sorted(questions.keys()):
                 question = questions[question_id]
                 question_name = question.question_name
                 variations = question.variations
@@ -373,13 +383,14 @@ def main(audit=None):
             # Since there is not enough content to fill the budget, build in a
             # safety valve.
             safe_counter += 1
-            if safe_counter > 100:
+            if safe_counter > 1000:
                 break
 
         print "{} -- Time: {} used, {} remains.".format(
                 current, current.TIME_BUDGET - current.time_budget,
                 current.time_budget)
         current.insert_questions()
+#       import pdb; pdb.set_trace()
         current.write_ec_file(current.instructor_ec_file, instructor=True)
         current.write_ec_file(current.student_ec_file)
 
