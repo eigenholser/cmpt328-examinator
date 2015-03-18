@@ -6,7 +6,7 @@ divert(2)dnl
 %% __file__
 %%
 \question
-Consider the following Boolean function:
+Consider the following circuit:
 dnl
 ifelse(`X'_ARG_,`X1',`
 \begin{figure}[H]
@@ -32,7 +32,7 @@ ifelse(`X'_ARG_,`X1',`
 \draw (and2.output) -- ++(right:7mm) |- (or1.input 1);
 \end{tikzpicture}
 %\caption{$\overline{B}\,C + \overline{B\,C}$}
-\caption{Boolean function.}
+\caption{Logic circuit.}
 \end{figure}
 ')dnl
 ifelse(`X'_ARG_,`X2',`
@@ -59,7 +59,7 @@ ifelse(`X'_ARG_,`X2',`
 \draw (and2.output) -- ++(right:7mm) |- (or1.input 1);
 \end{tikzpicture}
 %\caption{$B\,C + \overline{B\,C}$}
-\caption{Boolean function.}
+\caption{Logic circuit.}
 \end{figure}
 ')dnl
 ifelse(`X'_ARG_,`X3',``
@@ -86,7 +86,7 @@ ifelse(`X'_ARG_,`X3',``
 \draw (nor1.output) -- ++(right:4mm) |- (or1.input 1);
 \end{tikzpicture}
 %\caption{$\overline{B}\,\overline{C} + \overline{B\,C}$)
-\caption{Boolean function.}
+\caption{Logic circuit.}
 \end{figure}
 '')dnl
 ifelse(`X'_ARG_,`X4',``
@@ -113,7 +113,7 @@ ifelse(`X'_ARG_,`X4',``
 %\draw (and2.output) -- ++(right:7mm) |- (or1.input 1);
 \end{tikzpicture}
 %\caption{$\overline{B}\,\overline{C} + \overline{B\,C}$}
-\caption{Boolean function.}
+\caption{Logic circuit.}
 \end{figure}
 '')dnl
 \begin{enumerate}[(a)]
