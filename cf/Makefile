@@ -9,8 +9,12 @@ alllist= for x in $(wildcard *-instructor.ec) $(wildcard *-student.ec) \
 		          $(wildcard *audit.ec); do \
 			 ${ECHO} $${x%.ec}; \
 		 done
+savelist= for x in $(wildcard *-instructor.ec) $(wildcard *-student.ec); \
+			do \
+			 ${ECHO} $$x; \
+			done
 installlist= for x in $(wildcard *-instructor.ps) $(wildcard *-student.ps) \
-		          $(wildcard *-instructor.pdf) $(wildcard *-student.pdf); \
+		          $(wildcard *-instructor.pdf) $(wildcard *-student.pdf) \
 			do \
 			 ${ECHO} $$x; \
 			done
@@ -57,6 +61,14 @@ all :
 	done
 
 ${TARGET} : ${PREREQ}
+
+save :
+	install -d ../cf_save; \
+	for item in `${savelist}`; \
+	do \
+		echo "Installing cf_save/$$item"; \
+		install --mode 644 $$item ../cf_save; \
+	done
 
 install :
 	install -d ../exam; \

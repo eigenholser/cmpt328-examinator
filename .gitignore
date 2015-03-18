@@ -2,6 +2,7 @@
 *.db
 tmp/
 exam/
+cf_save/
 cf/*ps
 *.m4_
 *.aux
