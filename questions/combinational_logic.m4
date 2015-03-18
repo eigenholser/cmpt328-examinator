@@ -1,6 +1,6 @@
 divert(-1)dnl
 define(`VARIATIONS', `2')
-define(`TIME', `10')
+define(`TIME', `15')
 divert(2)dnl
 %%
 %% __file__
