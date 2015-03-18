@@ -9,6 +9,11 @@ alllist= for x in $(wildcard *-instructor.ec) $(wildcard *-student.ec) \
 		          $(wildcard *audit.ec); do \
 			 ${ECHO} $${x%.ec}; \
 		 done
+installlist= for x in $(wildcard *-instructor.ps) $(wildcard *-student.ps) \
+		          $(wildcard *-instructor.pdf) $(wildcard *-student.pdf); \
+			do \
+			 ${ECHO} $$x; \
+			done
 realcleanlist= for x in $(wildcard *-instructor*) $(wildcard *-student*) \
 			            $(wildcard *audit*); do \
 				  ${ECHO} $$x; \
@@ -52,6 +57,14 @@ all :
 	done
 
 ${TARGET} : ${PREREQ}
+
+install :
+	install -d ../exam; \
+	for item in `${installlist}`; \
+	do \
+		echo "Installing exam/$$item"; \
+		install --mode 644 $$item ../exam; \
+	done
 
 realclean:
 	@for item in `${realcleanlist}`; do\
