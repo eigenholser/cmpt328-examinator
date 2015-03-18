@@ -1,6 +1,6 @@
 divert(-1)dnl
 define(`VARIATIONS', `2')
-define(`TIME', `15')
+define(`TIME', `10')
 divert(2)dnl
 %%
 %% __file__
@@ -83,7 +83,7 @@ $$
     1 & 1 & 1 && 1 & 1 && $A\,B\,C$                                  && $m_7$\cr
     }
 }$$
-\caption{Truth table for binary full adder sum-of-products.}
+\caption{Truth table for binary full adder---sum-of-products.}
 \end{figure}
 The boolean equation is the sum of the minterms for which the result $S$ is 1.
 \begin{align}
@@ -119,7 +119,7 @@ $$
     1 & 1 & 1 && 1 & 1 && $\overline{A} + \overline{B} + \overline{C_{in}}$ && $M_7$\cr
     }
 }$$
-\caption{Truth table for binary full adder sum-of-products.}
+\caption{Truth table for binary full adder---product-of-sums.}
 \end{figure}
 The boolean equation is the product of the maxterms for which the result $S$ is 0.
 \begin{align}
@@ -156,7 +156,7 @@ $$
     1 & 1 & 1 && 0 && $A\,B\,C$                                  && $m_7$\cr
     }
 }$$
-\caption{Truth table for multiplexer logic circuit.}
+\caption{Truth table for multiplexer logic circuit---sum-of-products.}
 \end{figure}
 The boolean equation is the sum of the minterms for which the result $Y$ is 1.
 \begin{align}
@@ -190,7 +190,7 @@ $$
     1 & 1 & 1 && 0 && $\overline{A} + \overline{B} + \overline{C}$ && $M_7$\cr
     }
 }$$
-\caption{Truth table for multiplexer logic circuit product-of-sums.}
+\caption{Truth table for multiplexer logic circuit---product-of-sums.}
 \end{figure}
 The boolean equation is the product of the maxterms for which the result $Y$ is 1.
 \begin{align}

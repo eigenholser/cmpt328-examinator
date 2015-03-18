@@ -1,6 +1,6 @@
 divert(-1)dnl
 define(`VARIATIONS', `4')
-define(`TIME', `15')
+define(`TIME', `10')
 divert(2)dnl
 %%
 %% __file__
@@ -159,7 +159,7 @@ $$
     1 & 1 && 0 && 0 && 0 && $B\,C$                       && $m_3$\cr
     }
 }$$
-\caption{Truth table for $\overline{B}\,C + \overline{B\,C}$ sum-of-products.}
+\caption{Truth table for $\overline{B}\,C + \overline{B\,C}$---sum-of-products.}
 \end{figure}
 The Boolean equation in sum-of-products canonical form is the sum of the
 minterms for which $Y$ is 1.
@@ -192,7 +192,7 @@ $$
     1 & 1 && 0 && 0 && 0 && $ \overline{B} + \overline{C}$ && $M_3$\cr
     }
 }$$
-\caption{Truth table for $\overline{B}\,C + \overline{B\,C}$ product-of-sums.}
+\caption{Truth table for $\overline{B}\,C + \overline{B\,C}$---product-of-sums.}
 \end{figure}
 The Boolean equation in product-of-sums canonical form is the product of the
 maxterms for which $Y$ is 0.
@@ -207,7 +207,7 @@ Simplify the sum-of-products Boolean equation.
       &= \overline{B} \bullet (C + \overline{C}) + B\,\overline{C}\cr
       &= \overline{B} \bullet (1) + B\,\overline{C}\cr
       &= \overline{B} + B\,\overline{C}\cr
-      &= \overline{B} + \overline{C}
+    Y &= \overline{B} + \overline{C}
 \end{align}
 ''))dnl
 ifelse(`X'_ARG_,`X2',ifdef(`INSTRUCTOR',``
@@ -237,7 +237,7 @@ $$
     1 & 1 && 1 && 0 && 1 && $B\,C$                       && $m_3$\cr
     }
 }$$
-\caption{Truth table for $\overline{B}\,C + \overline{B\,C}$.}
+\caption{Truth table for $B\,C + \overline{B\,C}$---sum-of-products.}
 \end{figure}
 The Boolean equation in sum-of-products canonical form is the sum of the
 minterms for which $Y$ is 1.
@@ -270,7 +270,7 @@ $$
     1 & 1 && 1 && 0 && 1 && $ \overline{B} + \overline{C}$ && $M_3$\cr
     }
 }$$
-\caption{Truth table for $\overline{B}\,C + \overline{B\,C}$ product-of-sums.}
+\caption{Truth table for $B\,C + \overline{B\,C}$---product-of-sums.}
 \end{figure}
 The Boolean equation in product-of-sums canonical form is the product of the
 maxterms for which $Y$ is 0. There are no terms for which $Y$ is 0. Therefore,
@@ -284,7 +284,7 @@ Simplify the sum-of-products Boolean equation.
       &= (\overline{B}\,\overline{C}) + (\overline{B}\,C + B\,\overline{C} + B\,C)\cr
       &= (\overline{B}) + (B)\cr
       &= (\overline{B} + B)\cr
-      &= B
+    Y &= 1
 \end{align}
 ''))dnl
 ifelse(`X'_ARG_,`X3',ifdef(`INSTRUCTOR',``
@@ -314,7 +314,7 @@ $$
     1 & 1 && 0 && 0 && 0 && $B\,C$                       && $m_3$\cr
     }
 }$$
-\caption{Truth table for $\overline{B}\,\overline{C} + \overline{B\,C}$.}
+\caption{Truth table for $\overline{B}\,\overline{C} + \overline{B\,C}$---sum-of-products.}
 \end{figure}
 The Boolean equation in sum-of-products canonical form is the sum of the
 minterms for which $Y$ is 1.
@@ -347,7 +347,7 @@ $$
     1 & 1 && 0 && 0 && 0 && $ \overline{B} + \overline{C}$ && $M_3$\cr
     }
 }$$
-\caption{Truth table for $\overline{B}\,C + \overline{B\,C}$ product-of-sums.}
+\caption{Truth table for $\overline{B}\,\overline{C} + \overline{B\,C}$---product-of-sums.}
 \end{figure}
 The Boolean equation in product-of-sums canonical form is the product of the
 maxterms for which $Y$ is 0.
@@ -362,7 +362,7 @@ Simplify the sum-of-products Boolean equation.
       &= \overline{B} \bullet (\overline{C} + C) + B\,\overline{C}\cr
       &= \overline{B} \bullet (1) + B\,\overline{C}\cr
       &= \overline{B} + B\,\overline{C}\cr
-      &= \overline{B} + \overline{C}
+    Y &= \overline{B} + \overline{C}
 \end{align}
 ''))dnl
 ifelse(`X'_ARG_,`X4',ifdef(`INSTRUCTOR',``
@@ -393,7 +393,7 @@ $$
     1 & 1 && 0 && 0 && 0 && $B\,C$                       && $m_3$\cr
     }
 }$$
-\caption{Truth table for $\overline{B}\,\overline{C} + \overline{B\,C}$.}
+\caption{Truth table for $\overline{B}\,\overline{C} + \overline{B\,C}$---sum-of-products.}
 \end{figure}
 The Boolean equation in sum-of-products canonical form is the sum of the
 minterms for which $Y$ is 1.
@@ -426,7 +426,7 @@ $$
     1 & 1 && 0 && 0 && 0 && $ \overline{B} + \overline{C}$ && $M_3$\cr
     }
 }$$
-\caption{Truth table for $\overline{B}\,C + \overline{B\,C}$ product-of-sums.}
+\caption{Truth table for $\overline{B}\,\overline{C} + \overline{B\,C}$---product-of-sums.}
 \end{figure}
 The Boolean equation in product-of-sums canonical form is the product of the
 maxterms for which $Y$ is 0.
@@ -441,7 +441,7 @@ Simplify the sum-of-products Boolean equation.
       &= \overline{B} \bullet (\overline{C} + C) + B\,\overline{C}\cr
       &= \overline{B} \bullet (1) + B\,\overline{C}\cr
       &= \overline{B} + B\,\overline{C}\cr
-      &= \overline{B} + \overline{C}
+    Y &= \overline{B} + \overline{C}
 \end{align}
 ''))dnl
 dnl

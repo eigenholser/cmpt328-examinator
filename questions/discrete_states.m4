@@ -26,17 +26,17 @@ ifdef(`INSTRUCTOR',`
 ifelse(`X'_ARG_,`X1',ifdef(`INSTRUCTOR',``
 \begin{enumerate}[(a)]
     \item There are 20 discrete states---2 per coin with 10 coins.
-    \item Each penny represents 2 states. Therefore the base is 2. In
-    general, the range is $b^N$ where N is the number of devices. In this
-    case, $N = 10$ so the number of states is $2^{10} = 1,024$.
+    \item Each penny represents 2 states. Therefore the base is 2.
+    \item In general, the range is $b^N$ where N is the number of devices. In
+    this case, $N = 10$ so the number of states is $2^{10} = 1,024$.
 \end{enumerate}\bigskip
 ''))
 ifelse(`X'_ARG_,`X2',ifdef(`INSTRUCTOR',``
 \begin{enumerate}[(a)]
     \item There are 18 discrete states---6 per die with 3 die.
-    \item Each die represents 6 states. Therefore the base is 6. In
-    general, the range is $b^N$ where N is the number of devices. In this
-    case, $N = 3$ so the number of states is $6^3 = 216$.
+    \item Each die represents 6 states. Therefore the base is 6.
+    \item In general, the range is $b^N$ where N is the number of devices. In
+    this case, $N = 3$ so the number of states is $6^3 = 216$.
 \end{enumerate}\bigskip
 ''))
 dnl

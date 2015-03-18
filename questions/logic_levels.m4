@@ -128,7 +128,8 @@ ifdef(`TIME',`
 dnl
 ifdef(`INSTRUCTOR',`
 \textsc{solution}\\
-The answer to $(c)$ is YES in all cases.\\
+The answer to $(c)$ is YES---the LaunchPad output logic levels are
+compatible with the device input logic levels.\\
 ')
 ifelse(`X'_ARG_,`X1',ifdef(`INSTRUCTOR',`
 \begin{align}
