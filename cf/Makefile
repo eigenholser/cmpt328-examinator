@@ -63,7 +63,7 @@ all :
 ${TARGET} : ${PREREQ}
 
 save :
-	install -d ../cf_save; \
+	@install -d ../cf_save; \
 	for item in `${savelist}`; \
 	do \
 		echo "Installing cf_save/$$item"; \
@@ -71,7 +71,7 @@ save :
 	done
 
 install :
-	install -d ../exam; \
+	@install -d ../exam; \
 	for item in `${installlist}`; \
 	do \
 		echo "Installing exam/$$item"; \
