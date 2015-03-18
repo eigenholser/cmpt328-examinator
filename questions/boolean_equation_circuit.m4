@@ -1,12 +1,12 @@
 divert(-1)dnl
 define(`VARIATIONS', `4')
-define(`TIME', `10')
+define(`TIME', `15')
 divert(2)dnl
 %%
 %% __file__
 %%
 \question
-Consider the following circuit:
+Consider the following logic circuit:
 dnl
 ifelse(`X'_ARG_,`X1',`
 \begin{figure}[H]
@@ -117,9 +117,11 @@ ifelse(`X'_ARG_,`X4',``
 \end{figure}
 '')dnl
 \begin{enumerate}[(a)]
-    \item Draw a complete truth table with minterms and minterm names.
-    \item Write a Boolean equation in sum-of-products canonical form.
-    \item Simplify the Boolean equation.
+    \item Draw a complete truth table with minterms and minterm names. Write a
+    Boolean equation in sum-of-products canonical form.
+    \item Draw a complete truth table with maxterms and maxterm names. Write a
+    Boolean equation in product-of-sums canonical form.
+    \item Simplify the sum-of-products Boolean equation.
 \end{enumerate}
 dnl
 ifdef(`TIME',`
@@ -157,8 +159,48 @@ $$
     1 & 1 && 0 && 0 && 0 && $B\,C$                       && $m_3$\cr
     }
 }$$
-\caption{Truth table for $\overline{B}\,C + \overline{B\,C}$.}
+\caption{Truth table for $\overline{B}\,C + \overline{B\,C}$ sum-of-products.}
 \end{figure}
+The Boolean equation in sum-of-products canonical form is the sum of the
+minterms for which $Y$ is 1.
+\begin{align}
+    Y &= m_0 + m_1 + m_2\cr
+    Y &= \overline{B}\,\overline{C} + \overline{B}\,C + B\,\overline{C}\cr
+\end{align}
+\begin{figure}[H]
+$$
+\vbox{\offinterlineskip
+    \halign{
+        \quad\hfil $#$ \hfil &
+        \strut\quad\hfil $#$ \hfil &
+        \vrule# &
+        \quad\hfil $#$ \quad\hfil &
+        \vrule# &
+        \quad\hfil $#$ \quad\hfil &
+        \vrule# &
+        \quad\hfil # \hskip0.1em\hfil &
+        \vrule# &
+        \quad\hfil # \hfil &
+        \vrule# &
+        \quad\hfil # \hfil\cr
+        B & C && \overline{B}\,C && \overline{B\,C} && Y && maxterm && name \cr
+    \noalign{\hrule}
+    \omit & \omit & height2pt && \omit && \omit && \omit && \omit \cr
+    0 & 0 && 0 && 1 && 1 && $ B + C                      $ && $M_0$\cr
+    0 & 1 && 1 && 1 && 1 && $ B + \overline{C}           $ && $M_1$\cr
+    1 & 0 && 0 && 1 && 1 && $ \overline{B} + C           $ && $M_2$\cr
+    1 & 1 && 0 && 0 && 0 && $ \overline{B} + \overline{C}$ && $M_3$\cr
+    }
+}$$
+\caption{Truth table for $\overline{B}\,C + \overline{B\,C}$ product-of-sums.}
+\end{figure}
+The Boolean equation in product-of-sums canonical form is the product of the
+maxterms for which $Y$ is 0.
+\begin{align}
+    Y &= M_3\cr
+    Y &= \overline{B} + \overline{C}
+\end{align}
+Simplify the sum-of-products Boolean equation.
 \begin{align}
     Y &= m_0 + m_1 + m_2\cr
       &= \overline{B}\,\overline{C} + \overline{B}\,C + B\,\overline{C}\cr
@@ -197,6 +239,45 @@ $$
 }$$
 \caption{Truth table for $\overline{B}\,C + \overline{B\,C}$.}
 \end{figure}
+The Boolean equation in sum-of-products canonical form is the sum of the
+minterms for which $Y$ is 1.
+\begin{align}
+    Y &= m_0 + m_1 + m_2 + m_3\cr
+    Y &= \overline{B}\,\overline{C} + \overline{B}\,C + B\,\overline{C} + B\,C\cr
+\end{align}
+\begin{figure}[H]
+$$
+\vbox{\offinterlineskip
+    \halign{
+        \quad\hfil $#$ \hfil &
+        \strut\quad\hfil $#$ \hfil &
+        \vrule# &
+        \quad\hfil $#$ \quad\hfil &
+        \vrule# &
+        \quad\hfil $#$ \quad\hfil &
+        \vrule# &
+        \quad\hfil # \hskip0.1em\hfil &
+        \vrule# &
+        \quad\hfil # \hfil &
+        \vrule# &
+        \quad\hfil # \hfil\cr
+        B & C && \overline{B}\,C && \overline{B\,C} && Y && maxterm && name \cr
+    \noalign{\hrule}
+    \omit & \omit & height2pt && \omit && \omit && \omit && \omit \cr
+    0 & 0 && 0 && 1 && 1 && $ B + C                      $ && $M_0$\cr
+    0 & 1 && 0 && 1 && 1 && $ B + \overline{C}           $ && $M_1$\cr
+    1 & 0 && 0 && 1 && 1 && $ \overline{B} + C           $ && $M_2$\cr
+    1 & 1 && 1 && 0 && 1 && $ \overline{B} + \overline{C}$ && $M_3$\cr
+    }
+}$$
+\caption{Truth table for $\overline{B}\,C + \overline{B\,C}$ product-of-sums.}
+\end{figure}
+The Boolean equation in product-of-sums canonical form is the product of the
+maxterms for which $Y$ is 0. There are no terms for which $Y$ is 0. Therefore,
+\begin{align}
+    Y &= 1
+\end{align}
+Simplify the sum-of-products Boolean equation.
 \begin{align}
     Y &= m_0 + m_1 + m_2 + m_3\cr
       &= \overline{B}\,\overline{C} + \overline{B}\,C + B\,\overline{C} + B\,C\cr
@@ -235,6 +316,46 @@ $$
 }$$
 \caption{Truth table for $\overline{B}\,\overline{C} + \overline{B\,C}$.}
 \end{figure}
+The Boolean equation in sum-of-products canonical form is the sum of the
+minterms for which $Y$ is 1.
+\begin{align}
+    Y &= m_0 + m_1 + m_2\cr
+    Y &= \overline{B}\,\overline{C} + \overline{B}\,C + B\,\overline{C}\cr
+\end{align}
+\begin{figure}[H]
+$$
+\vbox{\offinterlineskip
+    \halign{
+        \quad\hfil $#$ \hfil &
+        \strut\quad\hfil $#$ \hfil &
+        \vrule# &
+        \quad\hfil $#$ \quad\hfil &
+        \vrule# &
+        \quad\hfil $#$ \quad\hfil &
+        \vrule# &
+        \quad\hfil # \hskip0.1em\hfil &
+        \vrule# &
+        \quad\hfil # \hfil &
+        \vrule# &
+        \quad\hfil # \hfil\cr
+        B & C && \overline{B}\,C && \overline{B\,C} && Y && maxterm && name \cr
+    \noalign{\hrule}
+    \omit & \omit & height2pt && \omit && \omit && \omit && \omit \cr
+    0 & 0 && 1 && 1 && 1 && $ B + C                      $ && $M_0$\cr
+    0 & 1 && 0 && 1 && 1 && $ B + \overline{C}           $ && $M_1$\cr
+    1 & 0 && 0 && 1 && 1 && $ \overline{B} + C           $ && $M_2$\cr
+    1 & 1 && 0 && 0 && 0 && $ \overline{B} + \overline{C}$ && $M_3$\cr
+    }
+}$$
+\caption{Truth table for $\overline{B}\,C + \overline{B\,C}$ product-of-sums.}
+\end{figure}
+The Boolean equation in product-of-sums canonical form is the product of the
+maxterms for which $Y$ is 0.
+\begin{align}
+    Y &= M_3\cr
+    Y &= \overline{B} + \overline{C}
+\end{align}
+Simplify the sum-of-products Boolean equation.
 \begin{align}
     Y &= m_0 + m_1 + m_2\cr
       &= \overline{B}\,\overline{C} + \overline{B}\,C + B\,\overline{C}\cr
@@ -274,6 +395,46 @@ $$
 }$$
 \caption{Truth table for $\overline{B}\,\overline{C} + \overline{B\,C}$.}
 \end{figure}
+The Boolean equation in sum-of-products canonical form is the sum of the
+minterms for which $Y$ is 1.
+\begin{align}
+    Y &= m_0 + m_1 + m_2\cr
+    Y &= \overline{B}\,\overline{C} + \overline{B}\,C + B\,\overline{C}\cr
+\end{align}
+\begin{figure}[H]
+$$
+\vbox{\offinterlineskip
+    \halign{
+        \quad\hfil $#$ \hfil &
+        \strut\quad\hfil $#$ \hfil &
+        \vrule# &
+        \quad\hfil $#$ \quad\hfil &
+        \vrule# &
+        \quad\hfil $#$ \quad\hfil &
+        \vrule# &
+        \quad\hfil # \hskip0.1em\hfil &
+        \vrule# &
+        \quad\hfil # \hfil &
+        \vrule# &
+        \quad\hfil # \hfil\cr
+        B & C && \overline{B}\,C && \overline{B\,C} && Y && maxterm && name \cr
+    \noalign{\hrule}
+    \omit & \omit & height2pt && \omit && \omit && \omit && \omit \cr
+    0 & 0 && 1 && 1 && 1 && $ B + C                      $ && $M_0$\cr
+    0 & 1 && 0 && 1 && 1 && $ B + \overline{C}           $ && $M_1$\cr
+    1 & 0 && 0 && 1 && 1 && $ \overline{B} + C           $ && $M_2$\cr
+    1 & 1 && 0 && 0 && 0 && $ \overline{B} + \overline{C}$ && $M_3$\cr
+    }
+}$$
+\caption{Truth table for $\overline{B}\,C + \overline{B\,C}$ product-of-sums.}
+\end{figure}
+The Boolean equation in product-of-sums canonical form is the product of the
+maxterms for which $Y$ is 0.
+\begin{align}
+    Y &= M_3\cr
+    Y &= \overline{B} + \overline{C}
+\end{align}
+Simplify the sum-of-products Boolean equation.
 \begin{align}
     Y &= m_0 + m_1 + m_2\cr
       &= \overline{B}\,\overline{C} + \overline{B}\,C + B\,\overline{C}\cr
