@@ -1,6 +1,6 @@
 divert(-1)dnl
 define(`VARIATIONS', `5')
-define(`TIME', `5')
+define(`TIME', `10')
 divert(2)dnl
 %%
 %% __file__
@@ -115,7 +115,10 @@ $$
     \item Sketch a logic level diagram with the LaunchPad driving the input of
         this device.
     \item If the output of the LaunchPad is driving these inputs, are the logic
-        levels compatible? Assume the inputs are at least 3.3$V$ tolerant.
+        levels compatible?
+ifelse(`X'_ARG_,`X3',`Assume the inputs are at least 3.3$V$ tolerant.')
+ifelse(`X'_ARG_,`X4',`Assume the inputs are at least 3.3$V$ tolerant.')
+ifelse(`X'_ARG_,`X5',`Assume the inputs are at least 3.3$V$ tolerant.')
 \end{enumerate}
 dnl
 ifdef(`TIME',`
