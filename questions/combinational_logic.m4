@@ -88,8 +88,8 @@ $$
 The boolean equation is the sum of the minterms for which the result $S$ is 1.
 \begin{align}
 S &= m_1 + m_2 + m_4 + m_7\cr
-S &= \overline{A}\,\overline{B}\,C + \overline{A}\,B\,\overline{C} +
-     A\,\overline{B}\,\overline{C} + A\,B\,C
+S &= \overline{A}\,\overline{B}\,C_{in} + \overline{A}\,B\,\overline{C_{in}} +
+     A\,\overline{B}\,\overline{C_{in}} + A\,B\,C_{in}
 \end{align}
 \begin{figure}[H]
 $$
@@ -192,7 +192,7 @@ $$
 }$$
 \caption{Truth table for multiplexer logic circuit---product-of-sums.}
 \end{figure}
-The boolean equation is the product of the maxterms for which the result $Y$ is 1.
+The boolean equation is the product of the maxterms for which the result $Y$ is 0.
 \begin{align}
 Y &= M_0 \bullet M_1 \bullet M_4 \bullet M_5 \bullet M_6 \bullet M_7\cr
 Y &= (A + B + C) \bullet (A + B + \overline{C}) \bullet (\overline{A} + B + C) \bullet
