@@ -44,7 +44,7 @@ ifelse(`X'_ARG_,`X1',ifdef(`INSTRUCTOR',``
 ''))dnl
 ifelse(`X'_ARG_,`X2',ifdef(`INSTRUCTOR',``
 \begin{align}
-    B + B\,\overline{C} &= B + C\cr
+    B + \overline{B}\,C &= B + C\cr
     B \bullet (C + 1) + \overline{B}\,C &= B + C\;\; (T2`'RQ())\cr
     B\,C + B + \overline{B}\,C &= B + C\cr
     B + (B\,C + \overline{B}\,C) &= B + C\cr
