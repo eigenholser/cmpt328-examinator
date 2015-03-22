@@ -14,7 +14,7 @@ savelist= for x in $(wildcard *-instructor.ec) $(wildcard *-student.ec); \
 			 ${ECHO} $$x; \
 			done
 installlist= for x in $(wildcard *-instructor.ps) $(wildcard *-student.ps) \
-		          $(wildcard *-instructor.pdf) $(wildcard *-student.pdf) \
+		          $(wildcard *-instructor.pdf) $(wildcard *-student.pdf); \
 			do \
 			 ${ECHO} $$x; \
 			done
@@ -82,13 +82,13 @@ realclean:
 	@for item in `${realcleanlist}`; do\
 		${ECHO} "Removing $$item"; \
 		$(RM) $$item; \
-	done;
+	done
 
 clean:
 	@for item in `${cleanlist}`; do\
 		${ECHO} "Removing $$item"; \
 		$(RM) $$item; \
-	done;
+	done
 
 tidy:
 	@for item in `${tidylist}`; do\
