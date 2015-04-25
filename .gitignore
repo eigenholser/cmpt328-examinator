@@ -4,9 +4,9 @@ tmp/
 exam/
 cf_*/
 cf/*ps
+tikz/*ps
 *.m4_
 *.aux
 *.ec
-*.tex
 *.dvi
 *.pdf

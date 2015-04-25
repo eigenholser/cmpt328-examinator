@@ -1,0 +1,19 @@
+\documentclass{article}
+
+\usepackage{circuitikz}
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+
+\begin{document}
+
+\begin{circuitikz} \draw
+    (0,2) node[and port] (myand) {}
+    (2,1) node[or port] (myor) {}
+    (myand.in 1) node[anchor=east] {A}
+    (myand.in 2) node[anchor=east] (bnode) {B}
+    (myand.out) -| (myor.in 1)
+    node[below=of bnode] (cnode) {C}
+    (cnode) -| (myor.in 2)
+;\end{circuitikz}
+
+\end{document}

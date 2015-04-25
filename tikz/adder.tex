@@ -1,0 +1,36 @@
+\documentclass[border=3mm]{standalone}
+\usepackage{tikz}
+%\begin{figure}[h]
+\usetikzlibrary[arrows]
+\usetikzlibrary{circuits.logic.US}
+\centering
+\begin{document}
+\begin{tikzpicture}[circuit logic US, minimum height=10mm]
+\matrix[column sep=10mm]
+{
+\node (i0) {$A$}; & & & & \\
+& \node [xor gate] (xor1) {$dev1$}; & \node[xor gate] (xor2) {$dev2$}; & & \\
+\node (i1) {$B$}; & & \node (cin) {};&nbsp; & & \node (o1) {$S$}; \\
+& & \node[and gate] (and1) {$dev3$}; & & \\
+\node (i2) {$C_{in}$}; & & & \node[or gate] (or1) {$dev5$};& \node (o2) {$C$};\\
+& & \node[and gate] (and2) {$dev4$}; & & \\
+};
+
+\draw[&gt;-] (i0.east) -- ++(right:3mm) |- (xor1.input 1);
+\draw[*-] (xor1.input 1) ++(-7mm,0.5mm) |- (and2.input 2);
+\draw[*-] (xor1.input 2)&nbsp; ++(-4mm,0.5mm) |- (and2.input 1);
+\draw[&gt;-] (i1.east) -- ++(right:3mm) |- (xor1.input 2);
+\draw (xor1.output) -- ++(right:3mm) |- (xor2.input 1);
+\draw[*-] (and1.input 1) ++(-3mm,-0.5mm) |- (xor2.input 2);
+\draw[&gt;-] (i2.east) -- ++(right:15mm) |- (and1.input 1);
+\draw[-&gt;] (xor2.output) -- ++(right:3mm) |- (o1.west) ;
+\draw (and1.output) -- ++(right:3mm) |- (or1.input 1) node[midway, above
+right ] {$e$};
+\draw (and2.output) -- ++(right:3mm) |- (or1.input 2) node[midway,below
+right] {$f$};
+\draw[-&gt;] (or1.output) -- (o2.west);
+
+\end{tikzpicture}
+%\caption{\small A full adder.}
+%\end{figure}
+\end{document}

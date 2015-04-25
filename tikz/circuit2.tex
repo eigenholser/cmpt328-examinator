@@ -1,0 +1,26 @@
+\documentclass[border=3mm]{standalone}
+\usepackage{tikz}
+\usetikzlibrary{circuits.logic.US}
+
+\begin{document}
+\begin{tikzpicture}[circuit logic US,
+                    tiny circuit symbols,
+                    every circuit symbol/.style={fill=white,draw,logic gate input sep=4mm, logic gate inverted radius=1mm}
+]
+
+\node [nand gate, inputs = nn] at (0,0) (nand1) {};
+\node [and gate, inputs = nn] at ($(nand1.south) + (0,2.0cm)$) (and2) {};
+\node [or gate, inputs = nn, anchor=input 2] at ($(nand1.north)+(2.0cm,0)$) (or1) {};
+%
+\draw (and2.input 1) -- ++(left:15mm) node[left] (B) {$B$};
+\draw (and2.input 2) -- ++(left:15mm) node[left] (C) {$C$};
+%\node (C) at (A|-or1.input 2) {$C$};
+%\draw (or1.input 1) -- (C);
+\draw (nand1.output) -- ++(right:5mm) |- (or1.input 2);
+\draw (or1.output) -- ++(right:5mm) node[right] (Y) {$Y$};
+%
+\draw (and2.input 1) -- ++(left:5mm) |- (nand1.input 1);
+\draw (and2.input 2) -- ++(left:10mm) |- (nand1.input 2);
+\draw (and2.output) -- ++(right:7mm) |- (or1.input 1);
+\end{tikzpicture}
+\end{document}

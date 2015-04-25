@@ -1,0 +1,12 @@
+\documentclass[border=3mm]{standalone}
+\usepackage{circuitikz}
+\usetikzlibrary{circuits.logic.US}
+
+\begin{document}
+\begin{circuitikz} \draw
+    (0,0) node[and port] (myand) {}
+    (myand.in 1) node[anchor=east] {1}
+    (myand.in 2) node[anchor=east] {2}
+    (myand.out) node[anchor=west] {3}
+;\end{circuitikz}
+\end{document}

@@ -1,0 +1,18 @@
+\documentclass{standalone}
+\usepackage{circuitikz}
+%
+\begin{document}
+\begin{circuitikz} \draw
+    (0,2) node[and port] (myand) {}
+    (2,1) node[or port] (myor) {}
+    (myand.in 1) node[above left=.5cm](a) {A}
+    (myand.in 2) node[below left = .5cm](b) {B}
+    (myand.out) -| (myor.in 1)
+    (a) -| (myand.in 1)
+    (b) -| (myand.in 2)
+    (b) node[below=1cm](c){C}
+    (c) -| (myor.in 2)
+    (c) node[draw, rectangle,inner sep=1pt,below=.5cm, right=.9cm](c){A$\cdot$B$+$C};
+\end{circuitikz}
+%
+\end{document}
