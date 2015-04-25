@@ -137,8 +137,7 @@ ifelse(`X'_ARG_,`X1',``
     node[left]{$B$};
 
 \end{tikzpicture}
-%\caption{$B\,C + \overline{B\,C}$}
-\caption{Logic circuit.}
+\caption{Logic circuit implemented using multiplexers.}
 \end{figure}
 '')dnl
 ifelse(`X'_ARG_,`X2',``
@@ -268,8 +267,7 @@ ifelse(`X'_ARG_,`X2',``
 
 \end{tikzpicture}
 
-%\caption{$\overline{B}\,\overline{C} + \overline{B\,C}$)
-\caption{Logic circuit.}
+\caption{Logic circuit implemented using multiplexers.}
 \end{figure}
 '')dnl
 \begin{enumerate}[(a)]
@@ -289,7 +287,8 @@ ifdef(`INSTRUCTOR',`
 \textsc{solution}\\
 ')
 ifelse(`X'_ARG_,`X1',ifdef(`INSTRUCTOR',``
-The Boolean function is $\overline{B}\,C + \overline{B\,C}$.
+The Boolean function is the covering theorem T9.
+
 \begin{figure}[H]
 $$
 \vbox{\offinterlineskip
@@ -362,7 +361,8 @@ Simplify the sum-of-products Boolean equation.
 \end{align}
 ''))dnl
 ifelse(`X'_ARG_,`X2',ifdef(`INSTRUCTOR',``
-The Boolean function is $\overline{B}\,C + \overline{B\,C}$.
+The Boolean function is covering theorem dual T9.
+
 \begin{figure}[H]
 $$
 \vbox{\offinterlineskip
@@ -386,7 +386,7 @@ $$
     1 & 1 && 1 && 1 && $B\,C$                       && $m_3$\cr
     }
 }$$
-\caption{Truth table for $\overline{B}\,C + \overline{B\,C}$---sum-of-products.}
+\caption{Truth table for multiplexer logic circuit---sum-of-products.}
 \end{figure}
 The Boolean equation in sum-of-products canonical form is the sum of the
 minterms for which $Y$ is 1.
@@ -417,7 +417,7 @@ $$
     1 & 1 && 1 && 1 && $\overline{B} + \overline{C}$ && $M_3$\cr
     }
 }$$
-\caption{Truth table for $\overline{B}\,C + \overline{B\,C}$---product-of-sums.}
+\caption{Truth table for multiplexer logic circuit---product-of-sums.}
 \end{figure}
 The Boolean equation in product-of-sums canonical form is the product of the
 maxterms for which $Y$ is 0.
