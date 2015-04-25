@@ -40,7 +40,7 @@
 \vskip 10pt
 \centerline{\cmssa CMPT\kern7pt328}
 \vskip 3.5in
-\centerline{\cmssb \raise5pt \hbox{MIDTERM EXAM}}
+\centerline{\cmssb \raise5pt \hbox{upcase(EXAMINATORNAME) EXAM}}
 \vfill
 %\centerline{\cmss \raise5pt\hbox{\hss WEDNESDAY MARCH 18, 2015\hss}}
 \centerline{\cmssa \raise10pt \hbox{STUDENT:} \raise10pt\hbox{$\underline{\hbox{STUDENTNAME\hss}}$}}

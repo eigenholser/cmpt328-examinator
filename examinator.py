@@ -52,13 +52,14 @@ class Student(object):
     SAFE_DISTANCE = 2
     TIME_BUDGET = 110
 
-    def __init__(self, row):
+    def __init__(self, row, exam_name):
         self.student_id = row[0]
         self.first_name = row[1]
         self.last_name = row[2]
         self.xcoord = row[5]
         self.ycoord = row[6]
         self.time_budget = Student.TIME_BUDGET
+        self.exam_name = exam_name
 
         # ec file names for student copy and instructor copy.
         ecpath = join(os.path.dirname(os.path.realpath(__file__)), 'cf')
@@ -256,7 +257,11 @@ class Student(object):
         questions = self.get_questions()
         full_name = "{} {}".format(self.first_name, self.last_name)
         with open(ecfile, 'w') as ec:
-            ec.write('''divert(0)dnl\n''')
+            ec.write(
+                '''divert(0)dnl\n''')
+            ec.write(
+                '''define(`EXAMINATORNAME',`{}')dnl\n'''.format(
+                    self.exam_name))
             ec.write(
                 '''define(`STUDENTNAME', `{}')dnl\n'''.format(full_name))
             if instructor:
@@ -319,7 +324,7 @@ class Question(object):
         return random.choice(range(self.variations)) + 1
 
 
-def main(audit=None):
+def main(audit=None, exam_name=None):
     # Remove all questions each run.
     cur.execute('DELETE FROM questions')
     conn.commit()
@@ -329,14 +334,15 @@ def main(audit=None):
     cur.execute('SELECT * FROM STUDENTS LEFT JOIN GRID ON STUDENTS.id = GRID.student_id')
     rows = cur.fetchall()
     for row in rows:
-        student = Student(row)
+        student = Student(row, exam_name)
         # TODO: may want this to be a list
         students[student.student_id] = student
 
     # Read questions
     questions = {}
     questions_path = join(
-            os.path.dirname(os.path.realpath(__file__)), 'questions')
+        os.path.dirname(
+                os.path.realpath(__file__)), 'questions', exam_name)
     m4files = [f for f in listdir(questions_path) if isfile(join(questions_path,f))
             and f.endswith(".m4")]
     if audit:
@@ -352,10 +358,14 @@ def main(audit=None):
         audit_file = join(
                 os.path.dirname(os.path.realpath(__file__)), 'cf', 'audit.ec')
         with open(audit_file, 'w') as ec:
-            ec.write('''divert(0)dnl\n''')
+            ec.write(
+                '''divert(0)dnl\n''')
+            ec.write(
+                '''define(`EXAMINATORNAME',`{}')dnl\n'''.format(exam_name))
             ec.write(
                 '''define(`STUDENTNAME', `{}')dnl\n'''.format('AUDIT COPY'))
-            ec.write('''define(`INSTRUCTOR')dnl\n''')
+            ec.write(
+                '''define(`INSTRUCTOR')dnl\n''')
             for question_id in sorted(questions.keys()):
                 question = questions[question_id]
                 question_name = question.question_name
@@ -405,8 +415,14 @@ def main(audit=None):
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('--audit', action='store_true', help='Dump all questions.')
+    parser.add_argument('--exam-name', type=str, help='Exam name.')
     args = parser.parse_args()
     audit = args.audit
+    exam_name = args.exam_name
+
+    if not exam_name:
+        print "Must specify an exam name, e.g. --exam-name=midterm"
+        sys.exit(1)
 
     conn = None
     try:
@@ -419,4 +435,4 @@ if __name__ == '__main__':
         print "Error {}".format(e.args[0])
         sys.exit(1)
 
-    main(audit=audit)
+    main(audit=audit, exam_name=exam_name)
