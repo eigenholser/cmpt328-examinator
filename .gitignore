@@ -3,6 +3,7 @@
 tmp/
 exam/
 cf_*/
+cf/*tex
 cf/*ps
 tikz/*ps
 *.m4_
