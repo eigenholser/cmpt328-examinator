@@ -263,6 +263,8 @@ class Student(object):
                 '''define(`EXAMINATORNAME',`{}')dnl\n'''.format(
                     self.exam_name))
             ec.write(
+                '''define(`QUESTIONSDIR',`{}')dnl\n'''.format(questions_dir))
+            ec.write(
                 '''define(`STUDENTNAME', `{}')dnl\n'''.format(full_name))
             if instructor:
                 ec.write('''define(`INSTRUCTOR')dnl\n''')
@@ -324,7 +326,7 @@ class Question(object):
         return random.choice(range(self.variations)) + 1
 
 
-def main(audit=None, exam_name=None):
+def main(audit=None, exam_name=None, questions_dir=None):
     # Remove all questions each run.
     cur.execute('DELETE FROM questions')
     conn.commit()
@@ -342,7 +344,7 @@ def main(audit=None, exam_name=None):
     questions = {}
     questions_path = join(
         os.path.dirname(
-                os.path.realpath(__file__)), 'questions', exam_name)
+                os.path.realpath(__file__)), 'questions', questions_dir)
     m4files = [f for f in listdir(questions_path) if isfile(join(questions_path,f))
             and f.endswith(".m4")]
     if audit:
@@ -362,6 +364,8 @@ def main(audit=None, exam_name=None):
                 '''divert(0)dnl\n''')
             ec.write(
                 '''define(`EXAMINATORNAME',`{}')dnl\n'''.format(exam_name))
+            ec.write(
+                '''define(`QUESTIONSDIR',`{}')dnl\n'''.format(questions_dir))
             ec.write(
                 '''define(`STUDENTNAME', `{}')dnl\n'''.format('AUDIT COPY'))
             ec.write(
@@ -416,12 +420,18 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('--audit', action='store_true', help='Dump all questions.')
     parser.add_argument('--exam-name', type=str, help='Exam name.')
+    parser.add_argument('--questions-dir', type=str, help='Questions dir.')
     args = parser.parse_args()
     audit = args.audit
     exam_name = args.exam_name
+    questions_dir = args.questions_dir
 
     if not exam_name:
         print "Must specify an exam name, e.g. --exam-name=midterm"
+        sys.exit(1)
+
+    if not questions_dir:
+        print "Must specify path to questions."
         sys.exit(1)
 
     conn = None
@@ -435,4 +445,4 @@ if __name__ == '__main__':
         print "Error {}".format(e.args[0])
         sys.exit(1)
 
-    main(audit=audit, exam_name=exam_name)
+    main(audit=audit, exam_name=exam_name, questions_dir=questions_dir)

@@ -40,9 +40,9 @@
 \vskip 10pt
 \centerline{\cmssa CMPT\kern7pt328}
 \vskip 3.5in
-\centerline{\cmssb \raise5pt \hbox{upcase(EXAMINATORNAME) EXAM}}
+\centerline{\cmssb \raise5pt \hbox{upcase(EXAMINATORNAME)}}
 \vfill
-%\centerline{\cmss \raise5pt\hbox{\hss WEDNESDAY MARCH 18, 2015\hss}}
+%\centerline{\cmss \raise5pt\hbox{\hss WEDNESDAY APRIL 29, 2015\hss}}
 \centerline{\cmssa \raise10pt \hbox{STUDENT:} \raise10pt\hbox{$\underline{\hbox{STUDENTNAME\hss}}$}}
 \hrule depth 0.4pt
 \vskip 1.1pt

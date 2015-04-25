@@ -24,6 +24,6 @@ changequote`'')
 define(`RQ',`changequote(<,>)dnl`
 'changequote`'')
 define(`upcase', `translit(`$*', `a-z', `A-Z')')
-define(`QUESTION', `PUSHDIVERT(-1)define(`_ARG_', `$2')include(_CF_DIR_`'questions/`'EXAMINATORNAME`'/$1.m4)POPDIVERT`'')
+define(`QUESTION', `PUSHDIVERT(-1)define(`_ARG_', `$2')include(_CF_DIR_`'questions/`'QUESTIONSDIR`'/$1.m4)POPDIVERT`'')
 m4wrap(`include(_CF_DIR_`m4/proto.m4')')
 divert(-1)dnl
