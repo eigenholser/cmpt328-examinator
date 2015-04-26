@@ -87,7 +87,8 @@ $$
     0 & 1 & 0 && 1 & 0 \cr
     1 & 0 & 0 && 1 & 0 \cr
     1 & 1 & 0 && 0 & 1 \cr
-%
+    \noalign{\hrule}
+    \omit & \omit & \omit & height2pt & \omit \cr
     0 & 0 & 1 && 1 & 0 \cr
     0 & 1 & 1 && 0 & 1 \cr
     1 & 0 & 1 && 0 & 1 \cr
