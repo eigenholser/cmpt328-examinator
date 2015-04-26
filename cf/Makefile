@@ -39,6 +39,7 @@ tidylist= for x in $(wildcard *-instructor*) $(wildcard *-student*) \
 
 %.dvi : %.tex
 	@latex $< > /dev/null 2>&1
+	@latex $< > /dev/null 2>&1
 
 %.ps : %.dvi
 	@dvips $< > /dev/null 2>&1
