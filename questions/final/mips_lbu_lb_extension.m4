@@ -31,12 +31,6 @@ ifelse(`X'_ARG_,`X3',`
     \item What is the value in MIPS register \texttt{\$s1} after
     \texttt{lb \$s1, 1(\$s0)} is executed?
 \end{enumerate}
-ifelse(`X'_ARG_,`X1',`
-')dnl
-ifelse(`X'_ARG_,`X2',`
-')dnl
-ifelse(`X'_ARG_,`X3',`
-')dnl
 dnl
 ifdef(`TIME',`
 \textit{Estimated time to complete this question is 'TIME` minutes.}
@@ -45,20 +39,79 @@ dnl
 ifdef(`INSTRUCTOR',`
 \textsc{solution}\\
 ')
-ifelse(`X'_ARG_,`X1',
-ifdef(`INSTRUCTOR',``
-If/else statement.
-\bigskip
-''))dnl
-ifelse(`X'_ARG_,`X2',
-ifdef(`INSTRUCTOR',``
-While loop.
-\bigskip
-''))dnl
-ifelse(`X'_ARG_,`X3',
-ifdef(`INSTRUCTOR',``
-For loop.
-\bigskip
-''))dnl
+dnl ifelse(`X'_ARG_,`X1',
+ifdef(`INSTRUCTOR',`
+\begin{enumerate}[(a)]
+
+% Unsigned load does zero-extension.
+%
+\item The byte at offset 2 is zero-extended to 32 bits and loaded into
+register \texttt{\$s1}. After \texttt{lbu \$s1, 2(\$s0)}, \texttt{\$s1}
+contains:
+
+\begin{center}
+\begin{tabular}{|c|c|c|c|}
+    \hline
+    ifelse(`X'_ARG_,`X1',`
+    00 & 00 & 00 & 8F \\
+    ')dnl
+    ifelse(`X'_ARG_,`X2',`
+    00 & 00 & 00 & A1 \\
+    ')dnl
+    ifelse(`X'_ARG_,`X3',`
+    00 & 00 & 00 & C9 \\
+    ')dnl
+    \hline
+\end{tabular}
+\end{center}
+
+% Signed load does sign-extension.
+%
+\item The byte at offset 2 is sign-extended to 32 bits and loaded into
+register \texttt{\$s1}. Since this byte is a negative two`'RQ()s complement
+number, the sign bit is 1. After \texttt{lb \$s1, 2(\$s0)}, \texttt{\$s1}
+contains:
+
+\begin{center}
+\begin{tabular}{|c|c|c|c|}
+    \hline
+    ifelse(`X'_ARG_,`X1',`
+    FF & FF & FF & 8F \\
+    ')dnl
+    ifelse(`X'_ARG_,`X2',`
+    FF & FF & FF & A1 \\
+    ')dnl
+    ifelse(`X'_ARG_,`X3',`
+    FF & FF & FF & C9 \\
+    ')dnl
+    \hline
+\end{tabular}
+\end{center}
+
+% Signed load does sign-extension.
+%
+\item The byte at offset 1 is sign-extended to 32 bits and loaded into
+register \texttt{\$s1}. Since this byte is a posive two`'RQ()s complement
+number, the sign bit is 0. After \texttt{lb \$s1, 2(\$s0)}, \texttt{\$s1}
+contains:
+
+\begin{center}
+\begin{tabular}{|c|c|c|c|}
+    \hline
+    ifelse(`X'_ARG_,`X1',`
+    00 & 00 & 00 & 7F \\
+    ')dnl
+    ifelse(`X'_ARG_,`X2',`
+    00 & 00 & 00 & 3F \\
+    ')dnl
+    ifelse(`X'_ARG_,`X3',`
+    00 & 00 & 00 & 2D \\
+    ')dnl
+    \hline
+\end{tabular}
+\end{center}
+
+\end{enumerate}
+')dnl
 ifdef(`INSTRUCTOR',`\bigskip')
 divert(0)dnl
