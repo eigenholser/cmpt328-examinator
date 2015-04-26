@@ -49,33 +49,6 @@ ifelse(`X'_ARG_,`X1',``
 \label{fig:seqlog1}
 \end{figure}
 '')dnl
-ifelse(`X'_ARG_,`X2',``
-\begin{figure}[H]
-    \centering
-
-\begin{tikzpicture}[circuit logic US,
-                    tiny circuit symbols,
-                    every circuit symbol/.style={fill=white,draw,logic gate input sep=4mm, logic gate inverted radius=1mm}
-]
-\draw (0,0)coordinate (O)--++(90:3)coordinate (A)--++(180:2)coordinate (B)--++(270:3)coordinate (C)--cycle;
-\draw ($(C)!0.50!(B)$)--++(0:-1)node[left]{$B$};
-\draw ($(C)!0.30!(B)$)--++(0:-1)node[left]{$C$};
-\draw ($(A)!0.50!(B)$)++(90:-2mm)node[font=\footnotesize]{2:4};
-\draw ($(A)!0.50!(B)$)++(90:-5mm)node[font=\footnotesize]{Decoder};
-\foreach \y/\t/\b/\c in {0.1/0/0/0,0.2/1/0/1,0.3/2/1/0,0.4/3/1/1} {
-\draw ($(A)! 0.2 + \y*1.5 !(O)$)--++(0:2cm) node[right] (hot\t) {$Y_{\t}$};
-\draw ($(A)! 0.2 + \y*1.5 !(O)$)++(0:-0.1) node[left,font=\footnotesize] {$\b$ $\c$};}
-\node [or gate, inputs = nn, point down] at (1,-0.75) (or1) {};
-\draw (or1.output) -- ++(down:6mm) ++(down:4mm) node[] (Y) {$Y$};
-\draw (or1.input 1) |- (hot0);
-\draw (or1.input 2) |- (hot1);
-\end{tikzpicture}
-
-\caption{Logic circuit implemented using decoder.
-\protect\label{sequentiallogic1}
-}
-\end{figure}
-'')dnl
 \begin{enumerate}[(a)]
     \item Identify the logic circuit in Figure~\ref{fig:seqlog1}. Be specific.
     \item Describe the different elements of this circuit.

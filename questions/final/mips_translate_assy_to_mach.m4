@@ -24,6 +24,8 @@ ifelse(`X'_ARG_,`X3',`
     \item \texttt{lw \$s0, 0x80(\$s1)}
 \end{enumerate}')dnl
 dnl
+Represent the machine language instructions in both hexadecimal and octal.
+\bigskip
 ifdef(`TIME',`
 \textit{Estimated time to complete this question is 'TIME` minutes.}
 \bigskip')
