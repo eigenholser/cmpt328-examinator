@@ -138,6 +138,7 @@ ifelse(`X'_ARG_,`X1',``
 
 \end{tikzpicture}
 \caption{Logic circuit implemented using multiplexers.}
+\label{fig:muxlogic1}
 \end{figure}
 '')dnl
 ifelse(`X'_ARG_,`X2',``
@@ -268,6 +269,7 @@ ifelse(`X'_ARG_,`X2',``
 \end{tikzpicture}
 
 \caption{Logic circuit implemented using multiplexers.}
+\label{fig:muxlogic2}
 \end{figure}
 '')dnl
 \begin{enumerate}[(a)]
@@ -276,6 +278,7 @@ ifelse(`X'_ARG_,`X2',``
     \item Draw a complete truth table with maxterms and maxterm names. Write a
     Boolean equation in product-of-sums canonical form.
     \item Simplify the sum-of-products Boolean equation.
+    \item Simplify the product-of-sums Boolean equation.
 \end{enumerate}
 dnl
 ifdef(`TIME',`
@@ -287,7 +290,12 @@ ifdef(`INSTRUCTOR',`
 \textsc{solution}\\
 ')
 ifelse(`X'_ARG_,`X1',ifdef(`INSTRUCTOR',``
-The Boolean function is the covering theorem T9.
+The Boolean function illustrates the covering theorem T9.
+
+\begin{enumerate}[(a)]
+
+\item Truth table for Figure~\ref{fig:muxlogic1} with minterms and minterm
+names.
 
 \begin{figure}[H]
 $$
@@ -312,14 +320,23 @@ $$
     1 & 1 && 1 && 1 && $B\,C$                       && $m_3$\cr
     }
 }$$
-\caption{Truth table for multiplexer logic circuit---sum-of-products.}
+\caption{Truth table for multiplexer logic circuit in
+Figure~\ref{fig:muxlogic1}---sum-of-products.}
 \end{figure}
+
 The Boolean equation in sum-of-products canonical form is the sum of the
 minterms for which $Y$ is 1.
+
 \begin{align}
     Y &= m_2 + m_3\cr
     Y &= B\,\overline{C} + B\,C\cr
 \end{align}
+
+%% Maxterms
+%%
+\item Truth table for Figure~\ref{fig:muxlogic1} with maxterms and maxterm
+names.
+
 \begin{figure}[H]
 $$
 \vbox{\offinterlineskip
@@ -345,13 +362,16 @@ $$
 }$$
 \caption{Truth table for multiplexer logic circuit---product-of-sums.}
 \end{figure}
+
 The Boolean equation in product-of-sums canonical form is the product of the
 maxterms for which $Y$ is 0.
 \begin{align}
-    Y &= M_0 \bullet M_2\cr
+    Y &= M_0 \bullet M_1\cr
     Y &= (B + C) \bullet (B + \overline{C})
 \end{align}
-Simplify the sum-of-products Boolean equation.
+
+\item Simplify the sum-of-products Boolean equation.
+
 \begin{align}
     Y &= m_2 + m_3\cr
       &= B\,\overline{C} + B\,C\cr
@@ -359,9 +379,28 @@ Simplify the sum-of-products Boolean equation.
       &= B \bullet 1\cr
     Y &= B
 \end{align}
+
+\item Simplify the product-of-sums Boolean equation.
+
+\begin{align}
+    Y &= M_0 \bullet M_2\cr
+      &= (B + C) \bullet (B + \overline{C})\cr
+      &= B\,B + B\,\overline{C} + B\,C + C\,\overline{C}\cr
+      &= B + B \bullet (C + \overline{C}) + 0\cr
+      &= B + B \bullet 1\cr
+      &= B + B\cr
+    Y &= B
+\end{align}
+
+\end{enumerate}
 ''))dnl
 ifelse(`X'_ARG_,`X2',ifdef(`INSTRUCTOR',``
-The Boolean function is covering theorem dual T9.
+The Boolean function illustrates the covering theorem dual T9.
+
+\begin{enumerate}[(a)]
+
+\item Truth table for Figure~\ref{fig:muxlogic2} with minterms and minterm
+names.
 
 \begin{figure}[H]
 $$
@@ -386,14 +425,22 @@ $$
     1 & 1 && 1 && 1 && $B\,C$                       && $m_3$\cr
     }
 }$$
-\caption{Truth table for multiplexer logic circuit---sum-of-products.}
+\caption{Truth table for multiplexer logic circuit in
+Figure~\ref{fig:muxlogic2}---sum-of-products.}
 \end{figure}
+
 The Boolean equation in sum-of-products canonical form is the sum of the
 minterms for which $Y$ is 1.
 \begin{align}
     Y &= m_2 + m_3\cr
     Y &= B\,\overline{C} + B\,C\cr
 \end{align}
+
+%% Maxterms
+%%
+\item Truth table for Figure~\ref{fig:muxlogic1} with maxterms and maxterm
+names.
+
 \begin{figure}[H]
 $$
 \vbox{\offinterlineskip
@@ -425,7 +472,9 @@ maxterms for which $Y$ is 0.
     Y &= M_0 \bullet M_2\cr
     Y &= (B + C) \bullet (B + \overline{C})
 \end{align}
-Simplify the sum-of-products Boolean equation.
+
+\item Simplify the sum-of-products Boolean equation.
+
 \begin{align}
     Y &= m_2 + m_3\cr
       &= B\,\overline{C} + B\,C\cr
@@ -433,6 +482,20 @@ Simplify the sum-of-products Boolean equation.
       &= B \bullet 1\cr
     Y &= B
 \end{align}
+
+\item Simplify the product-of-sums Boolean equation.
+
+\begin{align}
+    Y &= M_0 \bullet M_2\cr
+      &= (B + C) \bullet (B + \overline{C})\cr
+      &= B\,B + B\,\overline{C} + B\,C + C\,\overline{C}\cr
+      &= B + B \bullet (C + \overline{C}) + 0\cr
+      &= B + B \bullet 1\cr
+      &= B + B\cr
+    Y &= B
+\end{align}
+
+\end{enumerate}
 ''))dnl
 dnl
 ifdef(`INSTRUCTOR',`\bigskip')
