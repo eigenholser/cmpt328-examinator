@@ -46,13 +46,17 @@ ifelse(`X'_ARG_,`X1',``
 \end{figure}
 '')dnl
 \begin{enumerate}[(a)]
-    \item Is the circuit shown in Figure~\ref{fig:fulladder} an example of
-    combinational logic or sequential logic? Why?
+    \item Is the full adder circuit shown in Figure~\ref{fig:fulladder} an
+    example of combinational logic or sequential logic? Why?
     \item Draw a complete truth table. In your truth table show the values of
     each literal: $A$, $B$, $C_{in}$, $S$, and $C_{out}$.
-    \item Explain how the full adder works. Approach your explanation in the
-    same way that the SR Latch operation is explained in the text on page
-    111.
+    \item Explain how the full adder works. Consider the discrete cases where:
+    \protect\begin{enumerate}[I]
+        \item $A$ and $B$ do not generate a carry and $C_{in}$ is 0.
+        \item $A$ and $B$ do not generate a carry and $C_{in}$ is 1.
+        \item $A$ and $B$ do generate a carry and $C_{in}$ is 0.
+        \item $A$ and $B$ do generate a carry and $C_{in}$ is 1.
+    \end{enumerate}
 \end{enumerate}
 dnl
 ifdef(`TIME',`
@@ -83,6 +87,11 @@ $$
     0 & 1 & 0 && 1 & 0 \cr
     1 & 0 & 0 && 1 & 0 \cr
     1 & 1 & 0 && 0 & 1 \cr
+%
+    0 & 0 & 1 && 1 & 0 \cr
+    0 & 1 & 1 && 0 & 1 \cr
+    1 & 0 & 1 && 0 & 1 \cr
+    1 & 1 & 1 && 1 & 1 \cr
     }
 }$$
 \caption{Truth table for full adder---Figure~\ref{fig:fulladder}}
