@@ -11,12 +11,12 @@
 \node [nor gate, inputs = nn] at (0,0) (nor1) {};
 \node [and gate, inputs = ii, anchor=output] at ($(nor1.output)+(4.0cm,0)$) (and1) {};
 %
-\draw (nor1.input 1) -- ++(left:5mm) node[left] (B1) {$A$};
-\draw (nor1.input 2) -- ++(left:5mm) node[left] (C1) {$B$};
+\draw (nor1.input 1) -- ++(left:5mm) node[left] (B1) {$B$};
+\draw (nor1.input 2) -- ++(left:5mm) node[left] (C1) {$C$};
 \draw (nor1.output) -- ++(right:3mm) node[right] (Y1) {$Y$};
 
-\draw (and1.input 1) -- ++(left:3mm) node[left] (B2) {$A$};
-\draw (and1.input 2) -- ++(left:3mm) node[left] (C2) {$B$};
+\draw (and1.input 1) -- ++(left:3mm) node[left] (B2) {$B$};
+\draw (and1.input 2) -- ++(left:3mm) node[left] (C2) {$C$};
 \draw (and1.output) -- ++(right:5mm) node[right] (Y2) {$Y$};
 \end{tikzpicture}
 \end{document}
