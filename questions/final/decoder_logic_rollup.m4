@@ -64,6 +64,7 @@ ifelse(`X'_ARG_,`X2',``
     \item Draw a complete truth table with maxterms and maxterm names. Write a
     Boolean equation in product-of-sums canonical form.
     \item Simplify the sum-of-products Boolean equation.
+    \item Simplify the product-of-sums Boolean equation.
 \end{enumerate}
 dnl
 ifdef(`TIME',`
