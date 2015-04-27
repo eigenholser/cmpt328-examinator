@@ -6,7 +6,7 @@ divert(2)dnl
 %% __file__
 %%
 \question
-Consider the following logic circuit:
+Consider the following implementation of a full binary adder:
 dnl
 ifelse(`X'_ARG_,`X1',``
 \begin{figure}[H]
