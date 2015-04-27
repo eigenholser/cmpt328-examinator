@@ -134,7 +134,7 @@ $$
     1 & 1 && 0 \cr
     }
 }$$
-\caption{Truth table for NOR gate, Figure~\ref{fig:demorgan1}}
+\caption{Truth table for NOR gate, Figure~\ref{fig:demorgan2}}
 \end{figure}
 
 \begin{figure}[H]
@@ -154,7 +154,7 @@ $$
     1 & 1 && 0 \cr
     }
 }$$
-\caption{Truth table for AND gate with inverted inputs, Figure~\ref{fig:demorgan1}}
+\caption{Truth table for AND gate with inverted inputs, Figure~\ref{fig:demorgan2}}
 \end{figure}
 
 ''))dnl

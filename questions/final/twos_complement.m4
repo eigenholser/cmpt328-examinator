@@ -75,8 +75,8 @@ relationships established above is:
 
 \begin{align}
 N_2 &= log_2 R_k\cr
-N_2 &= log_2 447\cr
-N_2 &= 8.8047
+    &= log_2 447\cr
+N_2 &= 8.8041
 \end{align}
 
 The number of whole binary digits necessary to represent the decimal number 447
@@ -113,8 +113,8 @@ relationships established above is:
 
 \begin{align}
 N_2 &= log_2 R_k\cr
-N_2 &= log_2 384\cr
-N_2 &= 8.5857
+    &= log_2 384\cr
+N_2 &= 8.5849
 \end{align}
 
 The number of whole binary digits necessary to represent the decimal number 384
@@ -152,8 +152,8 @@ relationships established above is:
 
 \begin{align}
 N_2 &= log_2 R_k\cr
-N_2 &= log_2 513\cr
-N_2 &= 8.5857
+    &= log_2 513\cr
+N_2 &= 9.0028
 \end{align}
 
 The number of whole binary digits necessary to represent the decimal number 513
@@ -190,8 +190,8 @@ relationships established above is:
 
 \begin{align}
 N_2 &= log_2 R_k\cr
-N_2 &= log_2 257\cr
-N_2 &= 8.0063
+    &= log_2 257\cr
+N_2 &= 8.0056
 \end{align}
 
 The number of whole binary digits necessary to represent the decimal number 257

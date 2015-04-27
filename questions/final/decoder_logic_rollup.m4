@@ -67,6 +67,7 @@ ifelse(`X'_ARG_,`X2',``
     Simplify the Boolean equation.
     \item Write a Boolean equation in product-of-sums canonical form.
     Simplify the Boolean equation.
+    \item Which theorem of Boolean algebra does this circuit illustrate?
 \end{enumerate}
 dnl
 ifdef(`TIME',`
@@ -78,7 +79,6 @@ ifdef(`INSTRUCTOR',`
 \textsc{solution}\\
 ')
 ifelse(`X'_ARG_,`X1',ifdef(`INSTRUCTOR',``
-The Boolean function illustrates theorem of Boolean algebra T10 combining.
 
 \begin{enumerate}[(a)]
 
@@ -159,10 +159,11 @@ maxterms for which $Y$ is 0.
     Y &= B
 \end{align}
 
+\item The Boolean function illustrates theorem of Boolean algebra T10 combining.
+
 \end{enumerate}
 ''))dnl
 ifelse(`X'_ARG_,`X2',ifdef(`INSTRUCTOR',``
-The Boolean function illustrates theorem of Boolean algebra T10 combining.
 
 \begin{enumerate}[(a)]
 
@@ -191,7 +192,7 @@ $$
 }$$
 \caption{Truth table for decoder logic circuit---sum-of-products.}
 \end{figure}
-\item Truth table for circuit in Figure~\ref{fig:decoderlogic1} with maxterms
+\item Truth table for circuit in Figure~\ref{fig:decoderlogic2} with maxterms
 and maxterm names.
 \begin{figure}[H]
 $$
@@ -241,6 +242,9 @@ maxterms for which $Y$ is 0.
       &= \overline{B} + \overline{B}\cr
     Y &= \overline{B}
 \end{align}
+
+\item The Boolean function illustrates theorem of Boolean algebra T10 combining.
+
 \end{enumerate}
 ''))dnl
 dnl
