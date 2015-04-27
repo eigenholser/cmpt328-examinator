@@ -322,6 +322,7 @@ $$
 }$$
 \caption{Truth table for multiplexer logic circuit in
 Figure~\ref{fig:muxlogic1}---sum-of-products.}
+\label{fig:muxlog1soptt}
 \end{figure}
 
 %% Maxterms
@@ -352,10 +353,14 @@ $$
     1 & 1 && 1 && 1 && $\overline{B} + \overline{C}$ && $M_3$\cr
     }
 }$$
-\caption{Truth table for multiplexer logic circuit---product-of-sums.}
+\caption{Truth table for multiplexer logic circuit
+Figure~\ref{fig:muxlogic1}---product-of-sums.}
+\label{fig:muxlog1postt}
 \end{figure}
 
-\item
+\item Sum-of-products Boolean equation for truth table
+Figure~\ref{fig:muxlog1soptt}.
+
 The Boolean equation in sum-of-products canonical form is the sum of the
 minterms for which $Y$ is 1.
 
@@ -367,7 +372,10 @@ minterms for which $Y$ is 1.
     Y &= B
 \end{align}
 
-\item The Boolean equation in product-of-sums canonical form is the product of
+\item Product-of-sums Boolean equation for truth table
+Figure~\ref{fig:muxlog1postt}.
+
+The Boolean equation in product-of-sums canonical form is the product of
 the maxterms for which $Y$ is 0.
 
 \begin{align}
@@ -415,6 +423,7 @@ $$
 }$$
 \caption{Truth table for multiplexer logic circuit in
 Figure~\ref{fig:muxlogic2}---sum-of-products.}
+\label{fig:muxlog2postt}
 \end{figure}
 
 %% Maxterms
@@ -445,11 +454,17 @@ $$
     1 & 1 && 1 && 1 && $\overline{B} + \overline{C}$ && $M_3$\cr
     }
 }$$
-\caption{Truth table for multiplexer logic circuit---product-of-sums.}
+\caption{Truth table for multiplexer logic circuit
+Figure~\ref{fig:muxlogic2}---product-of-sums.}
+\label{fig:muxlog2postt}
 \end{figure}
 
-\item The Boolean equation in sum-of-products canonical form is the sum of the
+\item Product-of-sums Boolean equation for truth table
+Figure~\ref{fig:muxlog2soptt}.
+
+The Boolean equation in sum-of-products canonical form is the sum of the
 minterms for which $Y$ is 1.
+
 \begin{align}
     Y &= m_2 + m_3\cr
       &= B\,\overline{C} + B\,C\cr
@@ -458,7 +473,10 @@ minterms for which $Y$ is 1.
     Y &= B
 \end{align}
 
-\item The Boolean equation in product-of-sums canonical form is the product of
+\item Product-of-sums Boolean equation for truth table
+Figure~\ref{fig:muxlog2postt}.
+
+The Boolean equation in product-of-sums canonical form is the product of
 the maxterms for which $Y$ is 0.
 \begin{align}
     Y &= M_0 \bullet M_2\cr
