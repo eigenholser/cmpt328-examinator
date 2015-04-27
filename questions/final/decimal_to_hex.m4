@@ -14,8 +14,8 @@ than or equal to the number to convert.
 \item Work from the right repeatedly dividing by $b$.
 \end{enumerate}
 
-Perform longhand conversion from decimal to hexadecimal using the method
-indicated on the decimal numbers below:
+Using the method indicated, perform longhand conversion from decimal to
+hexadecimal on the decimal numbers below:
 ifelse(`X'_ARG_,`X1',`
 \begin{enumerate}[Method 1:]
     \item 8922
