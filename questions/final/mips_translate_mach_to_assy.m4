@@ -62,12 +62,12 @@ this:
 \end{center}
 
 Using Table 6.1 MIPS register set we find rs = 00000 = 0 (\$0),
-rt = 01000 = 8 (\$t0). The decimal value of the 16--bit imm is 32.
+rt = 01000 = 8 (\$t0). The decimal value of the 16--bit imm is 31.
 
 Therefore, the assembly instruction is:
 
 \begin{center}
-\texttt{addi \$t0, \$0, 32}
+\texttt{addi \$t0, \$0, 31}
 \end{center}
 \bigskip
 
