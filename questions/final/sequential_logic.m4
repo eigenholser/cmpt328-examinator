@@ -108,7 +108,9 @@ ifdef(`INSTRUCTOR',`
 ifelse(`X'_ARG_,`X1',ifdef(`INSTRUCTOR',``
 \begin{enumerate}[(a)]
 
-\item The sequential logic circuit in Figure~\ref{fig:dlatch} is a D latch.
+\item The Logic circuit in Figure~\ref{fig:dlatch} is a D latch. Overall it
+is an example of sequential logic. It`'RQ()s current output is a function of
+it`'RQ()s current and previous inputs.
 
 \item The operation of this circuit is explained in detail as a function of
 it`'RQ()s inputs and outputs below:
@@ -121,8 +123,11 @@ $Q$. $N2$ sees both $Q$ and $D$ FALSE, so it produces a TRUE output on
 $\overline{Q}$.
 
 Case 2: $A=1, B=1$:\\
-$N1$ and $N2$ both see at least one TRUE input ($C$ or $D$), so each
-produces a FALSE output. $Q$ and $\overline{Q}$ are both FALSE.
+$A1$ has only one TRUE input so it`'RQ()s output is FALSE. $A2$ has two TRUE
+inputs so it`'RQ()s output is TRUE.
+$N2$ has at least one TRUE input so it outputs FALSE on $\overline{Q}$.
+$N1$ has inputs FALSE from $A1$ on $C$ and FALSE from $N1$ on $\overline{Q}$
+so it`'RQ()s output is TRUE.
 
 Case 3: $A=0, B=0,1$:\\
 $A1$ has at least one FALSE input so it`'RQ()s $C$ output is FALSE. $A2$ has

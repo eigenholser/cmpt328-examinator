@@ -6,7 +6,7 @@ divert(2)dnl
 %% __file__
 %%
 \question
-Consider the following logic circuit:
+Consider the following multiplexer logic circuit:
 dnl
 ifelse(`X'_ARG_,`X1',``
 \begin{figure}[H]
@@ -137,7 +137,7 @@ ifelse(`X'_ARG_,`X1',``
     node[left]{$B$};
 
 \end{tikzpicture}
-\caption{Logic circuit implemented using multiplexers.}
+\caption{Logic circuit implemented with multiplexers.}
 \label{fig:muxlogic1}
 \end{figure}
 '')dnl
@@ -268,7 +268,7 @@ ifelse(`X'_ARG_,`X2',``
 
 \end{tikzpicture}
 
-\caption{Logic circuit implemented using multiplexers.}
+\caption{Logic circuit implemented with multiplexers.}
 \label{fig:muxlogic2}
 \end{figure}
 '')dnl
@@ -361,13 +361,7 @@ minterms for which $Y$ is 1.
 
 \begin{align}
     Y &= m_2 + m_3\cr
-    Y &= B\,\overline{C} + B\,C\cr
-\end{align}
-
-Simplify the sum-of-products Boolean equation.
-
-\begin{align}
-    Y &= B\,\overline{C} + B\,C\cr
+      &= B\,\overline{C} + B\,C\cr
       &= B \bullet (\overline{C} + C)\cr
       &= B \bullet 1\cr
     Y &= B
@@ -378,13 +372,7 @@ the maxterms for which $Y$ is 0.
 
 \begin{align}
     Y &= M_0 \bullet M_1\cr
-    Y &= (B + C) \bullet (B + \overline{C})
-\end{align}
-
-Simplify the product-of-sums Boolean equation.
-
-\begin{align}
-    Y &= (B + C) \bullet (B + \overline{C})\cr
+      &= (B + C) \bullet (B + \overline{C})\cr
       &= B\,B + B\,\overline{C} + B\,C + C\,\overline{C}\cr
       &= B + B \bullet (C + \overline{C}) + 0\cr
       &= B + B \bullet 1\cr
@@ -431,7 +419,7 @@ Figure~\ref{fig:muxlogic2}---sum-of-products.}
 
 %% Maxterms
 %%
-\item Truth table for Figure~\ref{fig:muxlogic1} with maxterms and maxterm
+\item Truth table for Figure~\ref{fig:muxlogic2} with maxterms and maxterm
 names.
 
 \begin{figure}[H]

@@ -139,12 +139,7 @@ The Boolean equation in sum-of-products canonical form is the sum of the
 minterms for which $Y$ is 1.
 \begin{align}
     Y &= m_2 + m_3\cr
-    Y &= B\,\overline{C} + B\,C\cr
-\end{align}
-
-Simplify the sum-of-products Boolean equation.
-\begin{align}
-    Y &= B\,\overline{C} + B\,C\cr
+      &= B\,\overline{C} + B\,C\cr
       &= B \bullet (\overline{C} + C)\cr
       &= B \bullet 1\cr
     Y &= B
@@ -155,12 +150,7 @@ The Boolean equation in product-of-sums canonical form is the product of the
 maxterms for which $Y$ is 0.
 \begin{align}
     Y &= M_0 \bullet M_1\cr
-    Y &= (B + C) \bullet (B + \overline{C})
-\end{align}
-
-Simplify the product-of-sums Boolean equation.
-\begin{align}
-    Y &= (B + C) \bullet (B + \overline{C})\cr
+      &= (B + C) \bullet (B + \overline{C})\cr
       &= B\,B + B\,\overline{C} + B\,C + C\,\overline{C}\cr
       &= B + B \bullet (\overline{C} + C) + 0\cr
       &= B + B \bullet (\overline{C} + C)\cr

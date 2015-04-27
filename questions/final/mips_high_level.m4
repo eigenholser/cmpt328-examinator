@@ -52,17 +52,17 @@ ifdef(`INSTRUCTOR',`
 ')
 ifelse(`X'_ARG_,`X1',
 ifdef(`INSTRUCTOR',``
-If/else statement.
+The MIPS assembly code implements an if/else statement.
 \bigskip
 ''))dnl
 ifelse(`X'_ARG_,`X2',
 ifdef(`INSTRUCTOR',``
-While loop.
+The MIPS assembly code implements a while loop.
 \bigskip
 ''))dnl
 ifelse(`X'_ARG_,`X3',
 ifdef(`INSTRUCTOR',``
-For loop.
+The MIPS assembly code implements a for loop.
 \bigskip
 ''))dnl
 \medskip

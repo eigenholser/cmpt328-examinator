@@ -13,13 +13,14 @@ ifelse(`X'_ARG_,`X3',`513')dnl
 ifelse(`X'_ARG_,`X4',`257')dnl
 \dots{}dnl
 \begin{enumerate}[(a)]
-\item How many whole binary digits are needed to represent this decimal number?
-\item Convert this number to N+1--bit binary where N is the number of bits you
-computed in the first step. Use a programming calculator for this step.
-\item Convert the N+1--bit binary number to it`'RQ()s two`'RQ()s complement
+\item How many whole binary digits, $N$, are needed to represent this decimal
+number?
+\item Convert this number to $N+1$--bit binary where N is the number of bits you
+computed in the first step. Use a calculator for this step.
+\item Convert the $N+1$--bit binary number to it`'RQ()s two`'RQ()s complement
 binary representation. Do not use your calculator for this step. Show your
 work.
-\item Sign-extend the two`'RQ()s complement binary number to 32 binary digits.
+\item Sign-extend the $N+1$--bit two`'RQ()s complement binary number to 32 binary digits.
 \end{enumerate}
 ifdef(`TIME',`
 \textit{Estimated time to complete this question is 'TIME` minutes.}
@@ -27,41 +28,55 @@ ifdef(`TIME',`
 dnl
 ifdef(`INSTRUCTOR',`
 \textsc{solution}\\
-In general, the range of a number is represented as $M_b = b^N$ where $b$ is
-the base and $N$ is the number of digits.
+In general, the number of possible combinations for a number system of base $b$
+and digits $N_b$ is
 
-The number of binary digits, $N_2$ is to be determined. The number
-represented in decimal is, obviously, the same as the binary representation.
-Therefore, we can represent this relationship as follows:
+$$M_b = b^{N_b}$$
 
-$$M_2 = M_{10}$$
+For a given number $R_k$ of base $k$, we can write
 
-We can express the number in binary as $M_2 = 2^{N_2}$ where $N_2$ is the
-number of binary digits represented.
+$$M_b = R_k$$
 
-Consider the logarithmic relationship $$log_k(b^N) = N\bullet log_k(b)$$
+Since we are solving for $N_b$, we substitute and write
 
-To convert base, we use the logarithmic relationship
-$$log_b(M) = \frac{log_k(M)}{log_k(b)}$$
+$$b^{N_b} = R_k$$
+
+We can solve for $N_b$ by taking $log_b$ of each side of the relationship and
+solving for $N_b$.
+
+$$log_b b^{N_b} = log_b R_k$$
+
+Which may be rewritten as
+
+$$N_b \bullet log_b b = log_b R_k$$
+
+Since $log_b b = 1$, we can further rewrite as
+
+$$N_b = log_b R_k$$
+
+Since $b = 2$ in this case, we can write the equation as follows:
+
+$$N_2 = log_2 R_k$$
+
+This is how we will compute the number of binary digits.
 ')
 ifelse(`X'_ARG_,`X1',
 ifdef(`INSTRUCTOR',``
 \begin{enumerate}[(a)]
 
 \item
-We are given $b = 10$, where $b$ is the base---i.e. decimal---and
-$M_{10} = 447$,
-where $M_{10}$ is the number represented in decimal.
+We are given $k = 10$, where $k$ is the base---i.e. decimal---and
+$R_{10} = 447$,
 
-The number, $M_2$, represented by the decimal number is $M_2 = 447$.
+where $R_{10}$ is the number represented in decimal.
+
+The binary range, $M_2$, represented by the decimal number according to the
+relationships established above is:
 
 \begin{align}
-M_2                  &= M_{10}\cr
-log_2(M_2)           &= \frac{log_{10}(M_{10})}{log_{10}(2)}\cr
-log_2(2^{N_2})       &= \frac{log_{10}(447)}{log_{10}(2)}\cr
-N_2 \bullet log_2(2) &= \frac{2.6503}{0.3010}\cr
-N_2 \bullet (1)      &= 8.8047\cr
-N_2                  &= 8.8047\cr
+N_2 &= log_2 R_k\cr
+N_2 &= log_2 447\cr
+N_2 &= 8.8047
 \end{align}
 
 The number of whole binary digits necessary to represent the decimal number 447
@@ -88,18 +103,18 @@ ifelse(`X'_ARG_,`X2',
 ifdef(`INSTRUCTOR',``
 \begin{enumerate}[(a)]
 \item
-We are given $b = 10$, where $b$ is the base---i.e. decimal---and
-$M_{10} = 384$, where $M_{10}$ is the number represented in decimal.
+We are given $k = 10$, where $k$ is the base---i.e. decimal---and
+$R_{10} = 384$,
 
-The number, $M_2$, represented by the decimal number is $M_2 = 384$.
+where $R_{10}$ is the number represented in decimal.
+
+The binary range, $M_2$, represented by the decimal number according to the
+relationships established above is:
 
 \begin{align}
-M_2                  &= M_{10}\cr
-log_2(M_2)           &= \frac{log_{10}(M_{10})}{log_{10}(2)}\cr
-log_2(2^{N_2})       &= \frac{log_{10}(384)}{log_{10}(2)}\cr
-N_2 \bullet log_2(2) &= \frac{2.5843}{0.3010}\cr
-N_2 \bullet (1)      &= 8.5857\cr
-N_2                  &= 8.5857\cr
+N_2 &= log_2 R_k\cr
+N_2 &= log_2 384\cr
+N_2 &= 8.5857
 \end{align}
 
 The number of whole binary digits necessary to represent the decimal number 384
@@ -127,18 +142,18 @@ ifdef(`INSTRUCTOR',``
 \begin{enumerate}[(a)]
 
 \item
-We are given $b = 10$, where $b$ is the base---i.e. decimal---and
-$M_{10} = 513$, where $M_{10}$ is the number represented in decimal.
+We are given $k = 10$, where $k$ is the base---i.e. decimal---and
+$R_{10} = 513$,
 
-The number, $M_2$, represented by the decimal number is $M_2 = 513$.
+where $R_{10}$ is the number represented in decimal.
+
+The binary range, $M_2$, represented by the decimal number according to the
+relationships established above is:
 
 \begin{align}
-M_2                  &= M_{10}\cr
-log_2(M_2)           &= \frac{log_{10}(M_{10})}{log_{10}(2)}\cr
-log_2(2^{N_2})       &= \frac{log_{10}(513)}{log_{10}(2)}\cr
-N_2 \bullet log_2(2) &= \frac{2.7101}{0.3010}\cr
-N_2 \bullet (1)      &= 9.0037\cr
-N_2                  &= 9.0037\cr
+N_2 &= log_2 R_k\cr
+N_2 &= log_2 513\cr
+N_2 &= 8.5857
 \end{align}
 
 The number of whole binary digits necessary to represent the decimal number 513
@@ -165,18 +180,18 @@ ifelse(`X'_ARG_,`X4',
 ifdef(`INSTRUCTOR',``
 \begin{enumerate}[(a)]
 \item
-We are given $b = 10$, where $b$ is the base---i.e. decimal---and
-$M_{10} = 257$, where $M_{10}$ is the number represented in decimal.
+We are given $k = 10$, where $k$ is the base---i.e. decimal---and
+$R_{10} = 257$,
 
-The number, $M_2$, represented by the decimal number is $M_2 = 257$.
+where $R_{10}$ is the number represented in decimal.
+
+The binary range, $M_2$, represented by the decimal number according to the
+relationships established above is:
 
 \begin{align}
-M_2                  &= M_{10}\cr
-log_2(M_2)           &= \frac{log_{10}(M_{10})}{log_{10}(2)}\cr
-log_2(2^{N_2})       &= \frac{log_{10}(257)}{log_{10}(2)}\cr
-N_2 \bullet log_2(2) &= \frac{2.4099}{0.3010}\cr
-N_2 \bullet (1)      &= 8.0063\cr
-N_2                  &= 8.0063\cr
+N_2 &= log_2 R_k\cr
+N_2 &= log_2 257\cr
+N_2 &= 8.0063
 \end{align}
 
 The number of whole binary digits necessary to represent the decimal number 257

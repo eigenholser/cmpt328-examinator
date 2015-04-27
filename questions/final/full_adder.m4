@@ -48,8 +48,6 @@ ifelse(`X'_ARG_,`X1',``
 \begin{enumerate}[(a)]
     \item Is the full adder circuit shown in Figure~\ref{fig:fulladder} an
     example of combinational logic or sequential logic? Why?
-    \item Draw a complete truth table. In your truth table show the values of
-    each literal: $A$, $B$, $C_{in}$, $S$, and $C_{out}$.
     \item Explain how the full adder works. Consider the discrete cases where:
     \protect\begin{enumerate}[I]
         \item $A$ and $B$ do not generate a carry and $C_{in}$ is 0.
@@ -57,6 +55,8 @@ ifelse(`X'_ARG_,`X1',``
         \item $A$ and $B$ do generate a carry and $C_{in}$ is 0.
         \item $A$ and $B$ do generate a carry and $C_{in}$ is 1.
     \end{enumerate}
+    \item Draw a complete truth table. In your truth table show the values of
+    each literal: $A$, $B$, $C_{in}$, $S$, and $C_{out}$.
 \end{enumerate}
 dnl
 ifdef(`TIME',`
@@ -68,8 +68,44 @@ ifdef(`INSTRUCTOR',`
 \textsc{solution}\\
 ')
 ifelse(`X'_ARG_,`X1',ifdef(`INSTRUCTOR',``
-Combinational logic. The outputs depend only on the current inputs.
+\begin{enumerate}[(a)]
+\item The full adder implements combinational logic. The outputs depend only
+on the current inputs.
 
+\item Operation
+
+Case 1: $A$ and $B$ generate a carry only when both are TRUE. $A2$ therefore
+outputs FALSE. Since $C_{in}$ is FALSE, $A1$ outputs FALSE. Because $A1$ and
+$A2$ output FALSE, $O1$ also outputs FALSE on $C_{out}$. $X1$ will output
+TRUE if either $A$ or $B$ are TRUE and FALSE if both are FALSE. $X2$ has one
+FALSE input from $C_{in}$ and a TRUE or FALSE input from $X1$ output depending
+on $A$ or $B$. $X2$ outputs TRUE on $S$ if one of $A$ or $B$ is TRUE---recall
+the stipulation of this case that $A$ and $B$ do not generate a carry, they are
+not both TRUE. $X2$ thus outputs the sum of $A$ and $B$.
+
+Case 2: $A$ and $B$ generate a carry only when both are TRUE. $A2$ therefore
+outputs FALSE. Since $C_{in}$ is TRUE, $A1$ has one TRUE input. $X1$ outputs
+TRUE when $A$ or $B$ are TRUE. In this case, $X2$ and $A1$ have two TRUE inputs.
+$X2$ outputs FALSE on $S$ and $A1$ outputs TRUE. So $A1$ outputs TRUE and $A2$
+outputs FALSE, $O1$ outputs TRUE on $C_{out}$.
+
+If $A$ and $B$ are both FALSE, $X1$ outputs FALSE. $X2$ receives one FALSE input
+and one TRUE input so it`'RQ()s output is TRUE on $S$. $A1$ receives one FALSE
+input so it`'RQ()s output is FALSE. $A2$ receives two FALSE inputs so it`'RQ()s
+output is FALSE. $O1$ receives two false inputs and outputs FALSE on $C_{out}$.
+
+Case 3: $A$ and $B$ are both TRUE. $X1$ outputs FALSE. $A2$ receives two TRUE
+inputs and outputs TRUE. $A1$ receives two FALSE inputs and outputs FALSE.
+$O1$ receives two FALSE inputs and outputs FALSE on $C_{out}$. $X2$ receives
+two FALSE inputs and outputs FALSE on $S$.
+
+Case 4: $A$ and $B$ are both TRUE. $X1$ outputs FALSE. $A1$ receives one TRUE
+input and one FALSE input and so outputs FALSE. $A2$ receives two TRUE inputs
+and outputs TRUE. $X2$ receives one TRUE input and one FALSE input so it
+outputs TRUE on $S$. $O1$ receives one TRUE input and one FALSE input so it
+outputs TRUE on output $C_{out}$.
+
+\item Truth table for full adder implementation shown in Figure~\ref{fig:fulladder}.
 \begin{figure}[H]
 $$
 \vbox{\offinterlineskip
@@ -97,6 +133,8 @@ $$
 }$$
 \caption{Truth table for full adder---Figure~\ref{fig:fulladder}}
 \end{figure}
+\end{enumerate}
+
 ''))dnl
 dnl
 \medskip
