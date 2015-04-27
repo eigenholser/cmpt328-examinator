@@ -31,6 +31,7 @@ ifelse(`X'_ARG_,`X1',``
 \end{tikzpicture}
 
 \caption{Logic circuit implemented using decoder.}
+\label{fig:decoderlogic1}
 \end{figure}
 '')dnl
 ifelse(`X'_ARG_,`X2',``
@@ -56,15 +57,16 @@ ifelse(`X'_ARG_,`X2',``
 \end{tikzpicture}
 
 \caption{Logic circuit implemented using decoder.}
+\label{fig:decoderlogic2}
 \end{figure}
 '')dnl
 \begin{enumerate}[(a)]
-    \item Draw a complete truth table with minterms and minterm names. Write a
-    Boolean equation in sum-of-products canonical form.
-    \item Draw a complete truth table with maxterms and maxterm names. Write a
-    Boolean equation in product-of-sums canonical form.
-    \item Simplify the sum-of-products Boolean equation.
-    \item Simplify the product-of-sums Boolean equation.
+    \item Draw a complete truth table with minterms and minterm names.
+    \item Draw a complete truth table with maxterms and maxterm names.
+    \item Write a Boolean equation in sum-of-products canonical form.
+    Simplify the Boolean equation.
+    \item Write a Boolean equation in product-of-sums canonical form.
+    Simplify the Boolean equation.
 \end{enumerate}
 dnl
 ifdef(`TIME',`
@@ -76,8 +78,12 @@ ifdef(`INSTRUCTOR',`
 \textsc{solution}\\
 ')
 ifelse(`X'_ARG_,`X1',ifdef(`INSTRUCTOR',``
-The Boolean function is $B$.
+The Boolean function illustrates theorem of Boolean algebra T10 combining.
 
+\begin{enumerate}[(a)]
+
+\item Truth table for circuit in Figure~\ref{fig:decoderlogic1} with minterms
+and minterm names.
 \begin{figure}[H]
 $$
 \vbox{\offinterlineskip
@@ -101,12 +107,9 @@ $$
 }$$
 \caption{Truth table for decoder logic circuit---sum-of-products.}
 \end{figure}
-The Boolean equation in sum-of-products canonical form is the sum of the
-minterms for which $Y$ is 1.
-\begin{align}
-    Y &= m_2 + m_3\cr
-    Y &= B\,\overline{C} + B\,C\cr
-\end{align}
+
+\item Truth table for circuit in Figure~\ref{fig:decoderlogic1} with maxterms
+and maxterm names.
 \begin{figure}[H]
 $$
 \vbox{\offinterlineskip
@@ -130,24 +133,34 @@ $$
 }$$
 \caption{Truth table for multiplexer logic circuit---product-of-sums.}
 \end{figure}
+
+\item Boolean equation in sum-of-products canonical form and simplification.
+The Boolean equation in sum-of-products canonical form is the sum of the
+minterms for which $Y$ is 1.
+\begin{align}
+    Y &= m_2 + m_3\cr
+    Y &= B\,\overline{C} + B\,C\cr
+\end{align}
+
+Simplify the sum-of-products Boolean equation.
+\begin{align}
+    Y &= B\,\overline{C} + B\,C\cr
+      &= B \bullet (\overline{C} + C)\cr
+      &= B \bullet 1\cr
+    Y &= B
+\end{align}
+
+\item Boolean equation in product-of-sums canonical form and simplification.
 The Boolean equation in product-of-sums canonical form is the product of the
 maxterms for which $Y$ is 0.
 \begin{align}
     Y &= M_0 \bullet M_1\cr
     Y &= (B + C) \bullet (B + \overline{C})
 \end{align}
-Simplify the sum-of-products Boolean equation.
-\begin{align}
-    Y &= m_2 + m_3\cr
-      &= B\,\overline{C} + B\,C\cr
-      &= B \bullet (\overline{C} + C)\cr
-      &= B \bullet 1\cr
-    Y &= B
-\end{align}
+
 Simplify the product-of-sums Boolean equation.
 \begin{align}
-    Y &= M_0 \bullet M1\cr
-      &= (B + C) \bullet (B + \overline{C})\cr
+    Y &= (B + C) \bullet (B + \overline{C})\cr
       &= B\,B + B\,\overline{C} + B\,C + C\,\overline{C}\cr
       &= B + B \bullet (\overline{C} + C) + 0\cr
       &= B + B \bullet (\overline{C} + C)\cr
@@ -155,10 +168,16 @@ Simplify the product-of-sums Boolean equation.
       &= B + B\cr
     Y &= B
 \end{align}
+
+\end{enumerate}
 ''))dnl
 ifelse(`X'_ARG_,`X2',ifdef(`INSTRUCTOR',``
-The Boolean function is $B$.
+The Boolean function illustrates theorem of Boolean algebra T10 combining.
 
+\begin{enumerate}[(a)]
+
+\item Truth table for circuit in Figure~\ref{fig:decoderlogic2} with minterms
+and minterm names.
 \begin{figure}[H]
 $$
 \vbox{\offinterlineskip
@@ -182,12 +201,8 @@ $$
 }$$
 \caption{Truth table for decoder logic circuit---sum-of-products.}
 \end{figure}
-The Boolean equation in sum-of-products canonical form is the sum of the
-minterms for which $Y$ is 1.
-\begin{align}
-    Y &= m_0 + m_1\cr
-    Y &= \overline{B}\,\overline{C} + \overline{B}\,C\cr
-\end{align}
+\item Truth table for circuit in Figure~\ref{fig:decoderlogic1} with maxterms
+and maxterm names.
 \begin{figure}[H]
 $$
 \vbox{\offinterlineskip
@@ -211,24 +226,24 @@ $$
 }$$
 \caption{Truth table for multiplexer logic circuit---product-of-sums.}
 \end{figure}
-The Boolean equation in product-of-sums canonical form is the product of the
-maxterms for which $Y$ is 0.
-\begin{align}
-    Y &= M_2 \bullet M_3\cr
-    Y &= (\overline{B} + C) \bullet (\overline{B} + \overline{C})
-\end{align}
-Simplify the sum-of-products Boolean equation.
+
+\item Boolean equation in sum-of-products canonical form and simplification.
+The Boolean equation in sum-of-products canonical form is the sum of the
+minterms for which $Y$ is 1.
 \begin{align}
     Y &= m_0 + m_1\cr
-    Y &= \overline{B}\,\overline{C} + \overline{B}\,C\cr
+      &= \overline{B}\,\overline{C} + \overline{B}\,C\cr
       &= \overline{B} \bullet (\overline{C} + C)\cr
       &= \overline{B} \bullet 1\cr
     Y &= \overline{B}
 \end{align}
-Simplify the product-of-sums Boolean equation.
+
+\item Boolean equation in product-of-sums canonical form and simplification.
+The Boolean equation in product-of-sums canonical form is the product of the
+maxterms for which $Y$ is 0.
 \begin{align}
     Y &= M_2 \bullet M_3\cr
-    Y &= (\overline{B} + C) \bullet (\overline{B} + \overline{C})\cr
+      &= (\overline{B} + C) \bullet (\overline{B} + \overline{C})\cr
       &= \overline{B}\,\overline{B} + \overline{B}\,\overline{C} +
          B\,\overline{C} + \overline{C}\,C\cr
       &= \overline{B} + \overline{B} \bullet (\overline{C} + C) + 0\cr
@@ -236,6 +251,7 @@ Simplify the product-of-sums Boolean equation.
       &= \overline{B} + \overline{B}\cr
     Y &= \overline{B}
 \end{align}
+\end{enumerate}
 ''))dnl
 dnl
 \bigskip

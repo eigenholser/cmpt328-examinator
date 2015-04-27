@@ -91,7 +91,7 @@ contains:
 % Signed load does sign-extension.
 %
 \item The byte at offset 1 is sign-extended to 32 bits and loaded into
-register \texttt{\$s1}. Since this byte is a posive two`'RQ()s complement
+register \texttt{\$s1}. Since this byte is a positive two`'RQ()s complement
 number, the sign bit is 0. After \texttt{lb \$s1, 2(\$s0)}, \texttt{\$s1}
 contains:
 

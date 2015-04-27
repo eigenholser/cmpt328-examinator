@@ -87,9 +87,12 @@ ifelse(`X'_ARG_,`X1',``
 \begin{enumerate}[(a)]
     \item Identify the logic circuit in Figure~\ref{fig:dlatch}. Is it an
     example of combinational or sequential logic. Why?
+    \item Explain in detail the operation of this circuit. In other words,
+    for various inputs, what are the outputs.
     \item There are two distinct elements in this circuit. They are numbered
-    1 and 2 and are separated by a dashed line. Explain the function of
-    these elements.
+    1 and 2 and are separated by a dashed line. Explain the purpose and
+    function of the individual elements. Characterize each individual element
+    as combination or sequential.
     \item Draw a complete truth table. In your truth table show the values of
     each literal corresponding to inputs $A$ and $B$.
 \end{enumerate}
@@ -105,12 +108,36 @@ ifdef(`INSTRUCTOR',`
 ifelse(`X'_ARG_,`X1',ifdef(`INSTRUCTOR',``
 \begin{enumerate}[(a)]
 
-\item The sequential logic circuit in Figure~\ref{fig:dlatch} is a D latch
-with enable.
+\item The sequential logic circuit in Figure~\ref{fig:dlatch} is a D latch.
 
-\item The D Latch combines an SR latch with added logic of two
-AND gates to eliminate the ambiguous SR latch behavior when Set ($C$)
-and Reset ($D$) are simultaneously asserted HIGH.
+\item The operation of this circuit is explained in detail as a function of
+it`'RQ()s inputs and outputs below:
+
+Case 1: $A=1, B=0$:\\
+$A1$ has two TRUE inputs so it`'RQ()s $C$ output is TRUE. $A2$ has only
+one TRUE input so it`'RQ()s $D$ output is FALSE.
+$N1$ sees at least 1 TRUE input $C$ so it produces a FALSE output on
+$Q$. $N2$ sees both $Q$ and $D$ FALSE, so it produces a TRUE output on
+$\overline{Q}$.
+
+Case 2: $A=1, B=1$:\\
+$N1$ and $N2$ both see at least one TRUE input ($C$ or $D$), so each
+produces a FALSE output. $Q$ and $\overline{Q}$ are both FALSE.
+
+Case 3: $A=0, B=0,1$:\\
+$A1$ has at least one FALSE input so it`'RQ()s $C$ output is FALSE. $A2$ has
+at lease one FALSE input so it`'RQ()s output is FALSE.
+
+$N1$ receives inputs of FALSE and $\overline{Q}$. Because we don`'RQ()t yet
+know $\overline{Q}$, we can`'RQ()t determine the output Q. $N2$ receives
+inputs of FALSE and $Q$. Since we don`'RQ()t know $Q$ or $\overline{Q}$ we
+can`'RQ()t determine the state of the outputs from the inputs alone. The
+outputs remain $Q_{prev}$.
+
+\item The D Latch combines an SR latch (circuit element 2) with added logic of
+two AND gates (circuit element 1) to eliminate the ambiguous SR latch behavior
+when Set ($C$) and Reset ($D$) are simultaneously asserted HIGH. Circuit
+element 1 is combinational. Circuit element 2 (SR latch) is sequential.
 
 \item Truth table for D latch in Figure~\ref{fig:dlatch}.
 

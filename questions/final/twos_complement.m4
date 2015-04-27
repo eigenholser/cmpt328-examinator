@@ -27,17 +27,17 @@ ifdef(`TIME',`
 dnl
 ifdef(`INSTRUCTOR',`
 \textsc{solution}\\
-In general, the number of discrete states is $M_b = b^N$ where $b$ is the base
-and $N$ is the number of digits.
+In general, the range of a number is represented as $M_b = b^N$ where $b$ is
+the base and $N$ is the number of digits.
 
-The number of binary digits, $N_2$ is to be determined. The number of discrete
-states represented in decimal is, obviously, the same as the binary
-representation. Therefore, we can represent this relationship as follows:
+The number of binary digits, $N_2$ is to be determined. The number
+represented in decimal is, obviously, the same as the binary representation.
+Therefore, we can represent this relationship as follows:
 
 $$M_2 = M_{10}$$
 
-We can express the number of discrete states in binary as $M_2 = 2^{N_2}$ where
- $N_2$ is the number of binary digits represented.
+We can express the number in binary as $M_2 = 2^{N_2}$ where $N_2$ is the
+number of binary digits represented.
 
 Consider the logarithmic relationship $$log_k(b^N) = N\bullet log_k(b)$$
 
@@ -51,10 +51,9 @@ ifdef(`INSTRUCTOR',``
 \item
 We are given $b = 10$, where $b$ is the base---i.e. decimal---and
 $M_{10} = 447$,
-where $M_{10}$ is the number of discrete states represented in decimal.
+where $M_{10}$ is the number represented in decimal.
 
-The number of discrete states, $M_2$ represented by the decimal number is
-$M_2 = 447$.
+The number, $M_2$, represented by the decimal number is $M_2 = 447$.
 
 \begin{align}
 M_2                  &= M_{10}\cr
@@ -90,11 +89,9 @@ ifdef(`INSTRUCTOR',``
 \begin{enumerate}[(a)]
 \item
 We are given $b = 10$, where $b$ is the base---i.e. decimal---and
-$M_{10} = 384$,
-where $M_{10}$ is the number of discrete states represented in decimal.
+$M_{10} = 384$, where $M_{10}$ is the number represented in decimal.
 
-The number of discrete states, $M_2$ represented by the decimal number is
-$M_2 = 384$.
+The number, $M_2$, represented by the decimal number is $M_2 = 384$.
 
 \begin{align}
 M_2                  &= M_{10}\cr
@@ -131,11 +128,9 @@ ifdef(`INSTRUCTOR',``
 
 \item
 We are given $b = 10$, where $b$ is the base---i.e. decimal---and
-$M_{10} = 513$,
-where $M_{10}$ is the number of discrete states represented in decimal.
+$M_{10} = 513$, where $M_{10}$ is the number represented in decimal.
 
-The number of discrete states, $M_2$ represented by the decimal number is
-$M_2 = 513$.
+The number, $M_2$, represented by the decimal number is $M_2 = 513$.
 
 \begin{align}
 M_2                  &= M_{10}\cr
@@ -171,11 +166,9 @@ ifdef(`INSTRUCTOR',``
 \begin{enumerate}[(a)]
 \item
 We are given $b = 10$, where $b$ is the base---i.e. decimal---and
-$M_{10} = 257$,
-where $M_{10}$ is the number of discrete states represented in decimal.
+$M_{10} = 257$, where $M_{10}$ is the number represented in decimal.
 
-The number of discrete states, $M_2$ represented by the decimal number is
-$M_2 = 257$.
+The number, $M_2$, represented by the decimal number is $M_2 = 257$.
 
 \begin{align}
 M_2                  &= M_{10}\cr

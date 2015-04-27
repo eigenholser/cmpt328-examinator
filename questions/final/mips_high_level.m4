@@ -21,24 +21,22 @@ label2:
 ifelse(`X'_ARG_,`X2',`
 \begin{verbatim}
     addi $s0, $0, 1
-    addi $s1, $0, 0
     addi $t0, $0, 10
 label1:
-    beq $s0, $t0, label2
-    add $s0, $s0, $s1
-    addi $s1, $s1, 1
+    beq $s0, $0, label2
+    addi $s0, $s0, -1
+    # some code block
     j label1
 label2:
 \end{verbatim}
 ')dnl
 ifelse(`X'_ARG_,`X3',`
 \begin{verbatim}
-    add $s1, $0, $0
     addi $s0, $0, 0
     addi $t0, $0, 10
 label1:
     beq $s0, $t0, label2
-    add $s1, $s1, $s0
+    # some code block
     addi $s0, $s0, 1
     j label1
 label2:

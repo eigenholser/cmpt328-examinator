@@ -52,6 +52,12 @@ numbered 16, 8, and 9 respectively. From \textit{Appendix B} \textit{funct} is
 \end{tabular}
 \end{center}
 
+We can now generically represent the machine language for conversion to
+hexadecimal and octal:
+
+$$0000.0001.0000.1001.1000.0000.0010.0000$$
+$$00.000.001.000.010.011.000.000.000.100.000$$
+
 By inspection, the result is 0x01098020 and 00102300040.
 \bigskip
 
@@ -70,6 +76,12 @@ numbered 16, and 17. From \textit{Appendix B}, \textit{opcode} is 001101.
     \hline
 \end{tabular}
 \end{center}
+
+We can now generically represent the machine language for conversion to
+hexadecimal and octal:
+
+$$0011.0110.0011.0000.1111.1111.1000.0000$$
+$$00.110.110.001.100.001.111.111.110.000.000$$
 
 By inspection, the result is 0x3630FF80 and 06614177600.
 
@@ -94,6 +106,12 @@ numbered 16, 8, and 9 respectively. From \textit{Appendix B} \textit{funct} is
 \end{tabular}
 \end{center}
 
+We can now generically represent the machine language for conversion to
+hexadecimal and octal:
+
+$$0000.0001.0000.1001.1000.0000.0010.0010$$
+$$00.000.001.000.010.011.000.000.000.100.010$$
+
 By inspection, the result is 0x01098022 and 00102300042.
 
 \bigskip
@@ -112,6 +130,12 @@ numbered 16, and 17. From \textit{Appendix B}, \textit{opcode} is 001000.
     \hline
 \end{tabular}
 \end{center}
+
+We can now generically represent the machine language for conversion to
+hexadecimal and octal:
+
+$$0010.0010.0011.0000.1111.1111.1000.0000$$
+$$00.100.010.001.100.001.111.111.110.000.000$$
 
 By inspection, the result is 0x2230FF80 and 04214177600.
 
@@ -136,6 +160,12 @@ numbered 16, 8, and 9 respectively. From \textit{Appendix B} \textit{funct} is
 \end{tabular}
 \end{center}
 
+We can now generically represent the machine language for conversion to
+hexadecimal and octal:
+
+$$0000.0001.0000.1001.1000.0000.0010.0100$$
+$$00.000.001.000.010.011.000.000.000.100.100$$
+
 By inspection, the result is 0x01098024 and 00102300044.
 
 \bigskip
@@ -154,6 +184,12 @@ numbered 16, and 17. From \textit{Appendix B}, \textit{opcode} is 100011.
     \hline
 \end{tabular}
 \end{center}
+
+We can now generically represent the machine language for conversion to
+hexadecimal and octal:
+
+$$1000.1110.0011.0000.1111.1111.1000.0000$$
+$$10.001.110.001.100.001.111.111.110.000.000$$
 
 By inspection, the result is 0x8E30FF80 and 21614177600.
 \bigskip

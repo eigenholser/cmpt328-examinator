@@ -276,7 +276,7 @@ ifelse(`X'_ARG_,`X2',``
     \item Draw a complete truth table with minterms and minterm names.
     \item Draw a complete truth table with maxterms and maxterm names.
     \item Write a Boolean equation in sum-of-products canonical form.
-    Simplify the Boolean equation.
+    Simplify the equation.
     \item Write a Boolean equation in product-of-sums canonical form.
     Simplify the equation.
     \item Which theorem of Boolean algebra does this logic circuit
@@ -324,14 +324,6 @@ $$
 Figure~\ref{fig:muxlogic1}---sum-of-products.}
 \end{figure}
 
-The Boolean equation in sum-of-products canonical form is the sum of the
-minterms for which $Y$ is 1.
-
-\begin{align}
-    Y &= m_2 + m_3\cr
-    Y &= B\,\overline{C} + B\,C\cr
-\end{align}
-
 %% Maxterms
 %%
 \item Truth table for Figure~\ref{fig:muxlogic1} with maxterms and maxterm
@@ -363,28 +355,36 @@ $$
 \caption{Truth table for multiplexer logic circuit---product-of-sums.}
 \end{figure}
 
-The Boolean equation in product-of-sums canonical form is the product of the
-maxterms for which $Y$ is 0.
-\begin{align}
-    Y &= M_0 \bullet M_1\cr
-    Y &= (B + C) \bullet (B + \overline{C})
-\end{align}
-
-\item Simplify the sum-of-products Boolean equation.
+\item
+The Boolean equation in sum-of-products canonical form is the sum of the
+minterms for which $Y$ is 1.
 
 \begin{align}
     Y &= m_2 + m_3\cr
-      &= B\,\overline{C} + B\,C\cr
+    Y &= B\,\overline{C} + B\,C\cr
+\end{align}
+
+Simplify the sum-of-products Boolean equation.
+
+\begin{align}
+    Y &= B\,\overline{C} + B\,C\cr
       &= B \bullet (\overline{C} + C)\cr
       &= B \bullet 1\cr
     Y &= B
 \end{align}
 
-\item Simplify the product-of-sums Boolean equation.
+\item The Boolean equation in product-of-sums canonical form is the product of
+the maxterms for which $Y$ is 0.
 
 \begin{align}
-    Y &= M_0 \bullet M_2\cr
-      &= (B + C) \bullet (B + \overline{C})\cr
+    Y &= M_0 \bullet M_1\cr
+    Y &= (B + C) \bullet (B + \overline{C})
+\end{align}
+
+Simplify the product-of-sums Boolean equation.
+
+\begin{align}
+    Y &= (B + C) \bullet (B + \overline{C})\cr
       &= B\,B + B\,\overline{C} + B\,C + C\,\overline{C}\cr
       &= B + B \bullet (C + \overline{C}) + 0\cr
       &= B + B \bullet 1\cr
@@ -392,7 +392,7 @@ maxterms for which $Y$ is 0.
     Y &= B
 \end{align}
 
-\item The Boolean function illustrates the covering theorem T9.
+\item The Boolean function illustrates the combining theorem T10.
 
 \end{enumerate}
 ''))dnl
@@ -429,13 +429,6 @@ $$
 Figure~\ref{fig:muxlogic2}---sum-of-products.}
 \end{figure}
 
-The Boolean equation in sum-of-products canonical form is the sum of the
-minterms for which $Y$ is 1.
-\begin{align}
-    Y &= m_2 + m_3\cr
-    Y &= B\,\overline{C} + B\,C\cr
-\end{align}
-
 %% Maxterms
 %%
 \item Truth table for Figure~\ref{fig:muxlogic1} with maxterms and maxterm
@@ -466,15 +459,9 @@ $$
 }$$
 \caption{Truth table for multiplexer logic circuit---product-of-sums.}
 \end{figure}
-The Boolean equation in product-of-sums canonical form is the product of the
-maxterms for which $Y$ is 0.
-\begin{align}
-    Y &= M_0 \bullet M_2\cr
-    Y &= (B + C) \bullet (B + \overline{C})
-\end{align}
 
-\item Simplify the sum-of-products Boolean equation.
-
+\item The Boolean equation in sum-of-products canonical form is the sum of the
+minterms for which $Y$ is 1.
 \begin{align}
     Y &= m_2 + m_3\cr
       &= B\,\overline{C} + B\,C\cr
@@ -483,8 +470,8 @@ maxterms for which $Y$ is 0.
     Y &= B
 \end{align}
 
-\item Simplify the product-of-sums Boolean equation.
-
+\item The Boolean equation in product-of-sums canonical form is the product of
+the maxterms for which $Y$ is 0.
 \begin{align}
     Y &= M_0 \bullet M_2\cr
       &= (B + C) \bullet (B + \overline{C})\cr
@@ -495,7 +482,7 @@ maxterms for which $Y$ is 0.
     Y &= B
 \end{align}
 
-\item The Boolean function illustrates the covering theorem T9 dual.
+\item The Boolean function illustrates the covering combining T10 dual.
 
 \end{enumerate}
 ''))dnl
