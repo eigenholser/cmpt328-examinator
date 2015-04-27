@@ -6,8 +6,8 @@ divert(2)dnl
 %% __file__
 %%
 \question
-Consider the two possible methods for performing longhand conversion between
-bases.
+Consider the two possible methods for performing longhand conversion from base
+$k$ to base $b$.
 \begin{enumerate}[Method 1:]
 \item Work from the left repeatedly dividing by the largest power of $b$ less
 than or equal to the number to convert.
@@ -15,24 +15,24 @@ than or equal to the number to convert.
 \end{enumerate}
 
 Perform longhand conversion from decimal to hexadecimal using the method
-indicated.
+indicated on the decimal numbers below:
 ifelse(`X'_ARG_,`X1',`
-\begin{enumerate}[Use Method 1:]
+\begin{enumerate}[Method 1:]
     \item 8922
     \item 5652
 \end{enumerate}')dnl
 ifelse(`X'_ARG_,`X2',`
-\begin{enumerate}[Use Method 1:]
+\begin{enumerate}[Method 1:]
     \item 7783
     \item 5616
 \end{enumerate}')dnl
 ifelse(`X'_ARG_,`X3',`
-\begin{enumerate}[Use Method 1:]
+\begin{enumerate}[Method 1:]
     \item 5498
     \item 6834
 \end{enumerate}')dnl
 ifelse(`X'_ARG_,`X4',`
-\begin{enumerate}[Use Method 1:]
+\begin{enumerate}[Method 1:]
     \item 6566
     \item 8852
 \end{enumerate}')dnl
@@ -135,5 +135,5 @@ ifdef(`INSTRUCTOR',`
 \end{enumerate}
 '))dnl
 dnl
-ifdef(`INSTRUCTOR',`\bigskip')
+\medskip
 divert(0)dnl

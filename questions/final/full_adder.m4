@@ -99,5 +99,5 @@ $$
 \end{figure}
 ''))dnl
 dnl
-ifdef(`INSTRUCTOR',`\bigskip')
+\medskip
 divert(0)dnl

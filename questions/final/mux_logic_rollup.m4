@@ -273,12 +273,12 @@ ifelse(`X'_ARG_,`X2',``
 \end{figure}
 '')dnl
 \begin{enumerate}[(a)]
-    \item Draw a complete truth table with minterms and minterm names. Write a
-    Boolean equation in sum-of-products canonical form.
-    \item Draw a complete truth table with maxterms and maxterm names. Write a
-    Boolean equation in product-of-sums canonical form.
-    \item Simplify the sum-of-products Boolean equation.
-    \item Simplify the product-of-sums Boolean equation.
+    \item Draw a complete truth table with minterms and minterm names.
+    \item Draw a complete truth table with maxterms and maxterm names.
+    \item Write a Boolean equation in sum-of-products canonical form.
+    Simplify the Boolean equation.
+    \item Write a Boolean equation in product-of-sums canonical form.
+    Simplify the equation.
 \end{enumerate}
 dnl
 ifdef(`TIME',`
@@ -498,5 +498,5 @@ maxterms for which $Y$ is 0.
 \end{enumerate}
 ''))dnl
 dnl
-ifdef(`INSTRUCTOR',`\bigskip')
+\medskip
 divert(0)dnl

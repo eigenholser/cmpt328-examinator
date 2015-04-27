@@ -158,5 +158,5 @@ numbered 16, and 17. From \textit{Appendix B}, \textit{opcode} is 100011.
 By inspection, the result is 0x8E30FF80 and 21614177600.
 \bigskip
 ''))dnl
-ifdef(`INSTRUCTOR',`\bigskip')
+\medskip
 divert(0)dnl

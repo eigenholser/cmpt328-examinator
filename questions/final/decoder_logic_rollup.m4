@@ -238,5 +238,5 @@ Simplify the product-of-sums Boolean equation.
 \end{align}
 ''))dnl
 dnl
-ifdef(`INSTRUCTOR',`\bigskip')
+\bigskip
 divert(0)dnl

@@ -67,5 +67,5 @@ ifdef(`INSTRUCTOR',``
 For loop.
 \bigskip
 ''))dnl
-ifdef(`INSTRUCTOR',`\bigskip')
+\medskip
 divert(0)dnl

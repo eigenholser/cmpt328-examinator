@@ -88,7 +88,8 @@ ifelse(`X'_ARG_,`X1',``
     \item Identify the logic circuit in Figure~\ref{fig:dlatch}. Is it an
     example of combinational or sequential logic. Why?
     \item There are two distinct elements in this circuit. They are numbered
-    1 and 2 and are separated by a dashed line. Describe these elements.
+    1 and 2 and are separated by a dashed line. Explain the function of
+    these elements.
     \item Draw a complete truth table. In your truth table show the values of
     each literal corresponding to inputs $A$ and $B$.
 \end{enumerate}
@@ -140,5 +141,5 @@ $$
 \end{enumerate}
 ''))dnl
 dnl
-ifdef(`INSTRUCTOR',`\bigskip')
+\medskip
 divert(0)dnl

@@ -155,5 +155,6 @@ significant bits the sign bit.
 \end{center}
 \bigskip
 ''))dnl
-ifdef(`INSTRUCTOR',`\bigskip')
+dnl ifdef(`INSTRUCTOR',`\bigskip')
+\bigskip
 divert(0)dnl

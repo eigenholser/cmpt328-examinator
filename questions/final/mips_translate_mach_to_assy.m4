@@ -269,5 +269,5 @@ Therefore, the assembly instruction is:
 \end{center}
 \bigskip
 ''))dnl
-ifdef(`INSTRUCTOR',`\bigskip')
+\medskip
 divert(0)dnl

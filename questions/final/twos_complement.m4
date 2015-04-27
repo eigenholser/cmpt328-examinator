@@ -17,7 +17,8 @@ ifelse(`X'_ARG_,`X4',`257')dnl
 \item Convert this number to N+1--bit binary where N is the number of bits you
 computed in the first step. Use a programming calculator for this step.
 \item Convert the N+1--bit binary number to it`'RQ()s two`'RQ()s complement
-binary representation.
+binary representation. Do not use your calculator for this step. Show your
+work.
 \item Sign-extend the two`'RQ()s complement binary number to 32 binary digits.
 \end{enumerate}
 ifdef(`TIME',`
@@ -206,5 +207,5 @@ $$1111.1111.1111.1111.1111.1110.1111.1111$$
 \end{enumerate}
 ''))dnl
 dnl
-ifdef(`INSTRUCTOR',`\bigskip')
+\medskip
 divert(0)dnl

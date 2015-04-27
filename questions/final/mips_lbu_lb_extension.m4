@@ -113,5 +113,5 @@ contains:
 
 \end{enumerate}
 ')dnl
-ifdef(`INSTRUCTOR',`\bigskip')
+\medskip
 divert(0)dnl
