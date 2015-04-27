@@ -6,8 +6,8 @@ divert(2)dnl
 %% __file__
 %%
 \question
-Identify the high-level function implemented by the following MIPS assembly
-language:
+Identify the high-level language construct implemented by the following MIPS
+assembly language:
 ifelse(`X'_ARG_,`X1',`
 \begin{verbatim}
     bne $s3, $s4, label1
