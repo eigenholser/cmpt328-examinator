@@ -93,8 +93,9 @@ ifelse(`X'_ARG_,`X1',``
     1 and 2 and are separated by a dashed line. Explain the purpose and
     function of the individual elements. Characterize each individual element
     as combination or sequential.
-    \item Draw a complete truth table. In your truth table show the values of
-    each literal corresponding to inputs $A$ and $B$.
+    \item Draw a complete truth table for the logic circuit in
+    Figure~\ref{fig:dlatch}. In your truth table show the values of each
+    labeled literal corresponding to inputs $A$ and $B$.
 \end{enumerate}
 dnl
 ifdef(`TIME',`

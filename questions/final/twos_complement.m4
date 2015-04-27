@@ -44,19 +44,19 @@ $$b^{N_b} = R_k$$
 We can solve for $N_b$ by taking $log_b$ of each side of the relationship and
 solving for $N_b$.
 
-$$log_b b^{N_b} = log_b R_k$$
+$$log_b(b^{N_b}) = log_b(R_k)$$
 
 Which may be rewritten as
 
-$$N_b \bullet log_b b = log_b R_k$$
+$$N_b \bullet log_b(b) = log_b(R_k)$$
 
-Since $log_b b = 1$, we can further rewrite as
+Since $log_b(b) = 1$, we can further rewrite as
 
-$$N_b = log_b R_k$$
+$$N_b = log_b(R_k)$$
 
 Since $b = 2$ in this case, we can write the equation as follows:
 
-$$N_2 = log_2 R_k$$
+$$N_2 = log_2(R_k)$$
 
 This is how we will compute the number of binary digits.
 ')
@@ -74,8 +74,8 @@ The binary range, $M_2$, represented by the decimal number according to the
 relationships established above is:
 
 \begin{align}
-N_2 &= log_2 R_k\cr
-    &= log_2 447\cr
+N_2 &= log_2(R_k)\cr
+    &= log_2(447)\cr
 N_2 &= 8.8041
 \end{align}
 
@@ -112,8 +112,8 @@ The binary range, $M_2$, represented by the decimal number according to the
 relationships established above is:
 
 \begin{align}
-N_2 &= log_2 R_k\cr
-    &= log_2 384\cr
+N_2 &= log_2(R_k)\cr
+    &= log_2(384)\cr
 N_2 &= 8.5849
 \end{align}
 
@@ -151,8 +151,8 @@ The binary range, $M_2$, represented by the decimal number according to the
 relationships established above is:
 
 \begin{align}
-N_2 &= log_2 R_k\cr
-    &= log_2 513\cr
+N_2 &= log_2(R_k)\cr
+    &= log_2(513)\cr
 N_2 &= 9.0028
 \end{align}
 
@@ -189,8 +189,8 @@ The binary range, $M_2$, represented by the decimal number according to the
 relationships established above is:
 
 \begin{align}
-N_2 &= log_2 R_k\cr
-    &= log_2 257\cr
+N_2 &= log_2(R_k)\cr
+    &= log_2(257)\cr
 N_2 &= 8.0056
 \end{align}
 
