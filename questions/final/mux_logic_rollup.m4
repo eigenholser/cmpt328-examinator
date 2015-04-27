@@ -279,6 +279,8 @@ ifelse(`X'_ARG_,`X2',``
     Simplify the Boolean equation.
     \item Write a Boolean equation in product-of-sums canonical form.
     Simplify the equation.
+    \item Which theorem of Boolean algebra does this logic circuit
+    illustrate?
 \end{enumerate}
 dnl
 ifdef(`TIME',`
@@ -290,8 +292,6 @@ ifdef(`INSTRUCTOR',`
 \textsc{solution}\\
 ')
 ifelse(`X'_ARG_,`X1',ifdef(`INSTRUCTOR',``
-The Boolean function illustrates the covering theorem T9.
-
 \begin{enumerate}[(a)]
 
 \item Truth table for Figure~\ref{fig:muxlogic1} with minterms and minterm
@@ -392,11 +392,11 @@ maxterms for which $Y$ is 0.
     Y &= B
 \end{align}
 
+\item The Boolean function illustrates the covering theorem T9.
+
 \end{enumerate}
 ''))dnl
 ifelse(`X'_ARG_,`X2',ifdef(`INSTRUCTOR',``
-The Boolean function illustrates the covering theorem dual T9.
-
 \begin{enumerate}[(a)]
 
 \item Truth table for Figure~\ref{fig:muxlogic2} with minterms and minterm
@@ -494,6 +494,8 @@ maxterms for which $Y$ is 0.
       &= B + B\cr
     Y &= B
 \end{align}
+
+\item The Boolean function illustrates the covering theorem T9 dual.
 
 \end{enumerate}
 ''))dnl
