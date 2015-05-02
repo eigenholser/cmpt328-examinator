@@ -145,7 +145,7 @@ class Student(object):
             if dist == 0:
                 if var < max_variation:
                     variation = var + 1
-                elif var > 1:
+                elif var > 0 and var != 1:
                     variation = var - 1
                 else:
                     variation = 1           # There is only 1.
