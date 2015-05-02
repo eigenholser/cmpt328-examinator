@@ -20,11 +20,10 @@ label2:
 ')dnl
 ifelse(`X'_ARG_,`X2',`
 \begin{verbatim}
-    addi $s0, $0, 1
     addi $t0, $0, 10
 label1:
-    beq $s0, $0, label2
-    addi $s0, $s0, -1
+    beq $t0, $0, label2
+    addi $t0, $t0, -1
     # some code block
     j label1
 label2:

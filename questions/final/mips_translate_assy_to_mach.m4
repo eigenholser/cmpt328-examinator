@@ -42,6 +42,12 @@ registers \texttt{\$s0}, \texttt{\$t0}, and \texttt{\$t1} are
 numbered 16, 8, and 9 respectively. From \textit{Appendix B} \textit{funct} is
 100000. Since this is an R-type instruction, \textit{opcode} is 000000.
 
+The instruction syntax is
+
+\begin{center}
+\texttt{add rd, rs, rt}
+\end{center}
+
 \begin{center}
 \begin{tabular}{|c|c|c|c|c|c|}
     \hline
@@ -67,12 +73,18 @@ From Table 6.1 MIPS register set in \textit{Digital Design and Computer Architec
 registers \texttt{\$s0}, and \texttt{\$s1} are
 numbered 16, and 17. From \textit{Appendix B}, \textit{opcode} is 001101.
 
+The instruction syntax is
+
+\begin{center}
+\texttt{ori rt, rs, imm}
+\end{center}
+
 \begin{center}
 \begin{tabular}{|c|c|c|c|c|c|}
     \hline
     opcode & rs & rt & imm \\
     \hline
-    001101 & 10001 & 10000 & 1111.1111.1000.0000 \\
+    001101 & 10001 & 10000 & 0000.0000.1000.0000 \\
     \hline
 \end{tabular}
 \end{center}
@@ -80,10 +92,10 @@ numbered 16, and 17. From \textit{Appendix B}, \textit{opcode} is 001101.
 We can now generically represent the machine language for conversion to
 hexadecimal and octal:
 
-$$0011.0110.0011.0000.1111.1111.1000.0000$$
-$$00.110.110.001.100.001.111.111.110.000.000$$
+$$0011.0110.0011.0000.0000.0000.1000.0000$$
+$$00.110.110.001.100.001.000.000.010.000.000$$
 
-By inspection, the result is 0x3630FF80 and 06614177600.
+By inspection, the result is 0x36300080 and 06614100200.
 
 \bigskip
 ''))dnl
@@ -95,6 +107,12 @@ From Table 6.1 MIPS register set in \textit{Digital Design and Computer Architec
 registers \texttt{\$s0}, \texttt{\$t0}, and \texttt{\$t1} are
 numbered 16, 8, and 9 respectively. From \textit{Appendix B} \textit{funct} is
 100010. Since this is an R-type instruction, \textit{opcode} is 000000.
+
+The instruction syntax is
+
+\begin{center}
+\texttt{sub rd, rs, rt}
+\end{center}
 
 \begin{center}
 \begin{tabular}{|c|c|c|c|c|c|}
@@ -121,12 +139,18 @@ From Table 6.1 MIPS register set in \textit{Digital Design and Computer Architec
 registers \texttt{\$s0}, and \texttt{\$s1} are
 numbered 16, and 17. From \textit{Appendix B}, \textit{opcode} is 001000.
 
+The instruction syntax is
+
+\begin{center}
+\texttt{addi rt, rs, imm}
+\end{center}
+
 \begin{center}
 \begin{tabular}{|c|c|c|c|c|c|}
     \hline
     opcode & rs & rt & imm \\
     \hline
-    001000 & 10001 & 10000 & 1111.1111.1000.0000 \\
+    001000 & 10001 & 10000 & 0000.0000.1000.0000 \\
     \hline
 \end{tabular}
 \end{center}
@@ -134,10 +158,10 @@ numbered 16, and 17. From \textit{Appendix B}, \textit{opcode} is 001000.
 We can now generically represent the machine language for conversion to
 hexadecimal and octal:
 
-$$0010.0010.0011.0000.1111.1111.1000.0000$$
-$$00.100.010.001.100.001.111.111.110.000.000$$
+$$0010.0010.0011.0000.0000.0000.1000.0000$$
+$$00.100.010.001.100.000.000.000.010.000.000$$
 
-By inspection, the result is 0x2230FF80 and 04214177600.
+By inspection, the result is 0x22300080 and 04214000200.
 
 \bigskip
 ''))dnl
@@ -149,6 +173,12 @@ From Table 6.1 MIPS register set in \textit{Digital Design and Computer Architec
 registers \texttt{\$s0}, \texttt{\$t0}, and \texttt{\$t1} are
 numbered 16, 8, and 9 respectively. From \textit{Appendix B} \textit{funct} is
 100100. Since this is an R-type instruction, \textit{opcode} is 000000.
+
+The instruction syntax is
+
+\begin{center}
+\texttt{and rd, rs, rt}
+\end{center}
 
 \begin{center}
 \begin{tabular}{|c|c|c|c|c|c|}
@@ -175,12 +205,18 @@ From Table 6.1 MIPS register set in \textit{Digital Design and Computer Architec
 registers \texttt{\$s0}, and \texttt{\$s1} are
 numbered 16, and 17. From \textit{Appendix B}, \textit{opcode} is 100011.
 
+The instruction syntax is
+
+\begin{center}
+\texttt{lw rt, imm(rs)}
+\end{center}
+
 \begin{center}
 \begin{tabular}{|c|c|c|c|c|c|}
     \hline
     opcode & rs & rt & imm \\
     \hline
-    100011 & 10001 & 10000 & 1111.1111.1000.0000 \\
+    100011 & 10001 & 10000 & 0000.0000.1000.0000 \\
     \hline
 \end{tabular}
 \end{center}
@@ -188,10 +224,10 @@ numbered 16, and 17. From \textit{Appendix B}, \textit{opcode} is 100011.
 We can now generically represent the machine language for conversion to
 hexadecimal and octal:
 
-$$1000.1110.0011.0000.1111.1111.1000.0000$$
-$$10.001.110.001.100.001.111.111.110.000.000$$
+$$1000.1110.0011.0000.0000.0000.1000.0000$$
+$$10.001.110.001.100.000.000.000.010.000.000$$
 
-By inspection, the result is 0x8E30FF80 and 21614177600.
+By inspection, the result is 0x8E300080 and 21614000200.
 \bigskip
 ''))dnl
 \medskip

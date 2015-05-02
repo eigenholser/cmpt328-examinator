@@ -7,7 +7,7 @@ divert(2)dnl
 %%
 \question
 Suppose MIPS register \texttt{\$s0} holds the memory location of the following
-32--bit word:
+little-endian 32--bit word:
 \begin{center}
 \begin{tabular}{|c|c|c|c|}
     \hline

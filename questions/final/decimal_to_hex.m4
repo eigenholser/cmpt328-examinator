@@ -124,14 +124,14 @@ ifdef(`INSTRUCTOR',`
 \end{align}
 0x19A6\\
 
-\item 8859
+\item 8852
 \begin{align}
-    \frac{8859}{16} &= 553\;r\;11\cr
+    \frac{8852}{16} &= 553\;r\;4\cr
     \frac{553}{16}  &= 34\;r\;9\cr
     \frac{34}{16}   &= 2\;r\;2\cr
     \frac{2}{16}    &= 0\;r\;2
 \end{align}
-0x229B\\
+0x2294\\
 \end{enumerate}
 '))dnl
 dnl

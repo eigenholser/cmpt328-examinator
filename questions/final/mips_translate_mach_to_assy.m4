@@ -84,7 +84,7 @@ The first 6 bits correspond to the \textit{opcode}. Since the opcode is zero,
 the instruction is R-type. The \textit{funct} field is the last 6 bits 100010.
 Looking up 100010 in Appendix B yields the instruction
 \begin{center}
-\texttt{sub rd, rt, rs}
+\texttt{sub rd, rs, rt}
 \end{center}
 
 The instruction is R-type so the machine language fields are represented like
@@ -100,13 +100,13 @@ this:
 \end{tabular}
 \end{center}
 
-Using Table 6.1 MIPS register set we find rs = 00100 = 4 (\$a1),
+Using Table 6.1 MIPS register set we find rs = 00100 = 4 (\$a0),
 rt = 01001 = 9 (\$t1), rd = 01010 = 10 (\$t2).
 
 Therefore, the assembly instruction is:
 
 \begin{center}
-\texttt{sub \$t2, \$a1, \$t1}
+\texttt{sub \$t2, \$a0, \$t1}
 \end{center}
 
 \bigskip
@@ -243,7 +243,7 @@ The first 6 bits correspond to the \textit{opcode}. Since the opcode is zero,
 the instruction is R-type. The \textit{funct} field is the last 6 bits 101010.
 Looking up 101010 in Appendix B yields the instruction
 \begin{center}
-\texttt{slt rd, rt, rs}
+\texttt{slt rd, rs, rt}
 \end{center}
 
 The instruction is R-type so the machine language fields are represented like

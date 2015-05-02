@@ -423,7 +423,7 @@ $$
 }$$
 \caption{Truth table for multiplexer logic circuit in
 Figure~\ref{fig:muxlogic2}---sum-of-products.}
-\label{fig:muxlog2postt}
+\label{fig:muxlog2soptt}
 \end{figure}
 
 %% Maxterms
@@ -459,7 +459,7 @@ Figure~\ref{fig:muxlogic2}---product-of-sums.}
 \label{fig:muxlog2postt}
 \end{figure}
 
-\item Product-of-sums Boolean equation for truth table
+\item Sum-of-products Boolean equation for truth table
 Figure~\ref{fig:muxlog2soptt}.
 
 The Boolean equation in sum-of-products canonical form is the sum of the

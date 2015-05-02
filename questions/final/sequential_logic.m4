@@ -164,8 +164,8 @@ $$
     \omit & \omit & height2pt & \omit & \omit & \omit & \omit \cr
     0 & 0 && 0 & 0 && Q_{prev} & \overline{Q}_{prev} \cr
     0 & 1 && 0 & 0 && Q_{prev} & \overline{Q}_{prev} \cr
-    1 & 0 && 0 & 1 && 0 & 1\cr
-    1 & 1 && 1 & 0 && 1 & 0\cr
+    1 & 0 && 1 & 0 && 0 & 1\cr
+    1 & 1 && 0 & 1 && 1 & 0\cr
     }
 }$$
 \caption{Truth table for sequential logic circuit---Figure~\ref{fig:dlatch}}

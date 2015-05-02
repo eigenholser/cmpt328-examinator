@@ -14,12 +14,14 @@ ifelse(`X'_ARG_,`X4',`257')dnl
 \dots{}dnl
 \begin{enumerate}[(a)]
 \item How many whole binary digits, $N$, are needed to represent this decimal
-number?
-\item Convert this number to $N+1$--bit binary where N is the number of bits you
-computed in the first step. Use a calculator for this step.
-\item Convert the $N+1$--bit binary number to it`'RQ()s two`'RQ()s complement
-binary representation. Do not use your calculator for this step. Show your
-work.
+number? Use the base conversion formula 1.1 on page 8 of the text to compute
+$N$.
+\item Convert this number to $N+1$--bit binary
+where $N$ is the number of bits you computed in the first step. Use a calculator
+for this step.
+\item Considering this number the \textit{magnitude}, convert to it`'RQ()s
+negative two`'RQ()s complement binary representation. Do not use your
+calculator for this step. Show your work.
 \item Sign-extend the $N+1$--bit two`'RQ()s complement binary number to 32 binary digits.
 \end{enumerate}
 ifdef(`TIME',`
@@ -82,14 +84,14 @@ N_2 &= 8.8041
 The number of whole binary digits necessary to represent the decimal number 447
 is 9.
 
-\item Convert this number to 10--bit binary using a calculator.
+\item Convert this number to 9--bit binary using a calculator.
 
-$$01.1011.1111$$
+$$1.1011.1111$$
 
-\item Convert the 10--bit binary to it`'RQ()s complement representation.
+\item Convert the 9--bit binary to it`'RQ()s complement representation.
 Invert each bit and add 1.
 
-$$10.0100.0001$$
+$$1.0100.0001$$
 
 \item Sign-extend to 32 bits.
 
