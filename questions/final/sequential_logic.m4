@@ -88,7 +88,8 @@ ifelse(`X'_ARG_,`X1',``
     \item Identify the logic circuit in Figure~\ref{fig:dlatch}. Is it an
     example of combinational or sequential logic. Why?
     \item Explain in detail the operation of this circuit. In other words,
-    for various inputs, what are the outputs.
+    for various inputs, what are the outputs of each gate on each indicated
+    literal $A$, $B$, $C$, $D$, $Q$, $\overline{Q}$.
     \item There are two distinct elements in this circuit. They are numbered
     1 and 2 and are separated by a dashed line. Explain the purpose and
     function of the individual elements. Characterize each individual element
