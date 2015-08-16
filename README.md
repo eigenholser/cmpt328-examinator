@@ -11,10 +11,6 @@ To make this work, create the SQLite database::
 
     sqlite3 exam.db < exam.sql
 
-Create a Python virtual environment::
-
-    mkvirtualenv examinator
-
 ``examinator.py`` can generate personalized exams per student in the database
 or in audit mode.  The personalized exams will place each question in random
 order. ``examinator.py`` will try to choose different variations on each
@@ -32,5 +28,4 @@ Then build the PDF exams::
 
     cd cf
     make
-
 
