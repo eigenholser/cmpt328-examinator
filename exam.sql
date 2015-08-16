@@ -20,27 +20,30 @@ create table grid (
     ycoord int not null
 );
 
-insert into students values (1, 'DANA', 'ADYLOVA');
-insert into students values (2, 'JOHNATHAN', 'ALLEN');
-insert into students values (3, 'CHARLES', 'BAILEY');
-insert into students values (4, 'PATRICIA', 'BAILEY');
-insert into students values (5, 'KEVIN', 'BROTEN');
-insert into students values (6, 'ALEXANDER', 'BROWN');
-insert into students values (7, 'BRANDON', 'DENNING');
-insert into students values (8, 'CHRISTOPHER', 'FOWLES');
-insert into students values (9, 'MEGAN', 'FRANCIS');
-insert into students values (10, 'APRILLE', 'HANLEY');
-insert into students values (11, 'KEVIN', 'HAUPT');
-insert into students values (12, 'JOHN', 'HINKLEY');
-insert into students values (13, 'DILLON', 'IRISH');
-insert into students values (14, 'ANNA', 'JACKSON');
-insert into students values (15, 'XUAN', 'MAI');
-insert into students values (16, 'AIDAN', 'MELEN');
-insert into students values (17, 'KRISTIAN', 'NILSSEN');
-insert into students values (18, 'CRYSTAL', 'OLSEN');
-insert into students values (19, 'DANIEL', 'RODOSKY');
-insert into students values (20, 'JOSHUA', 'SCHOOLEY');
-insert into students values (21, 'KYLE', 'SWANSON');
+/* These names appearing in this work are fictitious. Any resemblance to real
+   persons, living or dead, is purely coincidental. */
+
+insert into students values (1, 'MARY', 'SMITH');
+insert into students values (2, 'JOSEPH', 'JOHNSON');
+insert into students values (3, 'WILLIAM', 'GARCIA');
+insert into students values (4, 'HELEN', 'RODRIGUEZ');
+insert into students values (5, 'JAMES', 'DAVIS');
+insert into students values (6, 'GEORGE', 'MILLER');
+insert into students values (7, 'BRANDON', 'JONES');
+insert into students values (8, 'ROBERT', 'MOORE');
+insert into students values (9, 'MARGARET', 'LEWIS');
+insert into students values (10, 'FLORENCE', 'CLARK');
+insert into students values (11, 'HENRY', 'SANCHEZ');
+insert into students values (12, 'THOMAS', 'KING');
+insert into students values (13, 'WALTER', 'ADAMS');
+insert into students values (14, 'RUTH', 'GREEN');
+insert into students values (15, 'ELIZABETH', 'HILL');
+insert into students values (16, 'HARRY', 'HALL');
+insert into students values (17, 'WILLIE', 'MITCHELL');
+insert into students values (18, 'DOROTHY', 'PEREZ');
+insert into students values (19, 'ARTHUR', 'EDWARDS');
+insert into students values (20, 'CLARENCE', 'RIVERA');
+insert into students values (21, 'HAROLD', 'CAMPBELL');
 
 insert into grid values (1, 13, 1, 1);
 insert into grid values (2, 11, 1, 2);
