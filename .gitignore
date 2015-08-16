@@ -10,4 +10,5 @@ tikz/*ps
 *.aux
 *.ec
 *.dvi
-*.pdf
+cf/*pdf
+tikz/*pdf
